@@ -1,0 +1,42 @@
+[
+  {
+    "name": "DoD Tournament Seeder",
+    "authors": "[DoD]Kries and [DoD]J4Jc3",
+    "description": "Seeds tournament participants snake-draft style, using ELO scraped from aomstats (1v1 or team games), from an .xlsx sign-up list.",
+    "kind": "Tool",
+    "url": null,
+    "action": "Download"
+  },
+  {
+    "name": "DoD Hotkey Trainer",
+    "authors": "[DoD]Skray",
+    "description": "Practise APM and hotkeys at real RTS speed.",
+    "kind": "Mod",
+    "url": null,
+    "action": "Download"
+  },
+  {
+    "name": "DoD Micro Trainer",
+    "authors": "[DoD]Cod1eh",
+    "description": "Train for what you'll face in Supremacy: speed, reaction time, unit placement, counter modifiers, hotkeys and more.",
+    "kind": "Mod",
+    "url": null,
+    "action": "Download"
+  },
+  {
+    "name": "DoD Vassal Mod",
+    "authors": "[DoD]Skray",
+    "description": "An FFA alternative to Regicide: defeat turns you into your conqueror's vassal and ally instead of knocking you out.",
+    "kind": "Mod",
+    "url": null,
+    "action": "Download"
+  },
+  {
+    "name": "DoD Soundboard",
+    "authors": "[DoD]Kries",
+    "description": "Voice lines and sounds from Age of Mythology: Retold, starting with the Japanese pantheon.",
+    "kind": "Web app",
+    "url": null,
+    "action": "Open"
+  }
+]

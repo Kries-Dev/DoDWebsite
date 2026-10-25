@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import site from '../../data/site.json';
+import { allEvents, past, type DodEvent } from '../../lib/events';
+
+export function getStaticPaths() {
+  return allEvents.map((event) => ({ params: { slug: event.slug }, props: { event } }));
+}
+interface Props { event: DodEvent }
+const { event } = Astro.props;
+const finished = past.some((e) => e.slug === event.slug);
+const details = 'details' in event ? (event.details as { label: string; items: string[] }[]) : [];
+const link = 'link' in event ? (event.link as { label: string; href: string }) : null;
+---
+<Base title={event.title} description={event.tagline}>
+  <section class="page-hero">
+    <div class="wrap stack">
+      <nav aria-label="Breadcrumb" class="crumbs"><a href="/events/">Events</a> / {event.title}</nav>
+      <span class="eyebrow plain">{event.game} · {event.kind}</span>
+      <h1 class="display-l">{event.title}</h1>
+      <p class="lead">{event.tagline}</p>
+      <div class="btns">
+        {finished
+          ? <span class="chip"><span class="ring" />Registration closed</span>
+          : event.signup
+            ? <a class="btn primary" href={event.signup} rel="noopener">Sign up</a>
+            : <a class="btn primary" href={site.discord} rel="noopener">Sign up on Discord</a>}
+      </div>
+    </div>
+    <div class="wrap">
+      <dl class="facts" style="margin:0">
+        <div class="fact"><dt>When</dt><dd>{event.when}</dd></div>
+        <div class="fact"><dt>Game</dt><dd>{event.game}</dd></div>
+        <div class="fact"><dt>Status</dt><dd>{finished ? 'Finished' : 'Upcoming'}</dd></div>
+      </dl>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap stack" style="--gap:40px">
+      <div class="prose">
+        <h2>About the event</h2>
+        {event.body.map((p) => <p>{p}</p>)}
+        {details.map((d) => (
+          <>
+            <h2>{d.label}</h2>
+            <ul>{d.items.map((i) => <li>{i}</li>)}</ul>
+          </>
+        ))}
+      </div>
+      <div class="btns">
+        {link && <a class="btn" href={link.href}>{link.label}</a>}
+        <a class="btn" href="/events/">All events</a>
+      </div>
+    </div>
+  </section>
+</Base>

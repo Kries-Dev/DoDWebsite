@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import coaches from '../data/coaches.json';
+---
+<Base title="Coaching" description="Book an Age of Mythology: Retold coaching session with a Deities of Death coach rated 1950–2100 ELO. From €11 per hour.">
+  <section class="page-hero">
+    <div class="wrap stack">
+      <span class="eyebrow">Coaching</span>
+      <h1 class="display-l">Get a coach</h1>
+      <p class="lead">You're already grinding but you've hit a wall. Learn build orders, timings and strategy from DoD players — and see results on the ladder fast.</p>
+      <div class="btns"><a class="btn primary" href={site.discord} rel="noopener">Book on Discord</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid" style="--min:280px">
+      <div class="card"><span class="tiny">01</span><span class="card-title">Play the game → get a coach</span><span class="muted">Learn build orders, timings and strategies.</span></div>
+      <div class="card"><span class="tiny">02</span><span class="card-title">Improve fast → dominate the ladder</span><span class="muted">Climb the ranks and outplay your opponents consistently.</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack" style="--gap:32px">
+      <h2 class="h2">Our coaches</h2>
+      <div class="grid" style="--min:280px">
+        {coaches.map((c) => (
+          <article class="card coach">
+            <div class="coach-top">
+              <h3 class="card-title" style="font-size:36px">{c.name}</h3>
+              <span class="elo"><span class="tiny">ELO</span> {c.elo}</span>
+            </div>
+            <p class="muted">{c.speciality}</p>
+            <ul class="ticks price">{c.prices.map((p) => <li>{p}</li>)}</ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap section stack" style="--gap:16px">
+      <h2 class="h2">How to book</h2>
+      <p class="lead">Join our Discord server and ask for a coach. An admin will help you book a session with the coach you choose.</p>
+      <div class="btns"><a class="btn primary" href={site.discord} rel="noopener">Join our Discord</a></div>
+    </div>
+  </section>
+</Base>
+<style>
+  .coach-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .elo { font-family: var(--font-display); font-weight: 700; font-size: 26px; white-space: nowrap; }
+  .price { border-top: 1px solid var(--line); padding-top: 16px; margin-top: auto; font-weight: 600; }
+</style>

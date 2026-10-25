@@ -1,0 +1,49 @@
+---
+import Base from '../../../layouts/Base.astro';
+import site from '../../../data/site.json';
+import projects from '../../../data/projects.json';
+---
+<Base title="Age of Mythology: Retold" description="Deities of Death in Age of Mythology: Retold — the legacy since 2005, the Mythic Clan League, build orders, coaching and community mods.">
+  <section class="page-hero">
+    <div class="wrap stack">
+      <nav aria-label="Breadcrumb" class="crumbs"><a href="/games/">Games</a> / Age of Mythology: Retold</nav>
+      <span class="eyebrow">Game 01 · Since {site.founded}</span>
+      <h1 class="display-l">Age of Mythology: Retold</h1>
+      <p class="lead">Founded in the fires of the original Titans expansion, DoD has spent two decades at the top of competitive AoM. We are the legacy of AoM. Unleash the gods.</p>
+      <div class="btns">
+        <a class="btn primary" href="/games/aom/build-orders/">Build orders</a>
+        <a class="btn" href="/competitions/mcl/">Mythic Clan League</a>
+      </div>
+    </div>
+    <div class="wrap">
+      <dl class="facts" style="margin:0">
+        <div class="fact"><dt>RTS-League titles</dt><dd>9 — a record</dd></div>
+        <div class="fact"><dt>Our league</dt><dd>Mythic Clan League</dd></div>
+        <div class="fact"><dt>Community event</dt><dd>Monthly DoD FFA</dd></div>
+        <div class="fact"><dt>History</dt><dd><a href={site.liquipedia} rel="noopener">Liquipedia</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid" style="--min:280px">
+      <a class="card" href="/games/aom/build-orders/"><span class="card-title">Build orders</span><span class="muted">All 23 gods, 7 pantheons — a living resource fed by the community.</span></a>
+      <a class="card" href="/coaching/"><span class="card-title">Coaching</span><span class="muted">One-to-one sessions and replay reviews with DoD players rated 1950–2100.</span></a>
+      <a class="card" href="/events/"><span class="card-title">Events</span><span class="muted">The Mythic Clan League and the Monthly DoD FFA.</span></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack" style="--gap:24px">
+      <div class="head-row"><h2 class="h2">Community mods and tools</h2><a class="link-arrow" href="/projects/">Details and downloads</a></div>
+      <div class="rows">
+        {projects.map((p) => (
+          <a class="row" href="/projects/">
+            <span class="row-title">{p.name}</span>
+            <span class="muted small" style="flex:2 1 320px">{p.description}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

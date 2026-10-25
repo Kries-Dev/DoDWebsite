@@ -1,0 +1,39 @@
+[
+  {
+    "slug": "mcl-season-1",
+    "title": "Mythic Clan League (MCL) — Season 1",
+    "game": "Age of Mythology: Retold",
+    "start": "2026-04-06",
+    "end": "2026-05-18",
+    "when": "6 Apr – 18 May 2026",
+    "kind": "League",
+    "tagline": "The first top-tier clan team-game tournament in Age of Mythology: Retold.",
+    "signup": null,
+    "body": [
+      "The Mythic Clan League (MCL) is a premier 3v3 tournament for Age of Mythology: Retold, created to showcase the highest level of competitive team-game strategy. It brings together top clans and rising contenders in a structured, high-stakes competition.",
+      "Unlike the 1v1 format, which tests individual skill, the team-game setting rewards adaptability, synergy and perfectly coordinated strategy. Every decision echoes across three armies — the depth that makes the AoM team-game scene such a compelling RTS experience."
+    ],
+    "link": { "label": "Bracket, standings and podcast", "href": "/competitions/mcl/" }
+  },
+  {
+    "slug": "monthly-ffa-2026-03",
+    "title": "Monthly DoD FFA — March 2026",
+    "game": "Age of Mythology: Retold",
+    "start": "2026-03-14",
+    "end": "2026-03-14",
+    "when": "Sat 14 Mar 2026 · 18:00 GMT",
+    "kind": "Community",
+    "tagline": "A fun community free-for-all that everyone can join.",
+    "signup": null,
+    "body": [
+      "DoD hosts the monthly FFA again. This edition introduces a new game mode by [DoD]Skray: Vassal.",
+      "In Vassal, killing a player's Lord Theocrat doesn't knock them out as in Regicide. They become your vassal and join your team, and all their town centres but one convert to you. When their resources pass a threshold, they're taxed and the tax goes to you.",
+      "The game ends with one Overlord and everyone else as vassals. Even with every player still alive, only the Overlord gets the victory screen."
+    ],
+    "details": [
+      { "label": "Maps", "items": ["River's Eye (King of the Hill) — random map script by [DoD]Cod1eh", "Vassal — The Unknown with Vassal rules on top, by [DoD]Skray"] },
+      { "label": "Format", "items": ["Two groups if numbers allow, otherwise one", "Game 1: River's Eye (KoTH)", "Game 2: Vassal", "If enough players remain: Game 3, River's Eye with Vassal rules"] },
+      { "label": "Sign-up", "items": ["Post your in-game name in the Discord forum post, or DM [DoD]mMoksha333"] }
+    ]
+  }
+]

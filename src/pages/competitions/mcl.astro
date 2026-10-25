@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import Video from '../../components/Video.astro';
+import site from '../../data/site.json';
+import media from '../../data/media.json';
+---
+<Base title="Mythic Clan League" description="The Mythic Clan League (MCL): a premier 3v3 clan tournament for Age of Mythology: Retold, hosted by Deities of Death. Bracket, standings and the MCL podcast.">
+  <section class="page-hero">
+    <div class="wrap stack">
+      <nav aria-label="Breadcrumb" class="crumbs"><a href="/events/">Competitions</a> / Mythic Clan League</nav>
+      <span class="eyebrow plain">Age of Mythology: Retold · 3v3</span>
+      <h1 class="display-l">Mythic Clan League</h1>
+      <p class="lead">Stay up to date with the progress and standings of the Mythic Clan League — the premier clan team-game tournament in AoM:R, hosted by DoD.</p>
+    </div>
+    <div class="wrap">
+      <dl class="facts" style="margin:0">
+        <div class="fact"><dt>Format</dt><dd>Multi-clan 3v3</dd></div>
+        <div class="fact"><dt>Structure</dt><dd>Groups → double elimination</dd></div>
+        <div class="fact"><dt>Season 1</dt><dd>6 Apr – 18 May 2026</dd></div>
+        <div class="fact"><dt>Next season</dt><dd>Announced on Discord</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack" style="--gap:24px">
+      <div class="head-row">
+        <h2 class="h2">Bracket and standings</h2>
+        <a class="link-arrow" href={site.mclBracket} rel="noopener">Open full screen</a>
+      </div>
+      <div class="embed">
+        <iframe src={site.mclBracket} title="Mythic Clan League bracket and standings" loading="lazy"></iframe>
+      </div>
+      <p class="tiny">Live from the MCL bracket tool. Group scoring 3 / 2 / 1 / −1 points; ties broken head-to-head.</p>
+    </div>
+  </section>
+
+  <section class="section" id="podcast">
+    <div class="wrap stack" style="--gap:24px">
+      <h2 class="h2">MCL podcast</h2>
+      <div class="grid" style="--min:320px">
+        {media.podcast.map((v, i) => <Video id={v.id} title={v.title} label={String(i + 1).padStart(2, '0')} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid" style="--min:280px">
+      <a class="card" href="/events/mcl-season-1/"><span class="card-title">Season 1 event page</span><span class="muted">About the league and the format.</span></a>
+      <a class="card" href="/projects/"><span class="card-title">Tournament Seeder</span><span class="muted">Seed your own tournament snake-draft style from aomstats ELO.</span></a>
+      <a class="card" href={site.discord} rel="noopener"><span class="card-title">Enter your clan</span><span class="muted">Season sign-ups open on Discord first.</span></a>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+const shop = site.shopUrl ?? site.discord;
+---
+<Base title="Merch" description="Official Deities of Death gear — premium apparel, sold and shipped through Fourthwall.">
+  <section class="page-hero">
+    <div class="wrap stack" style="padding-bottom:var(--section)">
+      <span class="eyebrow">Merch</span>
+      <h1 class="display-xl">Suit up</h1>
+      <p class="lead">Official Deities of Death gear is available now. Premium apparel for those who command the battlefield.</p>
+      <div class="btns"><a class="btn primary" href={shop} rel="noopener">Enter the shop</a></div>
+      <p class="tiny">All transactions and shipping are handled by our official partner, Fourthwall.</p>
+    </div>
+  </section>
+</Base>

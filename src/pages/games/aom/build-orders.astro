@@ -1,0 +1,39 @@
+---
+import Base from '../../../layouts/Base.astro';
+import site from '../../../data/site.json';
+import pantheons from '../../../data/gods.json';
+const godUrl = (god: string) => `${site.buildOrdersBase}${god.toLowerCase()}.html`;
+---
+<Base title="Build orders — Age of Mythology: Retold" description="Build orders for all 23 gods in Age of Mythology: Retold, across 7 pantheons — eco, rush and water builds from the DoD community.">
+  <section class="page-hero">
+    <div class="wrap stack">
+      <nav aria-label="Breadcrumb" class="crumbs"><a href="/games/aom/">Age of Mythology: Retold</a> / Build orders</nav>
+      <span class="eyebrow">23 gods · 7 pantheons</span>
+      <h1 class="display-l">Choose your deity</h1>
+      <p class="lead">The build order library is a living resource that feeds our community builds. Have a build order to share? Suggest it to the community on Discord.</p>
+      <div class="btns"><a class="btn primary" href={site.discord} rel="noopener">Suggest a build on Discord</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap stack" style="--gap:48px">
+      {pantheons.map((p) => (
+        <div class="stack" style="--gap:16px">
+          <h2 class="h3">{p.pantheon}</h2>
+          <div class="gods">
+            {p.gods.map((g) => (
+              <a class="god" href={godUrl(g)}>
+                <span>{g}</span>
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>
+<style>
+  .gods { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
+  .god { display: flex; justify-content: space-between; align-items: center; min-height: 64px; padding: 0 20px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: 24px; }
+  .god:hover { border-color: var(--line-strong); }
+</style>

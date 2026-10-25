@@ -1,0 +1,9 @@
+[
+  { "pantheon": "Greek", "gods": ["Zeus", "Hades", "Poseidon", "Demeter"] },
+  { "pantheon": "Norse", "gods": ["Odin", "Thor", "Loki", "Freyr"] },
+  { "pantheon": "Egyptian", "gods": ["Ra", "Isis", "Set"] },
+  { "pantheon": "Atlantean", "gods": ["Kronos", "Oranos", "Gaia"] },
+  { "pantheon": "Chinese", "gods": ["Fuxi", "Nuwa", "Shennong"] },
+  { "pantheon": "Japanese", "gods": ["Amaterasu", "Tsukuyomi", "Susanoo"] },
+  { "pantheon": "Aztec", "gods": ["Quetzalcoatl", "Tezcatlipoca", "Huitzilopochtli"] }
+]

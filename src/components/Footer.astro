@@ -1,0 +1,53 @@
+---
+import site from '../data/site.json';
+import Mark from './Mark.astro';
+const socials = site.socials.filter((s) => s.url);
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap stack" style="--gap:48px">
+    <div class="cols">
+      <div class="stack" style="--gap:16px">
+        <Mark size={52} />
+        <p class="muted">{site.motto}.</p>
+        <p class="small muted">Business: <a href={`mailto:${site.businessEmail}`}>{site.businessEmail}</a></p>
+      </div>
+      <nav aria-label="Compete" class="col">
+        <span class="tiny">Compete</span>
+        <a href="/competitions/mcl/">Mythic Clan League</a>
+        <a href="/events/">Events</a>
+        <a href="/coaching/">Coaching</a>
+      </nav>
+      <nav aria-label="Games" class="col">
+        <span class="tiny">Games</span>
+        <a href="/games/aom/">Age of Mythology: Retold</a>
+        <a href="/games/aom/build-orders/">Build orders</a>
+        <a href="/games/war-for-westeros/">War for Westeros</a>
+      </nav>
+      <nav aria-label="Organisation" class="col">
+        <span class="tiny">Organisation</span>
+        <a href="/about/">About</a>
+        <a href="/projects/">Projects</a>
+        <a href="/merch/">Merch</a>
+        <a href={site.donate} rel="noopener">Donate</a>
+      </nav>
+      <nav aria-label="Follow" class="col">
+        <span class="tiny">Follow</span>
+        {socials.map((s) => <a href={s.url} rel="noopener">{s.name}</a>)}
+      </nav>
+    </div>
+    <div class="legal">
+      <span>© {year} {site.name} · <a href="/privacy/">Privacy</a></span>
+      <span>Game titles are trademarks of their owners. DoD is an independent organisation, not affiliated with HBO, Warner Bros. Games, PlaySide, World's Edge or Xbox Game Studios.</span>
+    </div>
+  </div>
+</footer>
+<style>
+  .site-footer { border-top: 1px solid var(--line); background: var(--bg-deep); padding-block: 64px 32px; }
+  .cols { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); }
+  .col { display: flex; flex-direction: column; gap: 10px; }
+  .col a { text-decoration: none; }
+  .legal { border-top: 1px solid var(--line); padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--dim); }
+  .legal span:last-child { max-width: 720px; }
+  .legal a { color: var(--muted); }
+</style>

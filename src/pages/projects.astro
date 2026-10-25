@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import projects from '../data/projects.json';
+---
+<Base title="Tools and mods" description="Deities of Death community projects for Age of Mythology: Retold — Tournament Seeder, Hotkey Trainer, Micro Trainer, Vassal mod and Soundboard.">
+  <section class="page-hero">
+    <div class="wrap stack">
+      <span class="eyebrow">Projects</span>
+      <h1 class="display-l">Tools and mods</h1>
+      <p class="lead">Deities of Death community projects and modifications for Age of Mythology: Retold — free for everyone.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap grid" style="--min:320px">
+      {projects.map((p) => (
+        <article class="card" style="justify-content:space-between;min-height:260px">
+          <div class="stack" style="--gap:12px">
+            <span class="chip">{p.kind}</span>
+            <h2 class="card-title">{p.name}</h2>
+            <p class="tiny">By {p.authors}</p>
+            <p class="muted">{p.description}</p>
+          </div>
+          <div class="btns" style="padding-top:8px">
+            {p.url
+              ? <a class="btn sm light" href={p.url} rel="noopener">{p.action}</a>
+              : <a class="btn sm" href={site.discord} rel="noopener">Get it on Discord</a>}
+          </div>
+        </article>
+      ))}
+      <article class="card" style="justify-content:space-between;min-height:260px">
+        <div class="stack" style="--gap:12px">
+          <span class="chip">Web</span>
+          <h2 class="card-title">DoD Build Orders</h2>
+          <p class="tiny">By [DoD]Kries</p>
+          <p class="muted">All 23 gods across 7 pantheons, with RTS-overlay exports.</p>
+        </div>
+        <div class="btns" style="padding-top:8px"><a class="btn sm light" href="/games/aom/build-orders/">Open</a></div>
+      </article>
+    </div>
+  </section>
+</Base>

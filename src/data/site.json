@@ -1,0 +1,27 @@
+{
+  "name": "Deities of Death",
+  "short": "DoD",
+  "founded": 2005,
+  "motto": "Once in DoD, always in DoD",
+  "description": "Deities of Death (DoD) is an RTS esports organisation, competing in Age of Mythology since 2005 and record nine-time RTS-League champion. Next title: Game of Thrones: War for Westeros.",
+  "logo": null,
+  "discord": "https://discord.gg/bRyTS52tK5",
+  "discordMembers": "1,000+",
+  "businessEmail": "dodj4jc3@gmail.com",
+  "donate": "https://streamlabs.com/deitiesofdeath/tip",
+  "liquipedia": "https://liquipedia.net/ageofempires/Deities_of_Death",
+  "shopUrl": null,
+  "buildOrdersBase": "https://kries-dev.github.io/BuildOrders/",
+  "mclBracket": "https://kries-dev.github.io/BuildOrders/bracket.html",
+  "tryoutsFormAction": null,
+  "socials": [
+    { "name": "Discord", "url": "https://discord.gg/bRyTS52tK5" },
+    { "name": "Twitch", "url": "https://www.twitch.tv/deitiesofdeath" },
+    { "name": "YouTube", "url": "https://www.youtube.com/@DeitiesofDeath" },
+    { "name": "Instagram", "url": "https://www.instagram.com/deitiesofdeath" },
+    { "name": "TikTok", "url": "https://www.tiktok.com/@deitiesofdeath" },
+    { "name": "X", "url": "https://x.com/thedodclanaom" },
+    { "name": "Threads", "url": "https://www.threads.net/@thedodclanaom" },
+    { "name": "Facebook", "url": null }
+  ]
+}

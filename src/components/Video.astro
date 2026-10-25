@@ -1,0 +1,27 @@
+---
+// Click-to-load YouTube player: nothing is requested from YouTube until the visitor presses play.
+interface Props { id: string; title: string; label?: string }
+const { id, title, label } = Astro.props;
+---
+<div class="video" data-yt={id} data-title={title}>
+  <button type="button" aria-label={`Play: ${title}${label ? ' ' + label : ''}`}>
+    <span class="play" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z" /></svg>
+    </span>
+    <span style="font-family:var(--font-display);font-weight:700;font-size:22px">{title}{label && <span class="muted"> {label}</span>}</span>
+    <span class="note">Loads YouTube when you press play</span>
+  </button>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('.video[data-yt]').forEach((box) => {
+    const button = box.querySelector('button');
+    button?.addEventListener('click', () => {
+      const frame = document.createElement('iframe');
+      frame.src = `https://www.youtube-nocookie.com/embed/${box.dataset.yt}?autoplay=1`;
+      frame.title = box.dataset.title || 'Video';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      frame.allowFullscreen = true;
+      box.replaceChildren(frame);
+    }, { once: true });
+  });
+</script>

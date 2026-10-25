@@ -1,0 +1,94 @@
+---
+import Base from '../../layouts/Base.astro';
+import site from '../../data/site.json';
+const formAction = site.tryoutsFormAction;
+---
+<Base title="War for Westeros" description="Deities of Death will compete in Game of Thrones: War for Westeros from its launch in early 2027. Register for tryouts.">
+  <section class="page-hero">
+    <div class="wrap stack">
+      <nav aria-label="Breadcrumb" class="crumbs"><a href="/games/">Games</a> / War for Westeros</nav>
+      <span class="eyebrow">Game 02 · Roster forming</span>
+      <div class="stack" style="--gap:4px">
+        <span style="font-family:var(--font-display);font-weight:600;font-size:clamp(28px,4vw,40px);color:var(--muted);line-height:1">Game of Thrones:</span>
+        <h1 class="display-xl">War for Westeros</h1>
+      </div>
+      <p class="lead">A real-time strategy game coming to PC in early 2027. DoD will compete from launch — and we're building the roster now.</p>
+      <div class="btns">
+        <a class="btn primary" href="#register">Register interest</a>
+        <a class="btn" href="#faq">Read the FAQ</a>
+      </div>
+    </div>
+    <div class="wrap">
+      <dl class="facts" style="margin:0">
+        <div class="fact"><dt>Release window</dt><dd>Early 2027</dd></div>
+        <div class="fact"><dt>Platform</dt><dd>PC · Steam</dd></div>
+        <div class="fact"><dt>Developer</dt><dd>PlaySide</dd></div>
+        <div class="fact"><dt>DoD status</dt><dd style="color:var(--red-text)">Scouting players</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack" style="--gap:32px">
+      <h2 class="h2">What DoD brings to Westeros</h2>
+      <div class="grid" style="--min:280px">
+        <div class="card"><span class="tiny">01</span><span class="card-title">A roster from day one</span><span class="muted">Trials start in our Discord before launch, so the team is scrimming the week the game ships.</span></div>
+        <div class="card"><span class="tiny">02</span><span class="card-title">Tournament experience</span><span class="muted">Twenty years of competing and the tooling we run the Mythic Clan League on — brackets, captain scheduling, seeding.</span></div>
+        <div class="card"><span class="tiny">03</span><span class="card-title">Open guides</span><span class="muted">Build orders and notes per faction, published for everyone — as we do for all 23 AoM:R gods.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="register">
+    <div class="wrap section split">
+      <div class="stack" style="--gap:20px">
+        <h2 class="h2">Register interest</h2>
+        <p class="lead">Any competitive RTS background counts. We'll contact you on Discord when trials open.</p>
+        <ul class="ticks muted">
+          <li>Ranked experience in an RTS</li>
+          <li>Available for regular evening scrims</li>
+          <li>Happy to follow the DoD code of conduct</li>
+        </ul>
+      </div>
+      {formAction ? (
+        <form class="stack" style="--gap:20px" method="post" action={formAction}>
+          <div class="grid" style="--min:220px;--gap:20px">
+            <label class="field">Discord username<input name="discord" required autocomplete="off" /></label>
+            <label class="field">Region
+              <select name="region"><option>Europe</option><option>North America</option><option>South America</option><option>Asia-Pacific</option></select>
+            </label>
+          </div>
+          <div class="grid" style="--min:220px;--gap:20px">
+            <label class="field">Main RTS and rank<input name="rts" placeholder="e.g. AoM:R, 1800 ELO" /></label>
+            <label class="field">Faction you'd play first
+              <select name="faction"><option>Not sure yet</option><option>House Stark</option><option>House Lannister</option><option>House Targaryen</option><option>The Night King</option></select>
+            </label>
+          </div>
+          <label class="field">Anything else we should know<textarea name="notes" rows="4"></textarea></label>
+          <label class="check"><input type="checkbox" name="consent" required />I agree to the privacy notice</label>
+          <div><button class="btn primary" type="submit">Send registration</button></div>
+        </form>
+      ) : (
+        <div class="card stack" style="--gap:16px">
+          <span class="card-title">Register on Discord</span>
+          <p class="muted">Join the server and post in the War for Westeros tryouts channel with your Discord name, region, main RTS and rank.</p>
+          <div><a class="btn primary" href={site.discord} rel="noopener">Join our Discord</a></div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap stack" style="--gap:24px;max-width:960px">
+      <h2 class="h2">FAQ</h2>
+      <div class="faq">
+        <details><summary>When does recruiting start?</summary><p>Now. Registrations go on a list; trials start on Discord ahead of launch.</p></details>
+        <details><summary>Do I need to play Age of Mythology?</summary><p>No. The War for Westeros roster is its own team. Strong players from any RTS are welcome.</p></details>
+        <details><summary>Is DoD connected to the game's makers?</summary><p>No. Deities of Death is an independent esports organisation.</p></details>
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .split { display: grid; gap: 64px; align-items: start; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+</style>

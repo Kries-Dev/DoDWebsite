@@ -1,0 +1,20 @@
+[
+  {
+    "name": "DarthNox",
+    "elo": 1950,
+    "speciality": "Atlantean player — lowest APM, maximum efficiency",
+    "prices": ["€11 per hour"]
+  },
+  {
+    "name": "Cragghack",
+    "elo": 1950,
+    "speciality": "Norse and Thor master — expert army control",
+    "prices": ["€20 per hour"]
+  },
+  {
+    "name": "FireFox",
+    "elo": 2100,
+    "speciality": "Best Hades — Age of Mythology veteran",
+    "prices": ["€30 per hour", "€10 recorded game review"]
+  }
+]

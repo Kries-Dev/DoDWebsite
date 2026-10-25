@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+---
+<Base title="Privacy" description="How the Deities of Death website handles your data.">
+  <section class="page-hero">
+    <div class="wrap stack">
+      <h1 class="display-l">Privacy</h1>
+      <p class="tiny">Last updated 25 October 2026 — draft, review before publishing.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap prose">
+      <p>This website is run by {site.name}. It is a static site: it sets no cookies of its own and runs no analytics or advertising trackers.</p>
+      <h2>Fonts and hosting</h2>
+      <p>Fonts are served from this site, not from Google. The site is hosted on GitHub Pages, which logs visitors' IP addresses for security; see GitHub's privacy statement.</p>
+      <h2>Videos and embeds</h2>
+      <p>YouTube videos load only when you press play, and then use YouTube's privacy-enhanced mode (youtube-nocookie.com). The MCL bracket is loaded from our own tool on GitHub Pages.</p>
+      <h2>Links to other services</h2>
+      <p>Discord, Twitch, YouTube, social networks, Streamlabs (donations) and Fourthwall (merch) are separate services with their own privacy policies. Anything you share there is handled by them.</p>
+      <h2>Forms</h2>
+      <p>If you register for tryouts through a form on this site, we keep your answers only to contact you about tryouts and delete them when the roster is set or when you ask.</p>
+      <h2>Contact</h2>
+      <p>Questions or requests about your data: <a href={`mailto:${site.businessEmail}`}>{site.businessEmail}</a>.</p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,12 @@
+---
+// DoD mark. Uses the real logo when site.json "logo" points at a file in /public, else a typographic mark.
+import site from '../data/site.json';
+interface Props { size?: number }
+const { size = 44 } = Astro.props;
+---
+{site.logo
+  ? <img src={site.logo} alt="" width={size} height={size} style={`width:${size}px;height:${size}px;object-fit:contain`} />
+  : <span class="mark" style={`width:${size}px;height:${size}px;font-size:${Math.round(size * 0.38)}px`} aria-hidden="true">DoD</span>}
+<style>
+  .mark { display: inline-flex; flex: none; align-items: center; justify-content: center; border: 1.5px solid var(--text); font-family: var(--font-display); font-weight: 700; color: var(--text); }
+</style>

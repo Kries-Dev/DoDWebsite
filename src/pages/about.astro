@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+const values = [
+  { name: 'Collaboration', text: 'Players improve fastest when they work together, share knowledge and support each other.' },
+  { name: 'Competitive excellence', text: 'We keep improving our play and challenge ourselves to reach the highest level of competition.' },
+  { name: 'Respect', text: 'A welcoming, respectful environment where every member is valued, whatever their skill or experience.' },
+  { name: 'Growth mindset', text: 'Learning, feedback and practice are how we improve, individually and as a team.' },
+  { name: 'Community', text: 'We work to strengthen the RTS community and support its long-term success.' },
+];
+---
+<Base title="About" description="Deities of Death (DoD): an RTS esports organisation rooted in Age of Mythology since 2005, and record nine-time RTS-League champion.">
+  <section class="page-hero">
+    <div class="wrap stack">
+      <span class="eyebrow">Established {site.founded}</span>
+      <h1 class="display-l">Deities of Death</h1>
+      <p class="lead">Deities of Death (DoD) is an esports organisation rooted in Age of Mythology since 2005. Founded in the fires of the original Titans expansion, we have spent two decades at the top of the competitive scene, developing elite talent.</p>
+      <p class="lead">As record nine-time champion of the clan tournament RTS-League, we are more than a team.</p>
+      <div class="btns">
+        <a class="btn primary" href={site.liquipedia} rel="noopener">Our history on Liquipedia</a>
+        <a class="btn" href={site.discord} rel="noopener">Join our Discord</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid" style="--min:340px;--gap:24px">
+      <div class="card"><span class="eyebrow">Our mission</span><p class="lead" style="color:var(--text)">A welcoming environment where players learn, compete and grow together, while strengthening the communities of the games we play.</p></div>
+      <div class="card"><span class="eyebrow">Our vision</span><p class="lead" style="color:var(--text)">To develop RTS players into top competitors through collaboration and practice, inside a strong and supportive community.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack" style="--gap:32px">
+      <h2 class="h2">Core values</h2>
+      <div class="grid" style="--min:220px;--gap:16px">
+        {values.map((v, i) => (
+          <div class="card"><span class="tiny">{String(i + 1).padStart(2, '0')}</span><span class="card-title" style="font-size:26px">{v.name}</span><span class="muted">{v.text}</span></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap section stack" style="--gap:20px">
+      <span class="eyebrow">More than a clan</span>
+      <h2 class="display-l">{site.motto}</h2>
+      <p class="lead">From online battles to real-life friendships.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid" style="--min:280px">
+      <div class="card"><span class="card-title">Business and partners</span><p class="muted">Sponsorships and collaborations.</p><a href={`mailto:${site.businessEmail}`}>{site.businessEmail}</a></div>
+      <div class="card"><span class="card-title">Support DoD</span><p class="muted">Enjoy the league, the tools and the streams? Support DoD with a tip.</p><a href={site.donate} rel="noopener">Donate via Streamlabs</a></div>
+      <div class="card"><span class="card-title">Merch</span><p class="muted">Official DoD gear through Fourthwall.</p><a href="/merch/">Visit the shop</a></div>
+    </div>
+  </section>
+</Base>

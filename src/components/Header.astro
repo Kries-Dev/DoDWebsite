@@ -1,0 +1,49 @@
+---
+import site from '../data/site.json';
+import Mark from './Mark.astro';
+
+const nav = [
+  { label: 'Games', href: '/games/' },
+  { label: 'MCL', href: '/competitions/mcl/' },
+  { label: 'Events', href: '/events/' },
+  { label: 'Coaching', href: '/coaching/' },
+  { label: 'Projects', href: '/projects/' },
+  { label: 'Merch', href: '/merch/' },
+  { label: 'About', href: '/about/' },
+];
+const path = Astro.url.pathname;
+const isCurrent = (href: string) => path === href || path.startsWith(href);
+---
+<header class="site-header">
+  <div class="wrap bar">
+    <a href="/" class="brand">
+      <Mark />
+      <span class="brand-name">{site.name}</span>
+    </a>
+    <nav aria-label="Main" class="nav">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
+      ))}
+    </nav>
+    <a class="btn primary sm discord" href={site.discord} rel="noopener">Join our Discord</a>
+  </div>
+</header>
+<style>
+  .site-header { border-bottom: 1px solid var(--line); background: var(--bg); position: sticky; top: 0; z-index: 5; }
+  .bar { display: flex; align-items: center; gap: 24px; min-height: 76px; flex-wrap: wrap; padding-block: 12px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; }
+  .brand-name { font-family: var(--font-display); font-weight: 600; font-size: 24px; }
+  .nav { display: flex; gap: 28px; align-items: center; }
+  .nav a { text-decoration: none; font-weight: 500; font-size: 15px; padding-block: 8px; border-bottom: 2px solid transparent; }
+  .nav a[aria-current='page'] { font-weight: 600; border-bottom-color: var(--red); }
+  @media (max-width: 1080px) {
+    .bar { gap: 12px 16px; }
+    .nav { order: 3; width: 100%; overflow-x: auto; gap: 24px; padding-bottom: 2px; scrollbar-width: none; }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a { white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
+  }
+  @media (max-width: 480px) {
+    .brand-name { font-size: 20px; }
+    .discord { padding: 0 14px; }
+  }
+</style>

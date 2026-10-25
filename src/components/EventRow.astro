@@ -1,0 +1,11 @@
+---
+import type { DodEvent } from '../lib/events';
+interface Props { event: DodEvent; past?: boolean }
+const { event, past = false } = Astro.props;
+---
+<a class="row" href={`/events/${event.slug}/`}>
+  <span class="row-date">{event.when}</span>
+  <span class="row-title">{event.title}</span>
+  <span class="muted small" style="min-width:200px">{event.game}</span>
+  <span class="chip">{past ? <span class="ring" /> : <span class="dot" />}{past ? 'Finished' : event.kind}</span>
+</a>
