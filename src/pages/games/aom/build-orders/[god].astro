@@ -2,7 +2,8 @@
 import Base from '../../../../layouts/Base.astro';
 import BuildTypeBadge from '../../../../components/BuildTypeBadge.astro';
 import site from '../../../../data/site.json';
-import { gods, art, type God } from '../../../../lib/buildOrders';
+import SceneFx from '../../../../components/SceneFx.astro';
+import { gods, art, scene, type God } from '../../../../lib/buildOrders';
 
 export function getStaticPaths() {
   return gods.map((g) => ({ params: { god: g.slug }, props: { god: g } }));
@@ -10,6 +11,7 @@ export function getStaticPaths() {
 interface Props { god: God }
 const { god } = Astro.props;
 const a = art(god.slug);
+const sc = scene(god.slug)!;
 const siblings = gods.filter((g) => g.pantheon === god.pantheon && g.slug !== god.slug);
 const counts = { eco: 0, rush: 0, water: 0 } as Record<string, number>;
 god.builds.forEach((b) => (counts[b.type] = (counts[b.type] ?? 0) + 1));
@@ -22,22 +24,24 @@ const filters = [
 const crops = ['50% 20%', '50% 45%', '50% 70%', '30% 35%', '70% 35%'];
 ---
 <Base title={`${god.name} build orders`} description={`${god.builds.length} ${god.name} build orders for Age of Mythology: Retold (${god.pantheon}) — eco, rush and water builds from the DoD community.`}>
-  <section class="gh">
-    <img class="gh-bg" src="/gods/minor-bg.webp" alt="" data-parallax="0.2" />
-    <div class="gh-art" data-parallax="-0.08">
-      <img src={a.art} alt={`${god.name} artwork`} fetchpriority="high" transition:name={`art-${god.slug}`} />
+  <section class="gh" data-scene={sc.id}>
+    <div class="gh-scene" aria-hidden="true" data-parallax="0.18">
+      <img src={sc.sky} alt="" width="1920" height="490" fetchpriority="high" />
     </div>
+    <SceneFx kinds={sc.fx} seed={god.slug.length * 7 + 3} scale={1.5} />
     <div class="gh-shade" aria-hidden="true"></div>
     <div class="wrap gh-inner">
       <nav aria-label="Breadcrumb" class="crumbs"><a href="/games/aom/build-orders/">Build orders</a> / {god.pantheon} / {god.name}</nav>
       <div class="gh-title">
-        <img class="gh-portrait" src={a.portrait} alt="" width="104" height="104" transition:name={`portrait-${god.slug}`} />
+        <span class="gh-medal">
+          <img src={sc.medal} alt="" width="180" height="180" style={`view-transition-name: god-${god.slug}`} />
+        </span>
         <div class="stack" style="--gap:8px">
           <span class="eyebrow" data-reveal="fade">{god.pantheon} · Age of Mythology: Retold</span>
           <h1 class="display-xl gh-name" data-reveal>{god.name}</h1>
         </div>
       </div>
-      <p class="lead" data-reveal>{god.builds.length} community {god.builds.length === 1 ? 'build' : 'builds'} — {Object.entries(counts).filter(([, n]) => n).map(([t, n]) => `${n} ${t}`).join(', ')}.</p>
+      <p class="lead gh-lead" data-reveal>{god.builds.length} community {god.builds.length === 1 ? 'build' : 'builds'} — {Object.entries(counts).filter(([, n]) => n).map(([t, n]) => `${n} ${t}`).join(', ')}.</p>
     </div>
   </section>
 
@@ -91,7 +95,7 @@ const crops = ['50% 20%', '50% 45%', '50% 70%', '30% 35%', '70% 35%'];
       <div class="sib-row" data-stagger>
         {siblings.map((g) => (
           <a class="sib-card" href={`/games/aom/build-orders/${g.slug}/`} data-reveal>
-            <img src={art(g.slug).portrait} alt="" width="56" height="56" loading="lazy" transition:name={`portrait-${g.slug}`} />
+            <img src={scene(g.slug)!.medal} alt="" width="56" height="56" loading="lazy" />
             <span><span class="sib-name">{g.name}</span><span class="tiny">{g.builds.length} builds</span></span>
           </a>
         ))}
@@ -141,20 +145,33 @@ const crops = ['50% 20%', '50% 45%', '50% 70%', '30% 35%', '70% 35%'];
 </script>
 
 <style>
-  .gh { position: relative; overflow: hidden; isolation: isolate; border-bottom: 1px solid var(--line); min-height: clamp(420px, 52vw, 600px); display: flex; align-items: flex-end; }
-  .gh-bg { position: absolute; inset: -10% 0 auto; width: 100%; height: 120%; object-fit: cover; opacity: 0.35; z-index: -3; }
-  .gh-art { position: absolute; top: 0; bottom: 0; right: 0; width: min(62%, 860px); z-index: -2; }
-  .gh-art img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%); mask-image: linear-gradient(90deg, transparent 0%, #000 38%); animation: drift 14s var(--ease-out) both; }
-  @keyframes drift { from { transform: scale(1.12) translateX(2%); opacity: 0; } 18% { opacity: 1; } to { transform: scale(1); opacity: 1; } }
-  .gh-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(11,11,11,0) 40%, var(--bg) 100%), linear-gradient(90deg, rgba(11,11,11,0.92) 0%, rgba(11,11,11,0.5) 45%, rgba(11,11,11,0) 75%); }
-  .gh-inner { width: 100%; display: flex; flex-direction: column; gap: 20px; padding-block: 72px 40px; }
-  .gh-title { display: flex; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
-  .gh-portrait { width: 104px; height: 104px; border-radius: 50%; border: 2px solid var(--text); box-shadow: 0 0 0 6px rgba(11,11,11,0.7), 0 0 0 7px var(--red); }
-  .gh-name { text-shadow: 0 4px 32px rgba(0,0,0,0.6); }
+  .gh { position: relative; overflow: hidden; isolation: isolate; border-bottom: 1px solid var(--line); min-height: clamp(460px, 44vw, 640px); display: flex; align-items: flex-end; }
+  .gh-scene { position: absolute; inset: -6% 0 0; z-index: -2; }
+  .gh-scene img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+  @media (prefers-reduced-motion: no-preference) {
+    .gh-scene img { animation: gh-drift 28s ease-in-out infinite alternate; }
+    .gh-medal { animation: gh-float 6s ease-in-out infinite; }
+    .gh-medal img { animation: gh-glow 3.2s ease-in-out infinite; }
+  }
+  @keyframes gh-drift { from { transform: scale(1.02); } to { transform: scale(1.09) translate(-1.5%, -1%); } }
+  @keyframes gh-float { 50% { transform: translateY(-6px); } }
+  @keyframes gh-glow {
+    0%, 100% { box-shadow: 0 0 0 1px rgba(224,173,74,0.6), 0 0 22px 4px rgba(224,173,74,0.35), 0 16px 40px rgba(0,0,0,0.8); }
+    50% { box-shadow: 0 0 0 1px rgba(224,173,74,0.9), 0 0 34px 10px rgba(224,173,74,0.55), 0 16px 40px rgba(0,0,0,0.8), 0 0 70px 14px rgba(192,57,43,0.35); }
+  }
+  .gh-shade { position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: linear-gradient(180deg, rgba(11,11,11,0.15) 0%, rgba(11,11,11,0.1) 35%, rgba(11,11,11,0.78) 78%, var(--bg) 100%),
+                linear-gradient(90deg, rgba(11,11,11,0.7) 0%, rgba(11,11,11,0.25) 50%, rgba(11,11,11,0) 80%); }
+  .gh-inner { width: 100%; display: flex; flex-direction: column; gap: 18px; padding-block: 96px 40px; position: relative; z-index: 3; }
+  .gh-title { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .gh-medal { display: block; flex: none; width: clamp(110px, 12vw, 168px); aspect-ratio: 1; }
+  .gh-medal img { width: 100%; height: 100%; border-radius: 50%; }
+  .gh-name { text-shadow: 0 4px 32px rgba(0,0,0,0.75); }
+  .gh-lead { color: #e2ddd4; text-shadow: 0 2px 12px rgba(0,0,0,0.8); }
+  .gh .crumbs, .gh .crumbs a { color: #d8d2c6; text-shadow: 0 1px 8px rgba(0,0,0,0.8); }
   @media (max-width: 720px) {
-    .gh-art { width: 100%; opacity: 0.55; }
-    .gh-art img { -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 100%); mask-image: linear-gradient(180deg, #000 30%, transparent 100%); }
-    .gh-portrait { width: 80px; height: 80px; }
+    .gh-title { gap: 16px; }
+    .gh-inner { padding-top: 140px; }
   }
 
   .bo-tools { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-block: 32px 24px; position: sticky; top: 76px; z-index: 3; background: linear-gradient(180deg, var(--bg) 80%, rgba(11,11,11,0)); }
@@ -191,7 +208,7 @@ const crops = ['50% 20%', '50% 45%', '50% 70%', '30% 35%', '70% 35%'];
   .sib { padding-bottom: 72px; display: flex; flex-direction: column; gap: 16px; }
   .sib-row { display: flex; flex-wrap: wrap; gap: 12px; }
   .sib-card { display: flex; align-items: center; gap: 12px; padding: 10px 18px 10px 10px; min-height: 64px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; transition: border-color 0.2s; }
-  .sib-card img { width: 44px; height: 44px; border-radius: 50%; }
+  .sib-card img { width: 48px; height: 48px; border-radius: 50%; }
   .sib-card > span { display: flex; flex-direction: column; line-height: 1.2; }
   .sib-name { font-family: var(--font-display); font-weight: 700; font-size: 20px; }
   .sib-card:hover { border-color: var(--red); color: var(--text); }

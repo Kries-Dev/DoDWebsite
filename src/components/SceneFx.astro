@@ -1,0 +1,39 @@
+---
+// Per-scene weather layered over Kries's pantheon art: embers, snow, rain, petals, Atlantean motes.
+// Positions are generated at build time from a fixed seed, so every visitor sees the same scene.
+interface Props { kinds?: string[]; seed?: number; scale?: number }
+const { kinds = [], seed: start = 11, scale = 1 } = Astro.props;
+let seed = start;
+const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+const counts: Record<string, number> = { ember: 12, snow: 26, mote: 14, rain: 34, petal: 9 };
+const particles = (kind: string) => Array.from({ length: Math.round((counts[kind] ?? 10) * scale) }, () => ({
+  x: (rnd() * 100).toFixed(1),
+  delay: (-rnd() * 12).toFixed(2),
+  dur: (kind === 'rain' ? 0.7 + rnd() * 0.5 : 6 + rnd() * 7).toFixed(2),
+  size: (kind === 'petal' ? 5 + rnd() * 4 : 2 + rnd() * 3).toFixed(1),
+  drift: ((rnd() - 0.5) * (kind === 'rain' ? 30 : 80)).toFixed(0),
+}));
+---
+{kinds.map((kind) => (
+  <div class={`fx fx-${kind}`} aria-hidden="true">
+    {particles(kind).map((q) => <span style={`--x:${q.x}%;--delay:${q.delay}s;--dur:${q.dur}s;--s:${q.size}px;--drift:${q.drift}px`} />)}
+  </div>
+))}
+
+<style>
+  .fx { position: absolute; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
+  .fx span { position: absolute; left: var(--x); width: var(--s); height: var(--s); border-radius: 50%; opacity: 0; will-change: transform, opacity; }
+  .fx-ember span { bottom: 18%; background: radial-gradient(circle, #ffe2a0 0%, #ff8a30 45%, rgba(255,90,20,0) 72%); box-shadow: 0 0 8px 2px rgba(255,130,40,0.55); }
+  .fx-mote span { bottom: 20%; background: radial-gradient(circle, #e8fbff 0%, #6fd6ff 50%, rgba(80,200,255,0) 75%); box-shadow: 0 0 10px 3px rgba(110,210,255,0.5); }
+  .fx-snow span { top: -3%; background: rgba(240, 248, 255, 0.9); }
+  .fx-petal span { top: -3%; width: calc(var(--s) * 1.7); border-radius: 70% 0 70% 0; background: linear-gradient(135deg, #ffd1e0, #e98bab); }
+  .fx-rain span { top: -12%; width: 1px; height: 14%; border-radius: 0; background: linear-gradient(180deg, rgba(210,225,255,0), rgba(210,225,255,0.55)); }
+  @media (prefers-reduced-motion: no-preference) {
+    .fx-ember span, .fx-mote span { animation: rise var(--dur) linear infinite; animation-delay: var(--delay); }
+    .fx-snow span, .fx-petal span { animation: fall var(--dur) linear infinite; animation-delay: var(--delay); }
+    .fx-rain span { animation: rain var(--dur) linear infinite; animation-delay: var(--delay); }
+  }
+  @keyframes rise { 0% { opacity: 0; transform: translate(0, 0); } 12% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--drift), -360%); } }
+  @keyframes fall { 0% { opacity: 0; transform: translate(0, 0) rotate(0); } 8% { opacity: 0.95; } 100% { opacity: 0; transform: translate(var(--drift), 1100%) rotate(300deg); } }
+  @keyframes rain { 0% { opacity: 0; transform: translate(0, 0) rotate(8deg); } 10% { opacity: 1; } 100% { opacity: 0.6; transform: translate(var(--drift), 800%) rotate(8deg); } }
+</style>

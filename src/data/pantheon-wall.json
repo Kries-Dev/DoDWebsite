@@ -7,6 +7,7 @@
         "pantheon": "Greek",
         "image": "/pantheons/greek.webp",
         "imageSmall": "/pantheons/greek-960.webp",
+        "sky": "/pantheons/greek-sky.webp",
         "fx": [
           "ember"
         ],
@@ -46,6 +47,7 @@
         "pantheon": "Egyptian",
         "image": "/pantheons/egyptian.webp",
         "imageSmall": "/pantheons/egyptian-960.webp",
+        "sky": "/pantheons/egyptian-sky.webp",
         "fx": [
           "ember"
         ],
@@ -85,6 +87,7 @@
         "pantheon": "Norse",
         "image": "/pantheons/norse.webp",
         "imageSmall": "/pantheons/norse-960.webp",
+        "sky": "/pantheons/norse-sky.webp",
         "fx": [
           "snow"
         ],
@@ -126,6 +129,7 @@
         "pantheon": "Atlantean",
         "image": "/pantheons/atlantean.webp",
         "imageSmall": "/pantheons/atlantean-960.webp",
+        "sky": "/pantheons/atlantean-sky.webp",
         "fx": [
           "mote"
         ],
@@ -165,6 +169,7 @@
         "pantheon": "Chinese",
         "image": "/pantheons/chinese.webp",
         "imageSmall": "/pantheons/chinese-960.webp",
+        "sky": "/pantheons/chinese-sky.webp",
         "fx": [
           "ember"
         ],
@@ -204,6 +209,7 @@
         "pantheon": "Japanese",
         "image": "/pantheons/japanese.webp",
         "imageSmall": "/pantheons/japanese-960.webp",
+        "sky": "/pantheons/japanese-sky.webp",
         "fx": [
           "rain",
           "petal"
@@ -252,6 +258,7 @@
         "pantheon": "Aztec",
         "image": "/pantheons/aztec.webp",
         "imageSmall": "/pantheons/aztec-960.webp",
+        "sky": "/pantheons/aztec-sky.webp",
         "fx": [
           "ember"
         ],

@@ -77,3 +77,19 @@ document.addEventListener('astro:page-load', () => {
   const fns = [reveal(), parallax(), countUp()];
   cleanup = () => fns.forEach((f) => f());
 });
+
+// God medallion morph: only the medallion that was clicked gets a transition name, so it alone flies
+// into the god page header (and back again on the way out). Naming every medallion on the wall at once
+// would make the other 22 fade over the header during the transition.
+const godSlug = (url: URL) => url.pathname.match(/^\/games\/aom\/build-orders\/([a-z]+)\/$/)?.[1];
+document.addEventListener('astro:before-preparation', (e) => {
+  const slug = godSlug(e.to);
+  const img = (e.sourceElement as HTMLElement | undefined)?.closest?.('a.medal, a.sib-card')?.querySelector('img');
+  if (slug && img) img.style.viewTransitionName = `god-${slug}`;
+});
+document.addEventListener('astro:before-swap', (e) => {
+  const slug = godSlug(e.from);
+  if (!slug || godSlug(e.to)) return;
+  const img = e.newDocument.querySelector<HTMLImageElement>(`a.medal[href$="/${slug}/"] img`);
+  if (img) img.style.viewTransitionName = `god-${slug}`;
+});
