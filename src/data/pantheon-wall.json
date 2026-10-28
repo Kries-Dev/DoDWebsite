@@ -1,0 +1,21 @@
+{
+  "_note": "Kries's 'Choose your deity' graphic. Each panel is one PNG from the Wix page; slots are medallion centres in % of the panel (x, y) and diameter in % of panel width. Images in public/pantheons/ are TEMPORARY stand-ins cut from a screenshot until the original PNGs are supplied.",
+  "slotDefaults": { "xs": [12.2, 36.3, 63.2, 87.9], "y": 66.3, "d": 21.6 },
+  "rows": [
+    [
+      { "id": "greek", "pantheon": "Greek", "image": "/pantheons/greek.webp", "embers": true, "slots": ["zeus", "hades", "poseidon", "demeter"] },
+      { "id": "egyptian", "pantheon": "Egyptian", "image": "/pantheons/egyptian.webp", "embers": true, "slots": ["ra", "isis", "set", "discord"] },
+      { "id": "norse", "pantheon": "Norse", "image": "/pantheons/norse.webp", "snow": true, "slots": ["odin", "thor", "loki", "freyr"] }
+    ],
+    [
+      { "id": "atlantean", "pantheon": "Atlantean", "image": "/pantheons/atlantean.webp", "slots": ["gaia", "oranos", "kronos", "discord"] },
+      { "id": "chinese", "pantheon": "Chinese", "image": "/pantheons/chinese.webp", "embers": true, "slots": ["fuxi", "nuwa", "shennong", "discord"] },
+      { "id": "japanese", "pantheon": "Japanese", "image": "/pantheons/japanese.webp", "petals": true, "slots": ["amaterasu", "tsukuyomi", "susanoo", "discord"] }
+    ],
+    [
+      { "id": "jungle-left", "image": "/pantheons/jungle-left.webp", "slots": [] },
+      { "id": "aztec", "pantheon": "Aztec", "image": "/pantheons/aztec.webp", "embers": true, "slots": ["huitzilopochtli", "tezcatlipoca", "quetzalcoatl", "discord"] },
+      { "id": "jungle-right", "image": "/pantheons/jungle-right.webp", "slots": [] }
+    ]
+  ]
+}

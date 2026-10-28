@@ -1,0 +1,179 @@
+---
+// Kries's "Choose your deity" graphic, brought to life.
+// The painted panels are the background; each god gets a live medallion laid exactly over
+// the painted one, so it can lift, glow, show a label, and fly into the god page (view transition).
+import wall from '../data/pantheon-wall.json';
+import site from '../data/site.json';
+import { gods, art } from '../lib/buildOrders';
+
+const godBySlug = new Map(gods.map((g) => [g.slug, g]));
+const { xs, y, d } = wall.slotDefaults;
+const pantheonBuilds = (slots: string[]) => slots.reduce((n, s) => n + (godBySlug.get(s)?.builds.length ?? 0), 0);
+
+// Particles are generated at build time with a fixed seed, so every visitor sees the same layout.
+let seed = 7;
+const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+const particles = (n: number) => Array.from({ length: n }, () => ({
+  x: (rnd() * 100).toFixed(1),
+  delay: (rnd() * 9).toFixed(2),
+  dur: (6 + rnd() * 6).toFixed(2),
+  size: (2 + rnd() * 3).toFixed(1),
+  drift: ((rnd() - 0.5) * 60).toFixed(0),
+}));
+let order = 0;
+---
+<div class="wall" data-wall>
+  {wall.rows.flat().map((p) => {
+    const i = order++;
+    const kind = p.embers ? 'ember' : p.snow ? 'snow' : p.petals ? 'petal' : null;
+    return (
+      <div class:list={['pan', { filler: !p.pantheon }]} style={`--i:${i}`} data-pan={p.id}>
+        <div class="pan-scene" aria-hidden="true">
+          <img src={p.image} alt="" decoding="async" loading={i < 6 ? 'eager' : 'lazy'} />
+        </div>
+        {kind && (
+          <div class={`fx fx-${kind}`} aria-hidden="true">
+            {particles(kind === 'snow' ? 18 : 10).map((q) => (
+              <span style={`--x:${q.x}%;--delay:${q.delay}s;--dur:${q.dur}s;--s:${q.size}px;--drift:${q.drift}px`} />
+            ))}
+          </div>
+        )}
+        {p.pantheon && (
+          <span class="pan-label">
+            <span class="pan-name">{p.pantheon}</span>
+            <span class="pan-count">{pantheonBuilds(p.slots)} builds</span>
+          </span>
+        )}
+        {p.slots.map((slot, k) => {
+          const style = `--x:${xs[k]}%;--y:${y}%;--d:${d}%;--k:${k}`;
+          if (slot === 'discord') {
+            return (
+              <a class:list={['medal', 'medal-dod', { 'tag-r': k === 3, 'tag-l': k === 0 }]} href={site.discord} rel="noopener" style={style} aria-label="Suggest a build on Discord">
+                <span class="medal-hit" aria-hidden="true"></span>
+                <span class="medal-tag"><strong>Your build here?</strong><span>Suggest it on Discord</span></span>
+              </a>
+            );
+          }
+          const g = godBySlug.get(slot)!;
+          return (
+            <a class:list={['medal', { 'tag-r': k === 3, 'tag-l': k === 0 }]} href={`/games/aom/build-orders/${g.slug}/`} style={style} aria-label={`${g.name}, ${g.builds.length} build orders`}>
+              <span class="medal-face">
+                <img src={art(g.slug).portrait} alt="" width="120" height="120" decoding="async" transition:name={`portrait-${g.slug}`} />
+              </span>
+              <span class="medal-ring" aria-hidden="true"></span>
+              <span class="medal-tag"><strong>{g.name}</strong><span>{g.builds.length} {g.builds.length === 1 ? 'build' : 'builds'}</span></span>
+            </a>
+          );
+        })}
+      </div>
+    );
+  })}
+</div>
+
+<style>
+  .wall {
+    --gold: #d9a441;
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    border: 1px solid #5a1a14; box-shadow: 0 0 0 1px #0b0b0b, 0 30px 80px -20px rgba(192, 57, 43, 0.25);
+    background: #050505;
+  }
+  .pan { position: relative; aspect-ratio: 813 / 456; overflow: hidden; isolation: isolate; transition: filter 0.5s ease; }
+  .pan-scene { position: absolute; inset: 0; z-index: -2; }
+  .pan-scene img { width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 60%; }
+  .pan::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(0,0,0,0.45) 100%); }
+
+  /* Pantheon label — slides in on hover/focus */
+  .pan-label { position: absolute; left: 4%; top: 7%; display: flex; flex-direction: column; line-height: 1; pointer-events: none;
+    opacity: 0; transform: translateY(-8px); transition: opacity 0.35s, transform 0.45s var(--ease-out); text-shadow: 0 2px 12px rgba(0,0,0,0.9); }
+  .pan-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(18px, 2vw, 28px); }
+  .pan-count { font-size: 13px; color: #e8e2d6; }
+  .pan:hover .pan-label, .pan:focus-within .pan-label { opacity: 1; transform: none; }
+  .pan:has(.medal:hover, .medal:focus-visible) .pan-label { opacity: 0; }
+
+  /* Live medallions sit exactly on the painted ones */
+  .medal { position: absolute; left: var(--x); top: var(--y); width: var(--d); aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; text-decoration: none; z-index: 2; }
+  .medal-face { position: absolute; inset: 15%; border-radius: 50%; overflow: hidden; }
+  .medal-face img { width: 100%; height: 100%; object-fit: cover; }
+  .medal-ring { position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+    box-shadow: 0 0 0 0 rgba(217, 164, 65, 0), inset 0 0 0 0 rgba(217, 164, 65, 0); transition: box-shadow 0.4s, transform 0.6s var(--ease-out); }
+  .medal-hit { position: absolute; inset: 0; border-radius: 50%; }
+  .medal, .medal-face, .medal-ring { transition: transform 0.45s var(--ease-out), filter 0.4s, box-shadow 0.4s; }
+  .medal:hover, .medal:focus-visible { transform: translate(-50%, -56%) scale(1.14); z-index: 4; outline: none; }
+  .medal:hover .medal-ring, .medal:focus-visible .medal-ring {
+    box-shadow: 0 0 0 2px var(--gold), 0 0 22px 6px rgba(217, 164, 65, 0.55), 0 0 60px 12px rgba(192, 57, 43, 0.45);
+    animation: ring-pulse 1.6s ease-in-out infinite; }
+  .medal:hover .medal-face, .medal:focus-visible .medal-face { filter: brightness(1.15) saturate(1.1); }
+  .medal-dod:hover, .medal-dod:focus-visible { transform: translate(-50%, -54%) scale(1.08); }
+  .medal-dod:hover .medal-hit, .medal-dod:focus-visible .medal-hit { box-shadow: 0 0 0 2px var(--red), 0 0 26px 8px rgba(192, 57, 43, 0.6); }
+  @keyframes ring-pulse { 50% { box-shadow: 0 0 0 2px var(--gold), 0 0 30px 10px rgba(217, 164, 65, 0.7), 0 0 80px 18px rgba(192, 57, 43, 0.55); } }
+
+  /* Label under the medallion */
+  .medal-tag { position: absolute; left: 50%; bottom: 106%; transform: translate(-50%, 6px); display: flex; flex-direction: column; align-items: center; white-space: nowrap;
+    padding: 6px 12px; background: rgba(8, 8, 8, 0.92); border: 1px solid #3a2a12; border-bottom: 2px solid var(--red);
+    font-size: 12px; color: var(--muted); line-height: 1.2; opacity: 0; pointer-events: none; transition: opacity 0.25s, transform 0.4s var(--ease-out); }
+  .medal-tag strong { font-family: var(--font-display); font-size: 18px; color: var(--text); letter-spacing: 0.01em; }
+  .medal:hover .medal-tag, .medal:focus-visible .medal-tag { opacity: 1; transform: translate(-50%, 0); }
+  /* Edge medallions: keep the label inside the panel */
+  .tag-r .medal-tag { left: auto; right: -6%; transform: translate(0, 6px); align-items: flex-end; }
+  .tag-r:hover .medal-tag, .tag-r:focus-visible .medal-tag { transform: none; }
+  .tag-l .medal-tag { left: -6%; transform: translate(0, 6px); align-items: flex-start; }
+  .tag-l:hover .medal-tag, .tag-l:focus-visible .medal-tag { transform: none; }
+
+  /* Hovering a pantheon spotlights it */
+  @media (hover: hover) {
+    .wall:has(.pan:not(.filler):hover) .pan:not(:hover) { filter: brightness(0.42) saturate(0.6); }
+    .pan:not(.filler):hover { filter: brightness(1.08) saturate(1.08); }
+  }
+
+  /* Particles */
+  .fx { position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+  .fx span { position: absolute; left: var(--x); bottom: -4%; width: var(--s); height: var(--s); border-radius: 50%; opacity: 0; }
+  .fx-ember span { background: radial-gradient(circle, #ffd27a 0%, #ff7a2a 45%, rgba(255,80,20,0) 70%); box-shadow: 0 0 6px 2px rgba(255,120,40,0.5); }
+  .fx-snow span { top: -4%; bottom: auto; background: rgba(240, 248, 255, 0.85); }
+  .fx-petal span { top: -4%; bottom: auto; width: calc(var(--s) * 1.8); border-radius: 60% 0; background: #f2a7c3; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* Entrance: scenes wake one by one like torches catching */
+    @media (scripting: enabled) {
+      /* Animate inner layers only, so hover effects on .pan / .medal stay free. */
+      .wall:not(.awake) .pan-scene { filter: brightness(0.06); }
+      .wall:not(.awake) .medal-face, .wall:not(.awake) .medal-hit { opacity: 0; transform: scale(0.6); }
+      .wall.awake .pan-scene { animation: torch 1.3s ease-out both; animation-delay: calc(var(--i) * 0.16s); }
+      .wall.awake .medal-face, .wall.awake .medal-hit { animation: medal-in 0.7s var(--ease-out) both; animation-delay: calc(var(--i) * 0.16s + 0.55s + var(--k) * 0.08s); }
+    }
+    .pan-scene img { animation: drift 24s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -3s); }
+    .fx-ember span { animation: rise var(--dur) linear infinite; animation-delay: var(--delay); }
+    .fx-snow span, .fx-petal span { animation: fall var(--dur) linear infinite; animation-delay: var(--delay); }
+  }
+  @keyframes torch {
+    0% { filter: brightness(0.06); } 30% { filter: brightness(0.7); } 38% { filter: brightness(0.45); }
+    55% { filter: brightness(1.05); } 70% { filter: brightness(0.9); } 100% { filter: brightness(1); }
+  }
+  @keyframes medal-in { from { opacity: 0; transform: scale(0.6); } 70% { opacity: 1; transform: scale(1.08); } to { opacity: 1; transform: scale(1); } }
+  @keyframes drift { from { transform: scale(1.02) translate(0, 0); } to { transform: scale(1.09) translate(-1.5%, -1%); } }
+  @keyframes rise { 0% { opacity: 0; transform: translate(0, 0); } 15% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--drift), -110%); } }
+  @keyframes fall { 0% { opacity: 0; transform: translate(0, 0) rotate(0); } 10% { opacity: 0.9; } 100% { opacity: 0; transform: translate(var(--drift), 115%) rotate(240deg); } }
+  .fx span { transform-origin: center; }
+  .fx-ember span { will-change: transform, opacity; }
+
+  /* Phones: scenes stack, the filler jungles drop out */
+  @media (max-width: 760px) {
+    .wall { grid-template-columns: 1fr; }
+    .pan.filler { display: none; }
+    .pan-label { opacity: 1; transform: none; }
+    .medal-tag { display: none; }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const wall = document.querySelector<HTMLElement>('[data-wall]');
+    if (!wall) return;
+    if (!('IntersectionObserver' in window)) { wall.classList.add('awake'); return; }
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { wall.classList.add('awake'); io.disconnect(); }
+    }, { threshold: 0.15 });
+    io.observe(wall);
+  });
+</script>
