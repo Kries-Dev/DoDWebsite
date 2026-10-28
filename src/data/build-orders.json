@@ -1,0 +1,1061 @@
+[
+  {
+    "god": "amaterasu",
+    "name": "3 Miko 4:10",
+    "authors": "Cajocu",
+    "type": "eco",
+    "classical": "4:10",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Amaterasu%20-%203%20Miko%204_10%20-%20Cajocu.html"
+  },
+  {
+    "god": "amaterasu",
+    "name": "Kamaitachi Rush",
+    "authors": "[DoD]Wuilfor",
+    "type": "rush",
+    "classical": "3:20",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Amaterasu%20-%20Kamaitachi%20Rush%20-%20%5BDoD%5DWuilfor.html"
+  },
+  {
+    "god": "amaterasu",
+    "name": "Standard 3:30 1 Miko",
+    "authors": "Cajocu",
+    "type": "eco",
+    "classical": "3:30",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Amaterasu%20-%20Standard%203_30%201%20Miko%20-%20Cajocu.html"
+  },
+  {
+    "god": "amaterasu",
+    "name": "Standard Water",
+    "authors": "Cajocu & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:58",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Amaterasu%20-%20Standard%20Water%20-%20Cajocu%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "demeter",
+    "name": "2TC Pan's Pioneers",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:50",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Demeter%20-%202TC%20Pan's%20Pioneers%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "demeter",
+    "name": "3:50 Fast Pickaxe",
+    "authors": "[DoD]Mirez",
+    "type": "rush",
+    "classical": "3:50",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Demeter%20-%203_50%20Fast%20Pickaxe%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "demeter",
+    "name": "Standard Water Boom",
+    "authors": "Boit, [DoD]Mirez & [DoD]Godschalk",
+    "type": "water",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Demeter%20-%20Standard%20Water%20Boom%20-%20Boit%2C%20%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "freyr",
+    "name": "2 TC",
+    "authors": "[DoD]Léonce & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:36",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Freyr%20-%202%20TC%20-%20%5BDoD%5DL%C3%A9once%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "freyr",
+    "name": "Hill Fort Rush",
+    "authors": "HUSKSUPPE",
+    "type": "rush",
+    "classical": "3:00",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Freyr%20-%20Hill%20Fort%20Rush%20-%20HUSKSUPPE.html"
+  },
+  {
+    "god": "freyr",
+    "name": "Water Boom",
+    "authors": "HUSKSUPPE & [DoD]Mirez",
+    "type": "water",
+    "advance": "4:15",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Freyr%20-%20Water%20Boom%20-%20HUSKSUPPE%20%26%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "fuxi",
+    "name": "3:24 Double Kuafu",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:24",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Fuxi%20-%203_24%20Double%20Kuafu%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "fuxi",
+    "name": "4:06 Triple Kuafu",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:06",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Fuxi%20-%204_06%20Triple%20Kuafu%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "fuxi",
+    "name": "4:23 Early Pickaxe 3x Kuafu",
+    "authors": "[DoD]Mirez",
+    "type": "rush",
+    "classical": "4:23",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Fuxi%20-%204_23%20Early%20Pickaxe%203x%20Kuafu%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "fuxi",
+    "name": "Fast 2TC",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Fuxi%20-%20Fast%202TC%20-%20DoD%5DMirez.html"
+  },
+  {
+    "god": "fuxi",
+    "name": "Fast 2TC into Heroic",
+    "authors": "[DoD]Mirez & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:07",
+    "heroic": "7:55",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Fuxi%20-%20Fast%202TC%20into%20Heroic%20-%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "fuxi",
+    "name": "Fast Heroic",
+    "authors": "[DoD]Mirez & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:23",
+    "heroic": "6:55",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Fuxi%20-%20Fast%20Heroic%20-%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "fuxi",
+    "name": "Fast Mythic",
+    "authors": "[DoD]Mirez & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:23",
+    "heroic": "6:55",
+    "mythic": "10:37",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Fuxi%20-%20Fast%20Mythic%20-%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "fuxi",
+    "name": "Super Fast Heroic",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "heroic": "6:05",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Fuxi%20-%20Super%20Fast%20Heroic%20-%20%5BDoD%5DMirez%20-%20ECO.html"
+  },
+  {
+    "god": "fuxi",
+    "name": "Water Build",
+    "authors": "[DoD]Mirez",
+    "type": "water",
+    "advance": "3:32",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Fuxi%20-%20Water%20Build%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "fuxi",
+    "name": "Water Fast Heroic",
+    "authors": "[DoD]Mirez & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:32",
+    "heroic": "6:47",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Fuxi%20-%20Water%20Fast%20Heroic%20-%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "gaia",
+    "name": "Standard Water",
+    "authors": "[DoD]DarthNox & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:18",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Gaia%20%20-%20Standard%20Water%20-%20%5BDoD%5DDarthNox%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "gaia",
+    "name": "10 Hero Citizens",
+    "authors": "[DoD]Léonce & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:45",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Gaia%20-%2010%20Hero%20Citizens%20-%20%5BDoD%5DL%C3%A9once%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "gaia",
+    "name": "2 TC",
+    "authors": "[DoD]Léonce & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:18",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Gaia%20-%202%20TC%20-%20%5BDoD%5DL%C3%A9once%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "gaia",
+    "name": "9 Citizens Fastest Oracle",
+    "authors": "[DoD]DarthNox",
+    "type": "eco",
+    "classical": "4:18",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Gaia%20-%209%20Citizens%20Fastest%20Oracle%20-%20%5BDoD%5DDarthNox.html"
+  },
+  {
+    "god": "gaia",
+    "name": "9 Hero Citizens",
+    "authors": "[DoD]Léonce & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:18",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Gaia%20-%209%20Hero%20Citizens%20-%20%5BDoD%5DL%C3%A9once%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "hades",
+    "name": "3:50 Vault of Erebus",
+    "authors": "[DoD]Firefox & HUSKSUPPE",
+    "type": "eco",
+    "classical": "3:50",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Hades%20-%203_50%20Vault%20of%20Erebus%20-%20%5BDoD%5DFirefox%20%26%20HUSKSUPPE.html"
+  },
+  {
+    "god": "hades",
+    "name": "4:07 Vault of Erebus Into 2 TC (Without Herding)",
+    "authors": "[DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Hades%20-%204_07%20Vault%20of%20Erebus%20Into%202%20TC%20(Without%20Herding)%20-%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "hades",
+    "name": "Standard Water Boom",
+    "authors": "Boit, [DoD]Mirez & [DoD]Godschalk",
+    "type": "water",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Hades%20-%20Standard%20Water%20Boom%20-%20Boit%2C%20%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "huitzilopochtli",
+    "name": "1 Calpulli 3:16",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:16",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Huitzilopochtli%20-%201%20Calpulli%203_16%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "huitzilopochtli",
+    "name": "1 Calpulli Double Scout 3:37",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:37",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Huitzilopochtli%20-%201%20Calpulli%20Double%20Scout%203_37%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "huitzilopochtli",
+    "name": "3 Calpulli 4:07",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Huitzilopochtli%20-%203%20Calpulli%204_07%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "huitzilopochtli",
+    "name": "Blood Pact Opening",
+    "authors": "TheRapl",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Huitzilopochtli%20-%20Blood%20Pact%20Opening%20-%20TheRapl.html"
+  },
+  {
+    "god": "huitzilopochtli",
+    "name": "Early Livestock Pen 4:07",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Huitzilopochtli%20-%20Early%20Livestock%20Pen%204_07%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "huitzilopochtli",
+    "name": "Fast 2TC",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Huitzilopochtli%20-%20Fast%202TC%20-%20DoD%5DMirez%20-%20ECO.html"
+  },
+  {
+    "god": "huitzilopochtli",
+    "name": "Lurable Hunt 1 Calpulli 4:07",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Huitzilopochtli%20-%20Lurable%20Hunt%201%20Calpulli%204_07%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "huitzilopochtli",
+    "name": "Lurable Hunt 2 Calpulli 4:07",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Huitzilopochtli%20-%20Lurable%20Hunt%202%20Calpulli%204_07%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "huitzilopochtli",
+    "name": "Rush",
+    "authors": "HUSKSUPPE",
+    "type": "rush",
+    "classical": "3:33",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Huitzilopochtli%20-%20Rush%20-%20HUSKSUPPE.html"
+  },
+  {
+    "god": "huitzilopochtli",
+    "name": "Standard Opening",
+    "authors": "HUSKSUPPE",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Huitzilopochtli%20-%20Standard%20Opening%20-%20HUSKSUPPE.html"
+  },
+  {
+    "god": "huitzilopochtli",
+    "name": "Water Boom",
+    "authors": "[DoD]Mirez",
+    "type": "water",
+    "classical": "5:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Huitzilopochtli%20-%20Water%20Boom%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "isis",
+    "name": "4:07 2 TC + 2 Anubites",
+    "authors": "[DoD]Firefox & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Isis%20-%204_07%202%20TC%20%2B%202%20Anubites%20-%20%5BDoD%5DFirefox%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "isis",
+    "name": "7:21 Fast Heroic (Ancestors Eclipse)",
+    "authors": "[DoD]Firefox & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:24",
+    "heroic": "7:21",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Isis%20-%207_21%20Fast%20Heroic%20(Ancestors%20Eclipse)%20-%20%5BDoD%5DFirefox%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "isis",
+    "name": "7:21 Water Fast Heroic",
+    "authors": "[DoD]Firefox & [DoD]Godschalk",
+    "type": "water",
+    "classical": "5:15",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Isis%20-%207_21%20Water%20Fast%20Heroic%20-%20%5BDoD%5DFirefox%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "isis",
+    "name": "Standard Early Flood + 2TC",
+    "authors": "Kvoth & [DoD]BqvH",
+    "type": "eco",
+    "classical": "4:25",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Isis%20-%20Standard%20Early%20Flood%20%2B%202TC%20-%20Kvoth%20%26%20%5BDoD%5DBqvH.html"
+  },
+  {
+    "god": "isis",
+    "name": "Standard Water Build",
+    "authors": "[DoD]BqvH & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:51",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Isis%20-%20Standard%20Water%20Build%20-%20%5BDoD%5DBqvH%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "isis",
+    "name": "Speedy Classical 2 TC",
+    "authors": "[DoD]BqvH",
+    "type": "eco",
+    "classical": "3:50",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Isis%20Speedy%20Classical%202%20TC%20-%20%5BDoD%5DBqvH.html"
+  },
+  {
+    "god": "kronos",
+    "name": "Standard Water",
+    "authors": "[DoD]DarthNox & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:18",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Kronos%20%20-%20Standard%20Water%20-%20%5BDoD%5DDarthNox%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "kronos",
+    "name": "Krush",
+    "authors": "Cajocu",
+    "type": "rush",
+    "classical": "2:58",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Kronos%20-%20Krush%20-%20Cajocu.html"
+  },
+  {
+    "god": "kronos",
+    "name": "Standard 3:30",
+    "authors": "Cajocu",
+    "type": "eco",
+    "classical": "3:30",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Kronos%20-%20Standard%203_30%20-%20Cajocu.html"
+  },
+  {
+    "god": "loki",
+    "name": "1 TC Early Pickaxe + Classic Fight",
+    "authors": "Jollyman",
+    "type": "rush",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Loki%20-%201%20TC%20Early%20Pickaxe%20%2B%20Classic%20Fight%20-%20Jollyman.html"
+  },
+  {
+    "god": "loki",
+    "name": "2TC Heimdall Boom",
+    "authors": "HUSKSUPPE & [DoD]Mirez",
+    "type": "eco",
+    "advance": "3:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Loki%20-%202TC%20Heimdall%20Boom%20-%20HUSKSUPPE%20%26%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "loki",
+    "name": "Water Boom",
+    "authors": "HUSKSUPPE & [DoD]Mirez",
+    "type": "water",
+    "advance": "4:15",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Loki%20-%20Water%20Boom%20-%20HUSKSUPPE%20%26%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "nuwa",
+    "name": "3:24 Double Kuafu",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:24",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Nuwa%20-%203_24%20Double%20Kuafu%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "nuwa",
+    "name": "3:39 early Chieftain",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:39",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Nuwa%20-%203_39%20early%20Chieftain%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "nuwa",
+    "name": "4:23 Early Pickaxe 3x Kuafu",
+    "authors": "[DoD]Mirez",
+    "type": "rush",
+    "classical": "4:23",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Nuwa%20-%204_23%20Early%20Pickaxe%203x%20Kuafu%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "nuwa",
+    "name": "Double Dock Build",
+    "authors": "[DoD]Mirez",
+    "type": "water",
+    "classical": "5:16",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Nuwa%20-%20Double%20Dock%20Build%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "nuwa",
+    "name": "Fast 2TC",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:40",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Nuwa%20-%20Fast%202TC%20-%20DoD%5DMirez.html"
+  },
+  {
+    "god": "nuwa",
+    "name": "Fast 2TC into Heroic",
+    "authors": "[DoD]Mirez & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "3:40",
+    "heroic": "8:09",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Nuwa%20-%20Fast%202TC%20into%20Heroic%20-%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk%20-%20ECO.html"
+  },
+  {
+    "god": "nuwa",
+    "name": "Fast Heroic",
+    "authors": "[DoD]Mirez & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:23",
+    "heroic": "6:55",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Nuwa%20-%20Fast%20Heroic%20-%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "nuwa",
+    "name": "Fast Mythic",
+    "authors": "[DoD]Mirez & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:23",
+    "heroic": "6:55",
+    "mythic": "10:37",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Nuwa%20-%20Fast%20Mythic%20-%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "nuwa",
+    "name": "Water Build",
+    "authors": "[DoD]Mirez",
+    "type": "water",
+    "advance": "3:32",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Nuwa%20-%20Water%20Build%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "nuwa",
+    "name": "Water Fast Heroic",
+    "authors": "[DoD]Mirez & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:32",
+    "heroic": "6:47",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Nuwa%20-%20Water%20Fast%20Heroic%20-%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "odin",
+    "name": "Fast Heroic (Anti-China)",
+    "authors": "[DoD]GoldenRoyal",
+    "type": "eco",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Odin%20-%20%20Fast%20Heroic%20(Anti-China)%20-%20%5BDoD%5DGoldenRoyal.html"
+  },
+  {
+    "god": "odin",
+    "name": "3:30",
+    "authors": "[DoD]Léonce & [DoD]Godschalk",
+    "type": "eco",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Odin%20-%203_30%20-%20%5BDoD%5DL%C3%A9once%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "odin",
+    "name": "Fast Temple",
+    "authors": "HUSKSUPPE",
+    "type": "rush",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Odin%20-%20Fast%20Temple%20-%20HUSKSUPPE%20-%20Rush.html"
+  },
+  {
+    "god": "odin",
+    "name": "Water Boom",
+    "authors": "HUSKSUPPE & [DoD]Mirez",
+    "type": "water",
+    "advance": "4:15",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Odin%20-%20Water%20Boom%20-%20HUSKSUPPE%20%26%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "oranos",
+    "name": "Standard Water",
+    "authors": "[DoD]DarthNox & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:18",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Oranos%20%20-%20Standard%20Water%20-%20%5BDoD%5DDarthNox%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "oranos",
+    "name": "Fast Oracle",
+    "authors": "[DoD]DarthNox",
+    "type": "eco",
+    "classical": "3:48",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Oranos%20-%20Fast%20Oracle%20-%20%5BDoD%5DDarthNox.html"
+  },
+  {
+    "god": "oranos",
+    "name": "Standard 3:30",
+    "authors": "Cajocu",
+    "type": "eco",
+    "classical": "3:30",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Oranos%20-%20Standard%203_30%20-%20Cajocu.html"
+  },
+  {
+    "god": "poseidon",
+    "name": "1 TC Cavalry Raid",
+    "authors": "[CBB]Mosca & [DoD]Godschalk",
+    "type": "rush",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Poseidon%20-%201%20TC%20Cavalry%20Raid%20-%20%5BCBB%5DMosca%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "poseidon",
+    "name": "13 Pop Fast Atalanta into 2 TC",
+    "authors": "[CBB]Mosca & [DoD]Godschalk",
+    "type": "eco",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Poseidon%20-%2013%20Pop%20Fast%20Atalanta%20into%202%20TC%20-%20%5BCBB%5DMosca%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "poseidon",
+    "name": "14 Pop into 2 TC",
+    "authors": "[CBB]Mosca & [DoD]Godschalk",
+    "type": "eco",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Poseidon%20-%2014%20Pop%20into%202%20TC%20-%20%5BCBB%5DMosca%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "poseidon",
+    "name": "Early Pickaxe",
+    "authors": "[DoD]SJO",
+    "type": "rush",
+    "advance": "4:00",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Poseidon%20-%20Early%20Pickaxe%20-%20%5BDoD%5DSJO.html"
+  },
+  {
+    "god": "poseidon",
+    "name": "Fast 2TC",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:50",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Poseidon%20-%20Fast%202TC%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "poseidon",
+    "name": "Standard",
+    "authors": "[DoD]SJO",
+    "type": "eco",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Poseidon%20-%20Standard%20-%20%5BDoD%5DSJO.html"
+  },
+  {
+    "god": "poseidon",
+    "name": "Standard Water Boom",
+    "authors": "Boit, [DoD]Mirez & [DoD]Godschalk",
+    "type": "water",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Poseidon%20-%20Standard%20Water%20Boom%20-%20Boit%2C%20%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "quetzalcoatl",
+    "name": "4:07 Eco Boom",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Quetzalcoatl%20-%204_07%20Eco%20Boom%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "quetzalcoatl",
+    "name": "4:07 Standard Opening",
+    "authors": "TheRapl",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Quetzalcoatl%20-%204_07%20Standard%20Opening%20-%20TheRapl.html"
+  },
+  {
+    "god": "quetzalcoatl",
+    "name": "Eco Boom",
+    "authors": "HUSKSUPPE",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Quetzalcoatl%20-%20Eco%20Boom%20-%20HUSKSUPPE.html"
+  },
+  {
+    "god": "quetzalcoatl",
+    "name": "Fast 2TC",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Quetzalcoatl%20-%20Fast%202TC%20-%20%5BDoD%5DMirez%20-%20ECO.html"
+  },
+  {
+    "god": "quetzalcoatl",
+    "name": "Water Boom",
+    "authors": "[DoD]Mirez",
+    "type": "water",
+    "classical": "4:42",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Quetzalcoatl%20-%20Water%20Boom%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "ra",
+    "name": "2TC or Aggro",
+    "authors": "Jollyman & [DoD]Godschalk",
+    "type": "rush",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Ra%20-%202TC%20or%20Aggro%20-%20Jollyman%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "ra",
+    "name": "4:07 1 TC Aggression",
+    "authors": "[DoD]Firefox & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Ra%20-%204_07%201%20TC%20Aggression%20-%20%5BDoD%5DFirefox%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "ra",
+    "name": "7:21 Water Fast Heroic",
+    "authors": "Soka & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:58",
+    "heroic": "7:21",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Ra%20-%207_21%20Water%20Fast%20Heroic%20-%20Soka%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "ra",
+    "name": "FH",
+    "authors": "Jollyman & [DoD]Godschalk",
+    "type": "eco",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Ra%20-%20FH%20-%20Jollyman%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "ra",
+    "name": "Fast Advance (Anti-Kronos)",
+    "authors": "Cajocu",
+    "type": "eco",
+    "classical": "3:20",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Ra%20-%20Fast%20Advance%20(Anti-Kronos)%20-%20Cajocu.html"
+  },
+  {
+    "god": "ra",
+    "name": "Standard Water",
+    "authors": "Cajocu & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:58",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Ra%20-%20Standard%20Water%20-%20Cajocu%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "set",
+    "name": "6:13 Fast Heroic",
+    "authors": "[DoD]Zoltraak & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:07",
+    "heroic": "6:13",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Set%20-%206_13%20Fast%20Heroic%20-%20%5BDoD%5DZoltraak%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "set",
+    "name": "Basic Chill",
+    "authors": "[DoD]Zoltraak & [DoD]Godschalk",
+    "type": "eco",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Set%20-%20Basic%20Chill%20-%20%5BDoD%5DZoltraak%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "set",
+    "name": "Standard Water Build",
+    "authors": "[DoD]BqvH & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:51",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Set%20-%20Standard%20Water%20Build%20-%20%5BDoD%5DBqvH%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "set",
+    "name": "Fast Advance (Anti-Kronos)",
+    "authors": "Cajocu",
+    "type": "eco",
+    "classical": "3:35",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Set%20Fast%20Advance%20(Anti-Kronos)%20-%20Cajocu.html"
+  },
+  {
+    "god": "shennong",
+    "name": "3:24 Double Kuafu",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:24",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Shennong%20-%203_24%20Double%20Kuafu%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "shennong",
+    "name": "3:58 Early Farms 2x Kuafu",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:58",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Shennong%20-%203_58%20Early%20Farms%202x%20Kuafu%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "shennong",
+    "name": "4:23 Early Farms 3x Kuafu",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:23",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Shennong%20-%204_23%20Early%20Farms%203x%20Kuafu%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "shennong",
+    "name": "4:23 Early Pickaxe 3x Kuafu",
+    "authors": "[DoD]Mirez",
+    "type": "rush",
+    "classical": "4:23",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Shennong%20-%204_23%20Early%20Pickaxe%203x%20Kuafu%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "shennong",
+    "name": "Farming Fast Heroic",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:32",
+    "heroic": "6:29",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Shennong%20-%20Farming%20Fast%20Heroic%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "shennong",
+    "name": "Farming Fast Mythic",
+    "authors": "[DoD]Mirez & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:32",
+    "heroic": "6:29",
+    "mythic": "10:54",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Shennong%20-%20Farming%20Fast%20Mythic%20-%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk%20-%20ECO.html"
+  },
+  {
+    "god": "shennong",
+    "name": "Fast 2TC",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:43",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Shennong%20-%20Fast%202TC%20-%20%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "shennong",
+    "name": "Fast 2TC into Heroic",
+    "authors": "[DoD]Mirez & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "3:43",
+    "heroic": "8:05",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Shennong%20-%20Fast%202TC%20into%20Heroic%20-%20%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "shennong",
+    "name": "Fast Heroic",
+    "authors": "[DoD]Mirez & [DoD]Godschalk",
+    "type": "eco",
+    "classical": "4:23",
+    "heroic": "6:55",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Shennong%20-%20Fast%20Heroic%20-%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "shennong",
+    "name": "Water Build",
+    "authors": "[DoD]Mirez",
+    "type": "water",
+    "advance": "3:32",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Shennong%20-%20Water%20Build%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "shennong",
+    "name": "Water Fast Heroic",
+    "authors": "[DoD]Mirez & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:32",
+    "heroic": "6:47",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Shennong%20-%20Water%20Fast%20Heroic%20-%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "susanoo",
+    "name": "3 Miko 4:25",
+    "authors": "Cajocu",
+    "type": "eco",
+    "classical": "4:25",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Susanoo%20-%203%20Miko%204_25%20-%20Cajocu.html"
+  },
+  {
+    "god": "susanoo",
+    "name": "4:19 Double Miko",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:19",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Susanoo%20-%204_19%20Double%20Miko%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "susanoo",
+    "name": "Standard 3:40 1 Miko",
+    "authors": "Cajocu",
+    "type": "eco",
+    "classical": "3:40",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Susanoo%20-%20Standard%203_40%201%20Miko%20-%20Cajocu.html"
+  },
+  {
+    "god": "susanoo",
+    "name": "Standard Water",
+    "authors": "Cajocu & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:48",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Susanoo%20-%20Standard%20Water%20-%20Cajocu%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "tezcatlipoca",
+    "name": "1 Calpulli 3:16",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:16",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tezcatlipoca%20-%201%20Calpulli%203_16%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "tezcatlipoca",
+    "name": "1 Calpulli Double Scout 3:37",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:37",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tezcatlipoca%20-%201%20Calpulli%20Double%20Scout%203_37%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "tezcatlipoca",
+    "name": "3 Calpulli 4:07",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tezcatlipoca%20-%203%20Calpulli%204_07%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "tezcatlipoca",
+    "name": "4:07 Standard Opening",
+    "authors": "TheRapl",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tezcatlipoca%20-%204_07%20Standard%20Opening%20-%20TheRapl.html"
+  },
+  {
+    "god": "tezcatlipoca",
+    "name": "Early Livestock Pen 4:07",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tezcatlipoca%20-%20Early%20Livestock%20Pen%204_07%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "tezcatlipoca",
+    "name": "Fast 2TC",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tezcatlipoca%20-%20Fast%202TC%20-%20DoD%5DMirez%20-%20ECO.html"
+  },
+  {
+    "god": "tezcatlipoca",
+    "name": "Lurable Hunt 1 Calpulli 4:07",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tezcatlipoca%20-%20Lurable%20Hunt%201%20Calpulli%204_07%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "tezcatlipoca",
+    "name": "Lurable Hunt 2 Calpulli 4:07",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tezcatlipoca%20-%20Lurable%20Hunt%202%20Calpulli%204_07%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "tezcatlipoca",
+    "name": "Standard Opening",
+    "authors": "HUSKSUPPE",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tezcatlipoca%20-%20Standard%20Opening%20-%20HUSKSUPPE.html"
+  },
+  {
+    "god": "tezcatlipoca",
+    "name": "Water Boom",
+    "authors": "[DoD]Mirez",
+    "type": "water",
+    "classical": "5:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tezcatlipoca%20-%20Water%20Boom%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "thor",
+    "name": "3:34 Anti-Kronos",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:34",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Thor%20-%203_34%20Anti-Kronos%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "thor",
+    "name": "3:34 Double Ox Cart",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "3:34",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Thor%20-%203_34%20Double%20Ox%20Cart%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "thor",
+    "name": "4:07 Armory Opening",
+    "authors": "[DoD]Cragghack & [DoD]Mirez",
+    "type": "eco",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Thor%20-%204_07%20Armory%20Opening%20-%20%5BDoD%5DCragghack%20%26%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "thor",
+    "name": "4:24 Full Bronze Armory",
+    "authors": "[DoD]Cragghack & [DoD]Mirez",
+    "type": "eco",
+    "classical": "4:24",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Thor%20-%204_24%20Full%20Bronze%20Armory%20-%20%5BDoD%5DCragghack%20%26%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "thor",
+    "name": "Fast Temple",
+    "authors": "HUSKSUPPE",
+    "type": "rush",
+    "classical": "4:07",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Thor%20-%20Fast%20Temple%20-%20HUSKSUPPE%20-%20Rush.html"
+  },
+  {
+    "god": "thor",
+    "name": "Water Boom",
+    "authors": "HUSKSUPPE & [DoD]Mirez",
+    "type": "water",
+    "advance": "4:15",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Thor%20-%20Water%20Boom%20-%20HUSKSUPPE%20%26%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "thor",
+    "name": "Water Build",
+    "authors": "[DoD]Mirez",
+    "type": "water",
+    "advance": "3:24",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Thor%20-%20Water%20Build%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "tsukuyomi",
+    "name": "3:25 1 Miko",
+    "authors": "Cajocu",
+    "type": "eco",
+    "classical": "3:25",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tsukuyomi%20-%203_25%201%20Miko%20-%20Cajocu.html"
+  },
+  {
+    "god": "tsukuyomi",
+    "name": "4:04 Double Miko",
+    "authors": "[DoD]Mirez",
+    "type": "eco",
+    "classical": "4:04",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tsukuyomi%20-%204_04%20Double%20Miko%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "tsukuyomi",
+    "name": "4:10 3 Miko",
+    "authors": "Cajocu",
+    "type": "eco",
+    "classical": "4:10",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tsukuyomi%20-%204_10%203%20Miko%20-%20Cajocu.html"
+  },
+  {
+    "god": "tsukuyomi",
+    "name": "Standard Water",
+    "authors": "Cajocu & [DoD]Godschalk",
+    "type": "water",
+    "classical": "4:43",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Tsukuyomi%20-%20Standard%20Water%20-%20Cajocu%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "zeus",
+    "name": "3:50 Beginner Friendly and Strong",
+    "authors": "By [DoD]CraggHack",
+    "type": "eco",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Zeus%20-%203_50%20Beginner%20Friendly%20and%20Strong%20-%20By%20%5BDoD%5DCraggHack.html"
+  },
+  {
+    "god": "zeus",
+    "name": "3:50 Fast Pickaxe",
+    "authors": "[DoD]Mirez",
+    "type": "rush",
+    "classical": "3:50",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Zeus%20-%203_50%20Fast%20Pickaxe%20-%20%5BDoD%5DMirez.html"
+  },
+  {
+    "god": "zeus",
+    "name": "4:07 Pickaxe & Hand Axe",
+    "authors": "[DoD]CraggHack & [DoD]Godschalk",
+    "type": "rush",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Zeus%20-%204_07%20Pickaxe%20%26%20Hand%20Axe%20-%20%5BDoD%5DCraggHack%20%26%20%5BDoD%5DGodschalk.html"
+  },
+  {
+    "god": "zeus",
+    "name": "Fast 2TC",
+    "authors": "[Keen]Pegasus",
+    "type": "eco",
+    "classical": "3:50",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Zeus%20-%20Fast%202TC%20-%20%5BKeen%5DPegasus.html"
+  },
+  {
+    "god": "zeus",
+    "name": "Military Focus",
+    "authors": "[DoD]Cod1eh",
+    "type": "eco",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Zeus%20-%20Military%20Focus%20-%20%5BDoD%5DCod1eh.html"
+  },
+  {
+    "god": "zeus",
+    "name": "Standard Water Boom",
+    "authors": "Boit, [DoD]Mirez & [DoD]Godschalk",
+    "type": "water",
+    "url": "https://kries-dev.github.io/BuildOrders/Build%20Orders/Zeus%20-%20Standard%20Water%20Boom%20-%20Boit%2C%20%20%5BDoD%5DMirez%20%26%20%5BDoD%5DGodschalk.html"
+  }
+]

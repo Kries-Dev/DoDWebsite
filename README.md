@@ -30,18 +30,41 @@ Pages are in `src/pages/` — the folder structure is the URL structure.
 
 Add an object to `src/data/events.json` with a unique `slug`, `start`/`end` dates (`YYYY-MM-DD`), a `when` line as visitors should read it, and `body` paragraphs. Put a sign-up URL in `signup`, or leave it `null` to point people to Discord. The page appears at `/events/<slug>/`.
 
+## Build orders
+
+The build-order section is generated from the [Kries-Dev/BuildOrders](https://github.com/Kries-Dev/BuildOrders) repo:
+
+```bash
+node scripts/sync-build-orders.mjs ../BuildOrders   # path to your local clone
+```
+
+It reads `Build Orders/*.html` (file name pattern `God - Build name - Author(s)[ - ECO|RUSH|WATER].html`), pulls the Classical/Heroic/Mythic times out of each page, and resizes the god art from `assets/<god>/` into `public/gods/`. The deploy workflow runs it on every deploy and once a day, so a build pushed to BuildOrders shows up within a day — or immediately if BuildOrders triggers a rebuild:
+
+```yaml
+# .github/workflows/notify-site.yml in Kries-Dev/BuildOrders
+on: { push: { branches: [main] } }
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh api repos/Kries-Dev/dod-site/dispatches -f event_type=build-orders-updated
+        env: { GH_TOKEN: "${{ secrets.SITE_DISPATCH_TOKEN }}" }   # fine-grained token, Contents: write on dod-site
+```
+
+## Logo
+
+`brand-source/reaper-transparent.png` (from `Logos/DeitiesofDeath2.png`) → `node scripts/make-logo.mjs` writes the header/footer sizes, favicons and touch icon.
+
 ## Still to fill in
 
 These were not in the Wix capture. Until they are set, the site falls back to the Discord invite.
 
-- [ ] `site.json` → `logo`: put the logo in `public/brand/` and set e.g. `"/brand/dod-logo.svg"` (a typographic DoD mark is shown meanwhile)
 - [ ] `site.json` → `shopUrl`: the Fourthwall shop link
 - [ ] `site.json` → Facebook URL in `socials`
 - [ ] `site.json` → `discord`: confirm the permanent invite (the Wix site used both `bRyTS52tK5` and `SmJ28VzEQU`)
 - [ ] `site.json` → `businessEmail`: switch to `business@thedodclan.com` once forwarding is set up
 - [ ] `site.json` → `tryoutsFormAction`: a form endpoint (e.g. Formspree) to turn on the War for Westeros sign-up form; while `null`, the page sends people to Discord
 - [ ] `projects.json` → `url` per mod: link to the download (GitHub Releases recommended) or the soundboard page
-- [ ] `gods.json` links assume `https://kries-dev.github.io/BuildOrders/<god>.html` — check the file names match
 - [ ] `events.json` → Monthly FFA start time: Wix listed 20:00 CET, the event text said 18:00 GMT
 - [ ] `src/pages/privacy.astro`: review the draft privacy notice
 

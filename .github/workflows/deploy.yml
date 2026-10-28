@@ -3,9 +3,13 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-  # Weekly rebuild so "upcoming" vs "past" events stay current without a commit.
+  # Daily rebuild: picks up new build orders pushed to Kries-Dev/BuildOrders,
+  # and keeps "upcoming" vs "past" events current without a commit.
   schedule:
-    - cron: '17 4 * * 1'
+    - cron: '17 4 * * *'
+  # Lets the BuildOrders repo trigger a rebuild right after a push (see README).
+  repository_dispatch:
+    types: [build-orders-updated]
   workflow_dispatch:
 
 permissions:
@@ -22,11 +26,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Check out the build-order library
+        uses: actions/checkout@v4
+        with:
+          repository: Kries-Dev/BuildOrders
+          path: vendor/BuildOrders
+          sparse-checkout: |
+            Build Orders
+            assets
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: node scripts/sync-build-orders.mjs vendor/BuildOrders
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:

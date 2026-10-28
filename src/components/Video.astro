@@ -13,7 +13,7 @@ const { id, title, label } = Astro.props;
   </button>
 </div>
 <script>
-  document.querySelectorAll<HTMLElement>('.video[data-yt]').forEach((box) => {
+  document.addEventListener('astro:page-load', () => document.querySelectorAll<HTMLElement>('.video[data-yt]').forEach((box) => {
     const button = box.querySelector('button');
     button?.addEventListener('click', () => {
       const frame = document.createElement('iframe');
@@ -23,5 +23,5 @@ const { id, title, label } = Astro.props;
       frame.allowFullscreen = true;
       box.replaceChildren(frame);
     }, { once: true });
-  });
+  }));
 </script>

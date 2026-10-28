@@ -1,12 +1,10 @@
 ---
-// DoD mark. Uses the real logo when site.json "logo" points at a file in /public, else a typographic mark.
-import site from '../data/site.json';
-interface Props { size?: number }
-const { size = 44 } = Astro.props;
+// The DoD reaper logo, transparent version (source: brand-source/reaper-transparent.png, from Logos/DeitiesofDeath2.png).
+interface Props { size?: number; eager?: boolean }
+const { size = 44, eager = true } = Astro.props;
+const src = size <= 96 ? '/brand/dod-96.webp' : size <= 192 ? '/brand/dod-192.webp' : '/brand/dod-512.webp';
 ---
-{site.logo
-  ? <img src={site.logo} alt="" width={size} height={size} style={`width:${size}px;height:${size}px;object-fit:contain`} />
-  : <span class="mark" style={`width:${size}px;height:${size}px;font-size:${Math.round(size * 0.38)}px`} aria-hidden="true">DoD</span>}
+<img class="mark" src={src} alt="" width={size} height={size} loading={eager ? 'eager' : 'lazy'} decoding="async" />
 <style>
-  .mark { display: inline-flex; flex: none; align-items: center; justify-content: center; border: 1.5px solid var(--text); font-family: var(--font-display); font-weight: 700; color: var(--text); }
+  .mark { display: block; flex: none; }
 </style>

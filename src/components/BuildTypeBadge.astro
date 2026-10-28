@@ -1,0 +1,12 @@
+---
+interface Props { type: string }
+const { type } = Astro.props;
+const label: Record<string, string> = { eco: 'Eco', rush: 'Rush', water: 'Water' };
+---
+<span class={`bt bt-${type}`}>{label[type] ?? type}</span>
+<style>
+  .bt { display: inline-flex; align-items: center; min-height: 24px; padding: 0 10px; font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid; background: rgba(8, 8, 8, 0.85); backdrop-filter: blur(4px); }
+  .bt-eco { color: #6cc48a; border-color: #2a5a3a; }
+  .bt-rush { color: #f0675a; border-color: #6a2620; }
+  .bt-water { color: #7aa2e0; border-color: #2a3e66; }
+</style>
