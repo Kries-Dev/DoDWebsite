@@ -149,11 +149,9 @@ const filters = [
   .gh-scene { position: absolute; inset: -6% 0 0; z-index: -2; }
   .gh-scene img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
   @media (prefers-reduced-motion: no-preference) {
-    .gh-scene img { animation: gh-drift 28s ease-in-out infinite alternate; }
     .gh-medal { animation: gh-float 6s ease-in-out infinite; }
     .gh-medal img { animation: gh-glow 3.2s ease-in-out infinite; }
   }
-  @keyframes gh-drift { from { transform: scale(1.02); } to { transform: scale(1.09) translate(-1.5%, -1%); } }
   @keyframes gh-float { 50% { transform: translateY(-6px); } }
   @keyframes gh-glow {
     0%, 100% { box-shadow: 0 0 0 1px rgba(224,173,74,0.6), 0 0 22px 4px rgba(224,173,74,0.35), 0 16px 40px rgba(0,0,0,0.8); }
@@ -192,7 +190,7 @@ const filters = [
   /* The whole artwork is always visible: it is fitted in full, and a blurred, darkened copy fills the sides */
   .bo-art { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--surface-2); }
   .bo-art-fill { position: absolute; inset: -12%; width: 124%; height: 124%; max-width: none; object-fit: cover; filter: blur(18px) saturate(0.7) brightness(0.35); }
-  .bo-art-full { position: relative; z-index: 1; display: block; height: 100%; width: auto; margin-inline: auto; object-fit: contain; filter: saturate(0.85) brightness(0.8); transform-origin: 50% 60%; transition: transform 0.8s var(--ease-out), filter 0.5s; }
+  .bo-art-full { position: relative; z-index: 1; display: block; height: 100%; width: auto; margin-inline: auto; object-fit: contain; filter: saturate(0.85) brightness(0.8); transition: filter 0.5s; }
   .bo-art::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(20,20,20,0) 55%, rgba(20,20,20,0.85) 100%); pointer-events: none; }
   .bo-badge { z-index: 2; }
   .bo-badge { position: absolute; left: 16px; top: 14px; z-index: 1; }
@@ -203,7 +201,7 @@ const filters = [
   .bo-ages { display: flex; gap: 14px; flex-wrap: wrap; }
   .bo-open { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); transition: color 0.2s, gap 0.3s var(--ease-out); }
   .bo-card:hover { border-color: var(--line-strong); transform: translateY(-4px); color: var(--text); }
-  .bo-card:hover .bo-art-full { transform: scale(1.04); filter: saturate(1) brightness(0.95); }
+  .bo-card:hover .bo-art-full { filter: saturate(1) brightness(0.95); }
   .bo-card:hover .bo-open { color: var(--red-text); gap: 10px; }
   .bo-card.pop { animation: pop 0.5s var(--ease-out); }
   @keyframes pop { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
