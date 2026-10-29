@@ -1,6 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import basePath from './integrations/base-path.mjs';
+
+// Where the site is served. The deploy workflow fills these in from GitHub Pages:
+//   no custom domain  → SITE_URL=https://kries-dev.github.io  SITE_BASE=/DoDWebsite
+//   thedodclan.com    → SITE_URL=https://thedodclan.com       SITE_BASE=/
+const site = process.env.SITE_URL || 'https://thedodclan.com';
+const base = process.env.SITE_BASE || '/';
 
 // Old Wix slugs → new pages, so any saved or shared link keeps working.
 const wixRedirects = {
@@ -16,8 +23,9 @@ const wixRedirects = {
 };
 
 export default defineConfig({
-  site: 'https://thedodclan.com',
+  site,
+  base,
   trailingSlash: 'always',
   redirects: wixRedirects,
-  integrations: [sitemap()],
+  integrations: [sitemap(), basePath(base, site)],
 });

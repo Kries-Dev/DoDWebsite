@@ -68,10 +68,23 @@ These were not in the Wix capture. Until they are set, the site falls back to th
 - [ ] `events.json` → Monthly FFA start time: Wix listed 20:00 CET, the event text said 18:00 GMT
 - [ ] `src/pages/privacy.astro`: review the draft privacy notice
 
+## Where it runs
+
+The repo is `Kries-Dev/DoDWebsite`. With Settings → Pages → Source set to **GitHub Actions**, every push to `main` deploys to:
+
+- **https://kries-dev.github.io/DoDWebsite/** — preview while the design is being worked on
+- **https://thedodclan.com/** — automatically, once the custom domain is set (no code change)
+
+The workflow asks GitHub Pages for the address and passes it to the build (`SITE_URL`, `SITE_BASE`). Pages keep writing plain root links (`/coaching/`, `/gods/zeus/portrait.webp`); `integrations/base-path.mjs` prefixes them with `/DoDWebsite` after the build when needed. To test the sub-path build locally:
+
+```bash
+SITE_URL=https://kries-dev.github.io SITE_BASE=/DoDWebsite npm run build
+```
+
 ## Going live on thedodclan.com
 
-1. Create the repo (e.g. `Kries-Dev/dod-site`) and push this folder to `main`.
-2. Repo → Settings → Pages → Source: **GitHub Actions**. Until the custom domain is set, the preview at `kries-dev.github.io/dod-site/` shows unstyled pages and broken links — the site is built for the domain root.
+1. (Done) Repo `Kries-Dev/DoDWebsite`, Pages source **GitHub Actions**.
+2. Check the preview at `kries-dev.github.io/DoDWebsite/`.
 3. Settings → Pages → Custom domain: `thedodclan.com`.
 4. At the registrar that holds thedodclan.com: turn off the frame/forwarding to Wix, then add
    - A records for `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
