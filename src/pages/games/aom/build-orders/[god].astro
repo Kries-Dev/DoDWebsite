@@ -21,7 +21,6 @@ const filters = [
   { id: 'rush', label: 'Rush', n: counts.rush },
   { id: 'water', label: 'Water', n: counts.water },
 ].filter((f) => f.id === 'all' || f.n > 0);
-const crops = ['50% 20%', '50% 45%', '50% 70%', '30% 35%', '70% 35%'];
 ---
 <Base title={`${god.name} build orders`} description={`${god.builds.length} ${god.name} build orders for Age of Mythology: Retold (${god.pantheon}) — eco, rush and water builds from the DoD community.`}>
   <section class="gh" data-scene={sc.id}>
@@ -65,7 +64,8 @@ const crops = ['50% 20%', '50% 45%', '50% 70%', '30% 35%', '70% 35%'];
       {god.builds.map((b, i) => (
         <a class="bo-card" href={b.url} data-reveal data-type={b.type} data-text={`${b.name} ${b.authors}`.toLowerCase()}>
           <span class="bo-art">
-            <img src={a.card} alt="" loading="lazy" decoding="async" style={`object-position:${crops[i % crops.length]}`} />
+            <img class="bo-art-fill" src={a.card} alt="" loading="lazy" decoding="async" aria-hidden="true" />
+            <img class="bo-art-full" src={a.card} alt="" loading="lazy" decoding="async" width="640" height="800" />
             <span class="bo-badge"><BuildTypeBadge type={b.type} /></span>
           </span>
           <span class="bo-body">
@@ -189,9 +189,12 @@ const crops = ['50% 20%', '50% 45%', '50% 70%', '30% 35%', '70% 35%'];
   .bo-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); }
   .bo-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); text-decoration: none; overflow: hidden; transition: border-color 0.3s, transform 0.5s var(--ease-out); }
   .bo-card[hidden] { display: none; }
-  .bo-art { position: relative; aspect-ratio: 16 / 7; overflow: hidden; background: var(--surface-2); }
-  .bo-art img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.7); transform: scale(1.04); transition: transform 0.8s var(--ease-out), filter 0.5s; }
-  .bo-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,20,20,0) 30%, var(--surface) 100%); }
+  /* The whole artwork is always visible: it is fitted in full, and a blurred, darkened copy fills the sides */
+  .bo-art { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--surface-2); }
+  .bo-art-fill { position: absolute; inset: -12%; width: 124%; height: 124%; max-width: none; object-fit: cover; filter: blur(18px) saturate(0.7) brightness(0.35); }
+  .bo-art-full { position: relative; z-index: 1; display: block; height: 100%; width: auto; margin-inline: auto; object-fit: contain; filter: saturate(0.85) brightness(0.8); transform-origin: 50% 60%; transition: transform 0.8s var(--ease-out), filter 0.5s; }
+  .bo-art::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(20,20,20,0) 55%, rgba(20,20,20,0.85) 100%); pointer-events: none; }
+  .bo-badge { z-index: 2; }
   .bo-badge { position: absolute; left: 16px; top: 14px; z-index: 1; }
   .bo-body { display: flex; flex-direction: column; gap: 4px; padding: 4px 20px 16px; }
   .bo-name { font-family: var(--font-display); font-weight: 700; font-size: 26px; line-height: 1.05; }
@@ -200,7 +203,7 @@ const crops = ['50% 20%', '50% 45%', '50% 70%', '30% 35%', '70% 35%'];
   .bo-ages { display: flex; gap: 14px; flex-wrap: wrap; }
   .bo-open { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); transition: color 0.2s, gap 0.3s var(--ease-out); }
   .bo-card:hover { border-color: var(--line-strong); transform: translateY(-4px); color: var(--text); }
-  .bo-card:hover .bo-art img { transform: scale(1.12); filter: saturate(1) brightness(0.85); }
+  .bo-card:hover .bo-art-full { transform: scale(1.04); filter: saturate(1) brightness(0.95); }
   .bo-card:hover .bo-open { color: var(--red-text); gap: 10px; }
   .bo-card.pop { animation: pop 0.5s var(--ease-out); }
   @keyframes pop { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }

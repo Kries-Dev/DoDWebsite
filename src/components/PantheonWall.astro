@@ -62,12 +62,16 @@ const pantheonBuilds = (slots: Slot[]) => slots.reduce((n, s) => n + (godBySlug.
     border: 1px solid #5a1a14; background: #050505;
     box-shadow: 0 0 0 1px #0b0b0b, 0 40px 120px -30px rgba(192, 57, 43, 0.35);
   }
-  .pan { position: relative; aspect-ratio: 16 / 9; overflow: hidden; isolation: isolate; transition: filter 0.5s ease; }
+  /* No overflow clipping: the outer medallions sit ~1% from the panel edge, and a hovered medallion
+     lifts and glows past it. The scene image and weather clip themselves. */
+  .pan { position: relative; aspect-ratio: 16 / 9; isolation: isolate; transition: filter 0.5s ease; }
+  .pan:hover, .pan:focus-within { z-index: 2; }
+  .pan-scene { overflow: hidden; }
   .pan-world { position: absolute; inset: 0; z-index: 0; transform-origin: 50% 40%; }
   .pan-scene { position: absolute; inset: 0; }
   .pan-scene img { width: 100%; height: 100%; object-fit: cover; }
   .pan::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-    background: radial-gradient(130% 100% at 50% 40%, transparent 60%, rgba(0,0,0,0.5) 100%); }
+    background: radial-gradient(160% 130% at 50% 40%, transparent 72%, rgba(0,0,0,0.35) 100%); }
 
   /* Pantheon label — slides in on hover/focus */
   .pan-label { position: absolute; left: 3.5%; top: 6%; display: flex; flex-direction: column; line-height: 1; pointer-events: none; z-index: 3;
@@ -114,10 +118,6 @@ const pantheonBuilds = (slots: Slot[]) => slots.reduce((n, s) => n + (godBySlug.
     .pan:not(.filler):hover { filter: brightness(1.06) saturate(1.06); }
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .pan-world { animation: drift 26s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -3.5s); }
-  }
-  @keyframes drift { from { transform: scale(1.01); } to { transform: scale(1.07) translate(-1.2%, -0.8%); } }
 
   /* Phones: scenes stack, the side panels drop out, labels always visible */
   @media (max-width: 760px) {
