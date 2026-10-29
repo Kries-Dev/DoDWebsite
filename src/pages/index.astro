@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Video from '../components/Video.astro';
+import Intro from '../components/Intro.astro';
+import '@fontsource/cinzel-decorative/700.css';
 import site from '../data/site.json';
 import coaches from '../data/coaches.json';
 import projects from '../data/projects.json';
@@ -26,42 +28,43 @@ const jsonLd = {
 };
 ---
 <Base jsonLd={jsonLd}>
-  <section class="hero">
+  <script is:inline slot="head">
+    // Decide before first paint whether the intro plays, so the hero never flashes up first.
+    (function () {
+      try {
+        var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var seen = false;
+        try { seen = sessionStorage.getItem('dodIntroSeen') === '1'; } catch (e) {}
+        if (!reduce && (location.hash === '#intro' || !seen)) {
+          var r = document.documentElement;
+          r.classList.add('intro-on');
+          // Safety net: if the intro script never starts, show the site anyway.
+          setTimeout(function () { if (!r.dataset.introStarted) r.classList.remove('intro-on'); }, 4000);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preload" as="image" href="/intro/dod-emblem.webp" slot="head" />
+
+  <Intro />
+
+  <section class="hero home-hero">
+    <canvas class="embers" id="heroEmbers" aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
-      <div class="stack">
-        <span class="eyebrow">Since {site.founded}</span>
-        <h1 class="display-xl">Deities of Death</h1>
-        <p class="lead">Twenty years of competitive Age of Mythology and a record nine RTS-League titles. Now an RTS esports organisation — with Game of Thrones: War for Westeros as our next front.</p>
-        <div class="btns" style="padding-top:8px">
+      <div class="stack hero-copy">
+        <span class="eyebrow" data-intro-reveal style="--d:2">Since {site.founded}</span>
+        <h1 class="hero-title" data-intro-reveal style="--d:3">Deities of Death<span class="hero-sub">E-Sports</span></h1>
+        <p class="lead" data-intro-reveal style="--d:4">Twenty years of competitive Age of Mythology and a record nine RTS-League titles. Now an RTS esports organisation — with Game of Thrones: War for Westeros as our next front.</p>
+        <div class="btns" data-intro-reveal style="--d:5;padding-top:8px">
           <a class="btn primary" href={site.discord} rel="noopener">Join our Discord</a>
           <a class="btn" href="/about/">Our story</a>
         </div>
       </div>
-
-      {feature && (
-        <article class="feature" aria-label={next ? 'Next event' : 'Latest event'}>
-          <div class="feature-top">
-            <span class="eyebrow plain" style="font-size:14px;color:var(--text)"><span class="sq" />{next ? 'NEXT EVENT' : 'LATEST EVENT'}</span>
-            <span class="small muted">{feature.kind}</span>
-          </div>
-          <div class="feature-body stack" style="--gap:12px">
-            <span class="small muted">{feature.game}</span>
-            <h2 class="h3" style="font-size:36px">{feature.title}</h2>
-            <p class="muted">{feature.tagline}</p>
-          </div>
-          <dl class="feature-facts">
-            <div><dt class="tiny">When</dt><dd>{feature.when}</dd></div>
-            <div><dt class="tiny">Status</dt><dd>{next ? (feature.signup ? 'Sign-ups open' : 'Upcoming') : 'Finished'}</dd></div>
-          </dl>
-          <a class="feature-link" href={`/events/${feature.slug}/`}>
-            {next ? 'Event details' : 'See how it went'}
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
-          </a>
-          {!next && <p class="tiny" style="padding:0 24px 16px">The next event is announced on Discord first.</p>}
-        </article>
-      )}
+      <div class="hero-art">
+        <img id="heroEmblem" src="/intro/dod-emblem.webp" alt="Deities of Death reaper emblem" width="1012" height="1017" fetchpriority="high" />
+      </div>
     </div>
-    <div class="wrap">
+    <div class="wrap" data-intro-reveal style="--d:6">
       <div class="stats" style="border-top:1px solid var(--line);border-bottom:0">
         <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Years competing, since {site.founded}</div></div>
         <div class="stat"><div class="stat-num">9×</div><div class="stat-label">RTS-League champions</div></div>
@@ -70,6 +73,21 @@ const jsonLd = {
       </div>
     </div>
   </section>
+
+  {feature && (
+    <a class="event-strip" href={`/events/${feature.slug}/`} aria-label={`${next ? 'Next event' : 'Latest event'}: ${feature.title}`} data-intro-reveal style="--d:7">
+      <div class="wrap event-strip-inner">
+        <span class="es-label"><span class="es-dot" />{next ? 'Next event' : 'Latest event'}</span>
+        <span class="es-title">{feature.title}</span>
+        <span class="es-meta">{feature.game}</span>
+        <span class="es-meta">{feature.when}</span>
+        <span class="es-meta">{next ? (feature.signup ? 'Sign-ups open' : 'Upcoming') : 'Finished'}</span>
+        <span class="es-go">{next ? 'Event details' : 'See how it went'}
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+        </span>
+      </div>
+    </a>
+  )}
 
   <section class="section">
     <div class="wrap stack" style="--gap:32px">
@@ -224,16 +242,36 @@ const jsonLd = {
 </Base>
 
 <style>
-  .hero-grid { display: grid; gap: 64px; align-items: end; padding-block: clamp(56px, 10vw, 104px) 64px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); }
-  .feature { background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; }
-  .feature-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 24px; border-bottom: 1px solid var(--line); }
-  .sq { width: 8px; height: 8px; background: var(--red-text); }
-  .feature-body { padding: 28px 24px; }
-  .feature-facts { display: grid; grid-template-columns: 1fr 1fr; margin: 0; border-top: 1px solid var(--line); }
-  .feature-facts div { padding: 16px 24px; }
-  .feature-facts div + div { border-left: 1px solid var(--line); }
-  .feature-facts dd { margin: 0; font-weight: 600; }
-  .feature-link { display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 24px; border-top: 1px solid var(--line); text-decoration: none; font-weight: 600; }
+  .home-hero { position: relative; overflow: hidden; }
+  .hero-grid { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: center; padding-block: clamp(56px, 9vw, 112px) 56px; }
+  .hero-copy { grid-column: 1 / span 7; min-width: 0; }
+  .hero-art { grid-column: 8 / span 5; display: grid; place-items: center; }
+  .hero-art img { width: 100%; max-width: 460px; height: auto; }
+  .hero-title { font-family: 'Cinzel Decorative', 'Cinzel', Georgia, serif; font-weight: 700; font-size: clamp(48px, 7.4vw, 104px); line-height: 0.95; letter-spacing: -0.01em; text-wrap: balance; }
+  .hero-sub { display: block; margin-top: 18px; font-family: var(--font-display); font-weight: 600; font-size: clamp(20px, 2.2vw, 28px); line-height: 1; letter-spacing: 0.5em; color: var(--red-text); text-shadow: 0 0 28px rgba(192, 57, 43, 0.45); }
+  .home-hero .btn.primary { box-shadow: 0 8px 32px -8px rgba(192, 57, 43, 0.7); }
+  .home-hero .btn.primary:hover { box-shadow: 0 10px 44px -6px rgba(224, 74, 59, 0.85); }
+  /* Sparks: confined by script to the copy column, so the logo side stays pure black */
+  .embers { position: absolute; left: 0; top: 0; width: 0; height: 0; pointer-events: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  @media (max-width: 860px) {
+    .hero-copy, .hero-art { grid-column: 1 / -1; }
+    .hero-art { order: -1; }
+    .hero-art img { max-width: 300px; }
+    .embers { -webkit-mask-image: linear-gradient(180deg, transparent, #000 15%); mask-image: linear-gradient(180deg, transparent, #000 15%); }
+  }
+
+  .event-strip { display: block; text-decoration: none; border-block: 1px solid var(--line); background: linear-gradient(90deg, rgba(192, 57, 43, 0.22), rgba(192, 57, 43, 0.05) 45%, transparent 80%); position: relative; }
+  .event-strip::before { content: ''; position: absolute; inset: -1px 0 auto; height: 2px; background: linear-gradient(90deg, transparent, var(--red) 30%, var(--red-text) 50%, var(--red) 70%, transparent); }
+  .event-strip:hover { color: var(--text); background: linear-gradient(90deg, rgba(192, 57, 43, 0.3), rgba(192, 57, 43, 0.08) 45%, transparent 80%); }
+  .event-strip-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 28px; min-height: 72px; padding-block: 16px; }
+  .es-label { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 600; font-size: 15px; letter-spacing: 0.06em; color: var(--red-text); }
+  .es-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red-text); }
+  .es-title { font-family: var(--font-display); font-weight: 700; font-size: 24px; line-height: 1.1; }
+  .es-meta { color: var(--muted); font-size: 15px; }
+  .es-go { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+  .event-strip:hover .es-go svg { transform: translateX(4px); }
+  .es-go svg { transition: transform 0.25s var(--ease-out); }
+  @media (max-width: 720px) { .es-go { margin-left: 0; } }
   .game { min-height: 380px; justify-content: space-between; gap: 32px; }
   .game-top { display: flex; justify-content: space-between; align-items: start; gap: 16px; }
   .game-links { display: flex; flex-wrap: wrap; gap: 8px 24px; border-top: 1px solid var(--line); padding-top: 16px; }
@@ -245,3 +283,52 @@ const jsonLd = {
   .panel { gap: 16px; }
   .cta { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
 </style>
+
+<script>
+  // Red embers drifting up the copy side of the hero, echoing the intro clip.
+  // Sized to stop short of the logo column, and re-sized whenever the hero changes size.
+  function embers() {
+    const c = document.getElementById('heroEmbers') as HTMLCanvasElement | null;
+    if (!c || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const hero = c.closest('.home-hero') as HTMLElement, art = hero.querySelector('.hero-art') as HTMLElement;
+    const ctx = c.getContext('2d')!;
+    const stacked = matchMedia('(max-width: 860px)');
+    type P = { x: number; y: number; r: number; vy: number; vx: number; life: number; max: number; hue: string };
+    const parts: P[] = [];
+    let W = 0, H = 0;
+    const spawn = (y?: number): P => ({ x: Math.random() * W, y: y ?? H + 10, r: 0.8 + Math.random() * 2, vy: 0.3 + Math.random() * 0.8, vx: (Math.random() - 0.5) * 0.3, life: 0, max: 240 + Math.random() * 320, hue: Math.random() < 0.7 ? '224,74,59' : '255,140,80' });
+    const size = () => {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      const hr = hero.getBoundingClientRect(), ar = art.getBoundingClientRect();
+      if (!hr.width || !hr.height) { W = H = 0; return; }
+      let y = 0;
+      if (stacked.matches) { y = Math.max(0, ar.bottom - hr.top); W = hr.width; H = hr.height - y; }
+      else { W = Math.max(0, ar.left - hr.left - 24); H = hr.height; }
+      Object.assign(c.style, { top: `${y}px`, width: `${W}px`, height: `${H}px` });
+      if (!W || !H) return;
+      c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const want = Math.round(Math.min(60, Math.max(20, W / 14)));
+      while (parts.length < want) parts.push(spawn(Math.random() * H));
+      parts.length = want;
+      for (const p of parts) if (p.x > W || p.y > H + 10) Object.assign(p, spawn(Math.random() * H));
+    };
+    size();
+    const ro = new ResizeObserver(size); ro.observe(hero);
+    const tick = () => {
+      if (!c.isConnected) { ro.disconnect(); return; }   // left the homepage
+      if (W && H) {
+        ctx.clearRect(0, 0, W, H);
+        for (const p of parts) {
+          p.life++; p.y -= p.vy; p.x += p.vx + Math.sin(p.life / 40) * 0.15;
+          const a = Math.sin(Math.PI * Math.min(p.life / p.max, 1)) * 0.9;
+          ctx.beginPath(); ctx.fillStyle = `rgba(${p.hue},${a})`; ctx.shadowColor = `rgba(${p.hue},${a})`; ctx.shadowBlur = 10;
+          ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
+          if (p.life > p.max || p.y < -10 || p.x < -10 || p.x > W + 10) Object.assign(p, spawn());
+        }
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  document.addEventListener('astro:page-load', embers);
+</script>

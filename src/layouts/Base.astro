@@ -41,6 +41,7 @@ const ogImage = new URL(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/og.png`,
     <meta name="twitter:card" content="summary_large_image" />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     <ClientRouter />
+    <slot name="head" />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>

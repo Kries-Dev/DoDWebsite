@@ -1,0 +1,144 @@
+---
+// Homepage opening: the Seedance reaper clip plays full-screen, lands on the emblem, and a crisp copy of the
+// emblem (#heroEmblem in the hero) flies from the video's last frame into its hero slot.
+// - Plays once per browser session; add #intro to the URL to force it (handy for testing).
+// - Skipped for reduced-motion visitors, and if autoplay is refused or the file stalls.
+// - Whether it plays is decided by the inline script in <head> (see IntroHead below) before anything paints,
+//   so the hero never flashes up first.
+//
+// The emblem overlay position (left 34.58%, top 22.5%, width 30.78% of the 16:9 stage) matches the clip's
+// final frame to within 0.1%. Re-measure it if the clip is ever re-rendered.
+---
+<div class="dod-intro" id="dodIntro" aria-label="Intro animation">
+  <div class="di-stage">
+    <img class="di-poster" src="/intro/intro-poster.jpg" alt="" />
+    <video id="dodIntroVideo" muted playsinline preload="auto" poster="/intro/intro-poster.jpg">
+      <source src="/intro/intro-720.webm" type="video/webm" media="(max-width: 900px)" />
+      <source src="/intro/intro-720.mp4" type="video/mp4" media="(max-width: 900px)" />
+      <source src="/intro/intro-1440.webm" type="video/webm" />
+      <source src="/intro/intro-1440.mp4" type="video/mp4" />
+    </video>
+    <img class="di-logo" id="dodIntroLogo" src="/intro/dod-emblem.webp" alt="" />
+  </div>
+  <div class="di-ctl di-tr">
+    <button type="button" id="dodIntroSound" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" /><path class="di-wave" d="M16.5 8.5a5 5 0 0 1 0 7" opacity=".35" /></svg>
+      <span>Sound off</span>
+    </button>
+  </div>
+  <div class="di-ctl di-br">
+    <button type="button" id="dodIntroSkip">Skip intro <kbd>Esc</kbd></button>
+  </div>
+</div>
+
+<style is:global>
+  .dod-intro { display: none; position: fixed; inset: 0; z-index: 50; background: #000; overflow: hidden; transition: opacity 0.5s ease; }
+  html.intro-on .dod-intro, html.intro-handoff .dod-intro { display: block; }
+  html.intro-on, html.intro-on body { overflow: hidden; }
+  .dod-intro.di-fade { opacity: 0; pointer-events: none; }
+  .dod-intro.di-fade .di-stage { visibility: hidden; }
+  /* 16:9 stage that covers the screen on landscape, and keeps the scythe swing in frame on portrait */
+  .di-stage { position: absolute; left: 50%; top: 50%; aspect-ratio: 16 / 9; width: max(100vw, 177.78vh); max-width: none; transform: translate(-50%, -50%); }
+  @media (orientation: portrait) { .di-stage { width: 135vw; } }
+  .di-stage video, .di-stage .di-poster { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; }
+  .di-logo { position: absolute; left: 34.58%; top: 22.5%; width: 30.78%; height: auto; max-width: none; opacity: 0; transition: opacity 0.35s linear; }
+  .di-logo.on { opacity: 1; }
+  .di-ctl { position: absolute; display: flex; gap: 8px; font: 600 14px/1 var(--font-body); }
+  .di-tr { top: calc(20px + env(safe-area-inset-top, 0px)); right: calc(20px + env(safe-area-inset-right, 0px)); }
+  .di-br { bottom: calc(20px + env(safe-area-inset-bottom, 0px)); right: calc(20px + env(safe-area-inset-right, 0px)); }
+  .di-ctl button { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; color: var(--muted); border: 1px solid var(--line); background: rgba(0, 0, 0, 0.45); transition: color 0.2s, border-color 0.2s; }
+  .di-ctl button:hover { color: var(--text); border-color: var(--muted); }
+  .di-ctl button:focus-visible { outline: 2px solid var(--red-text); outline-offset: 2px; }
+  .di-ctl kbd { font: inherit; font-size: 11px; padding: 2px 6px; border: 1px solid var(--line); }
+  .di-ctl svg { width: 16px; height: 16px; }
+  @media (hover: none) { .di-ctl kbd { display: none; } }
+
+  /* Hero choreography while the intro hands over */
+  html.intro-on [data-intro-reveal], html.intro-handoff [data-intro-reveal] { opacity: 0; transform: translateY(14px); }
+  html.intro-on #heroEmblem { visibility: hidden; }
+  html.intro-handoff #heroEmblem, html.intro-landing #heroEmblem { position: relative; z-index: 60; }
+  html.intro-landing [data-intro-reveal] { opacity: 1; transform: none; transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); transition-delay: calc(var(--d, 0) * 70ms + 450ms); }
+</style>
+
+<script>
+  const KEY = 'dodIntroSeen';
+  const root = document.documentElement;
+  const remember = () => { try { sessionStorage.setItem(KEY, '1'); } catch {} };
+
+  function setup() {
+    const intro = document.getElementById('dodIntro');
+    const video = document.getElementById('dodIntroVideo') as HTMLVideoElement | null;
+    const logo = document.getElementById('dodIntroLogo');
+    const hero = document.getElementById('heroEmblem');
+    if (!intro || !video || !logo || !hero) { root.classList.remove('intro-on'); return; }
+    if (!root.classList.contains('intro-on')) return;
+    root.dataset.introStarted = '1';
+
+    let done = false, handing = false;
+    let watchdog: number | undefined;
+
+    const finishNow = () => {
+      if (done) return;
+      done = true; clearTimeout(watchdog);
+      try { video.pause(); } catch {}
+      root.classList.remove('intro-on', 'intro-handoff', 'intro-landing');
+      intro.classList.remove('di-fade');
+      hero.style.transform = ''; hero.style.transition = '';
+      remember();
+    };
+
+    // The clip ends on the emblem: the crisp image takes over, then flies into the hero slot.
+    const handoff = () => {
+      if (done || handing) return;
+      handing = true; clearTimeout(watchdog);
+      logo.classList.add('on');
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        const from = logo.getBoundingClientRect();
+        root.classList.replace('intro-on', 'intro-handoff');
+        const to = hero.getBoundingClientRect();
+        hero.style.transition = 'none';
+        hero.style.transformOrigin = '0 0';
+        hero.style.transform = `translate(${from.left - to.left}px, ${from.top - to.top}px) scale(${from.width / to.width})`;
+        intro.classList.add('di-fade');
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          root.classList.replace('intro-handoff', 'intro-landing');
+          hero.style.transition = 'transform 1.1s cubic-bezier(.65,0,.15,1)';
+          hero.style.transform = 'none';
+        }));
+        setTimeout(() => {
+          root.classList.remove('intro-landing');
+          intro.classList.remove('di-fade');
+          hero.style.transition = ''; hero.style.transform = ''; hero.style.transformOrigin = '';
+          done = true; remember();
+        }, 2200);
+      }, 450);
+    };
+
+    video.addEventListener('timeupdate', () => {
+      if (video.duration && video.currentTime >= video.duration - 0.45) handoff();
+    });
+    video.addEventListener('ended', handoff);
+    video.addEventListener('error', finishNow, true);
+    document.getElementById('dodIntroSkip')?.addEventListener('click', finishNow);
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') finishNow(); };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('astro:before-swap', () => { document.removeEventListener('keydown', onKey); finishNow(); }, { once: true });
+
+    const sound = document.getElementById('dodIntroSound');
+    sound?.addEventListener('click', () => {
+      video.muted = !video.muted;
+      sound.setAttribute('aria-pressed', String(!video.muted));
+      sound.querySelector('span')!.textContent = video.muted ? 'Sound off' : 'Sound on';
+      sound.querySelector('.di-wave')!.setAttribute('opacity', video.muted ? '.35' : '1');
+    });
+
+    window.scrollTo(0, 0);
+    // If the browser refuses autoplay or the file stalls, go straight to the site.
+    watchdog = window.setTimeout(() => { if (video.currentTime < 0.2) finishNow(); }, 3000);
+    const p = video.play();
+    if (p && p.catch) p.catch(finishNow);
+  }
+
+  document.addEventListener('astro:page-load', setup);
+</script>
