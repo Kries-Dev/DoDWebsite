@@ -185,3 +185,14 @@ a.row:hover .row-title { color: var(--red-text); }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
+
+/* Tabs (src/scripts/tabs.ts) */
+.tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 1px solid var(--line); }
+.tab { all: unset; box-sizing: border-box; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 clamp(16px, 2.4vw, 28px);
+  font-family: var(--font-display); font-weight: 600; font-size: clamp(18px, 2vw, 22px); color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -1px; transition: color 0.2s, border-color 0.2s; }
+.tab:hover { color: var(--text); }
+.tab[aria-selected='true'] { color: var(--text); border-bottom-color: var(--red); }
+.tab:focus-visible { outline: 2px solid var(--red-text); outline-offset: -2px; }
+.tab .tab-tag { font-family: var(--font-body); font-size: 12px; font-weight: 600; padding: 2px 8px; border: 1px solid var(--line-strong); color: var(--muted); }
+.tab .tab-tag.on { border-color: var(--red); color: var(--red-text); }
+[role='tabpanel']:focus-visible { outline: none; }

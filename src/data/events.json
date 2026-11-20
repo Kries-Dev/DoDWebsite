@@ -1,19 +1,45 @@
 [
   {
+    "slug": "mcl-season-2",
+    "title": "Mythic Clan League · Season II",
+    "game": "Age of Mythology: Retold",
+    "start": "9999-01-01",
+    "end": "9999-12-31",
+    "tba": true,
+    "when": "Date to be announced",
+    "kind": "League",
+    "logo": "/mcl/mcl-logo-240.webp",
+    "tagline": "The second season of the premier 3v3 clan league in Age of Mythology: Retold.",
+    "signup": null,
+    "body": [
+      "After a first season with 25 teams from 15 clans, the Mythic Clan League returns for Season II. Format, dates and the prize pool are announced on Discord first.",
+      "Clans can register their interest now: send a message in the MCL channel on the DoD Discord."
+    ],
+    "link": {
+      "label": "About the league",
+      "href": "/competitions/mcl/#season-2"
+    }
+  },
+  {
     "slug": "mcl-season-1",
     "title": "Mythic Clan League (MCL) — Season 1",
     "game": "Age of Mythology: Retold",
     "start": "2026-04-06",
-    "end": "2026-05-18",
-    "when": "6 Apr – 18 May 2026",
+    "end": "2026-07-10",
+    "when": "6 Apr – 10 Jul 2026",
     "kind": "League",
     "tagline": "The first top-tier clan team-game tournament in Age of Mythology: Retold.",
     "signup": null,
     "body": [
       "The Mythic Clan League (MCL) is a premier 3v3 tournament for Age of Mythology: Retold, created to showcase the highest level of competitive team-game strategy. It brings together top clans and rising contenders in a structured, high-stakes competition.",
-      "Unlike the 1v1 format, which tests individual skill, the team-game setting rewards adaptability, synergy and perfectly coordinated strategy. Every decision echoes across three armies — the depth that makes the AoM team-game scene such a compelling RTS experience."
+      "Unlike the 1v1 format, which tests individual skill, the team-game setting rewards adaptability, synergy and perfectly coordinated strategy. Every decision echoes across three armies — the depth that makes the AoM team-game scene such a compelling RTS experience.",
+      "Season 1 in numbers: 25 teams from 15 clans, 82 games over three months, a round robin into a double-elimination bracket and a €1,000 prize pool. CBB A won, ahead of UCA, KeeN and DoD A. KanT A was voted most creative clan and KeeN most sportsmanlike."
     ],
-    "link": { "label": "Bracket, standings and podcast", "href": "/competitions/mcl/" }
+    "link": {
+      "label": "Bracket, standings and podcast",
+      "href": "/competitions/mcl/#season-1"
+    },
+    "logo": "/mcl/mcl-logo-240.webp"
   },
   {
     "slug": "monthly-ffa-2026-03",
@@ -31,9 +57,28 @@
       "The game ends with one Overlord and everyone else as vassals. Even with every player still alive, only the Overlord gets the victory screen."
     ],
     "details": [
-      { "label": "Maps", "items": ["River's Eye (King of the Hill) — random map script by [DoD]Cod1eh", "Vassal — The Unknown with Vassal rules on top, by [DoD]Skray"] },
-      { "label": "Format", "items": ["Two groups if numbers allow, otherwise one", "Game 1: River's Eye (KoTH)", "Game 2: Vassal", "If enough players remain: Game 3, River's Eye with Vassal rules"] },
-      { "label": "Sign-up", "items": ["Post your in-game name in the Discord forum post, or DM [DoD]mMoksha333"] }
+      {
+        "label": "Maps",
+        "items": [
+          "River's Eye (King of the Hill) — random map script by [DoD]Cod1eh",
+          "Vassal — The Unknown with Vassal rules on top, by [DoD]Skray"
+        ]
+      },
+      {
+        "label": "Format",
+        "items": [
+          "Two groups if numbers allow, otherwise one",
+          "Game 1: River's Eye (KoTH)",
+          "Game 2: Vassal",
+          "If enough players remain: Game 3, River's Eye with Vassal rules"
+        ]
+      },
+      {
+        "label": "Sign-up",
+        "items": [
+          "Post your in-game name in the Discord forum post, or DM [DoD]mMoksha333"
+        ]
+      }
     ]
   }
 ]

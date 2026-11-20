@@ -1,0 +1,82 @@
+---
+// Image gallery with a full-screen viewer (click a photo; arrow keys and Esc work).
+// Content lives in src/data/gallery.json.
+import gallery from '../data/gallery.json';
+const items = gallery.items;
+---
+<div class="gal" data-gallery>
+  {items.map((it, i) => (
+    <button type="button" class="gal-item" data-index={i} style={`--ar:${it.w}/${it.h}`} aria-label={`Open image: ${it.caption}`}>
+      <img src={it.thumb} alt={it.caption} width={it.w} height={it.h} loading="lazy" decoding="async" />
+      <span class="gal-cap">{it.caption}</span>
+    </button>
+  ))}
+  <dialog class="gal-view" aria-label="Image viewer">
+    <figure>
+      <img alt="" />
+      <figcaption></figcaption>
+    </figure>
+    <button type="button" class="gv-btn gv-close" aria-label="Close">✕</button>
+    <button type="button" class="gv-btn gv-prev" aria-label="Previous image">‹</button>
+    <button type="button" class="gv-btn gv-next" aria-label="Next image">›</button>
+    <script type="application/json" class="gal-data" set:html={JSON.stringify(items.map((it) => ({ src: it.src, caption: it.caption })))} />
+  </dialog>
+</div>
+
+<style>
+  .gal { columns: 3 280px; column-gap: 16px; }
+  .gal-item { all: unset; box-sizing: border-box; position: relative; display: block; width: 100%; margin-bottom: 16px; break-inside: avoid; cursor: zoom-in; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+  .gal-item img { display: block; width: 100%; height: auto; aspect-ratio: var(--ar); object-fit: cover; transition: filter 0.3s; }
+  .gal-item:hover img { filter: brightness(1.12); }
+  .gal-item:hover, .gal-item:focus-visible { border-color: var(--red); }
+  .gal-item:focus-visible { outline: 2px solid var(--red-text); outline-offset: 2px; }
+  .gal-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 14px 10px; font-size: 14px; font-weight: 600;
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.85)); opacity: 0; transition: opacity 0.25s; }
+  .gal-item:hover .gal-cap, .gal-item:focus-visible .gal-cap { opacity: 1; }
+  @media (hover: none) { .gal-cap { opacity: 1; } }
+
+  .gal-view { width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: rgba(0,0,0,0.94); color: var(--text); }
+  .gal-view::backdrop { background: rgba(0,0,0,0.9); }
+  .gal-view figure { margin: 0; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 56px clamp(16px, 7vw, 96px); }
+  .gal-view img { max-width: 100%; max-height: calc(100vh - 150px); width: auto; height: auto; object-fit: contain; }
+  .gal-view figcaption { color: var(--muted); font-size: 15px; text-align: center; }
+  .gv-btn { all: unset; position: absolute; cursor: pointer; display: grid; place-items: center; width: 48px; height: 48px; font-size: 28px; color: var(--text); background: rgba(20,20,20,0.7); border: 1px solid var(--line); }
+  .gv-btn:hover { border-color: var(--red); }
+  .gv-btn:focus-visible { outline: 2px solid var(--red-text); }
+  .gv-close { top: 16px; right: 16px; font-size: 20px; }
+  .gv-prev { left: 16px; top: 50%; transform: translateY(-50%); }
+  .gv-next { right: 16px; top: 50%; transform: translateY(-50%); }
+</style>
+
+<script>
+  function initGallery() {
+    document.querySelectorAll<HTMLElement>('[data-gallery]').forEach((root) => {
+      if (root.dataset.ready) return;
+      root.dataset.ready = '1';
+      const dlg = root.querySelector('dialog') as HTMLDialogElement;
+      const img = dlg.querySelector('img') as HTMLImageElement;
+      const cap = dlg.querySelector('figcaption') as HTMLElement;
+      const data: { src: string; caption: string }[] = JSON.parse(dlg.querySelector('.gal-data')!.textContent || '[]');
+      // Image URLs in the JSON don't get the GitHub Pages base path, so take them from the rendered thumbnails' folder.
+      const base = (root.querySelector('.gal-item img') as HTMLImageElement | null)?.getAttribute('src')?.replace(/\/gallery\/.*$/, '') ?? '';
+      let i = 0;
+      const show = (n: number) => {
+        i = (n + data.length) % data.length;
+        img.src = base + data[i].src;
+        img.alt = data[i].caption;
+        cap.textContent = `${data[i].caption} · ${i + 1} / ${data.length}`;
+      };
+      root.querySelectorAll<HTMLButtonElement>('.gal-item').forEach((b) =>
+        b.addEventListener('click', () => { show(Number(b.dataset.index)); dlg.showModal(); }));
+      dlg.querySelector('.gv-close')!.addEventListener('click', () => dlg.close());
+      dlg.querySelector('.gv-prev')!.addEventListener('click', () => show(i - 1));
+      dlg.querySelector('.gv-next')!.addEventListener('click', () => show(i + 1));
+      dlg.addEventListener('click', (e) => { if (e.target === dlg || (e.target as HTMLElement).tagName === 'FIGURE') dlg.close(); });
+      dlg.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') show(i + 1);
+        if (e.key === 'ArrowLeft') show(i - 1);
+      });
+    });
+  }
+  document.addEventListener('astro:page-load', initGallery);
+</script>

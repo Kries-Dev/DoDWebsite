@@ -1,19 +1,21 @@
 ---
 import Base from '../../layouts/Base.astro';
 import EventRow from '../../components/EventRow.astro';
+import PastEventRow from '../../components/PastEventRow.astro';
 import site from '../../data/site.json';
-import { upcoming, past } from '../../lib/events';
+import { upcoming, pastEvents, pastByYear } from '../../lib/events';
+const firstYear = pastEvents[pastEvents.length - 1]?.sort.slice(0, 4);
 ---
-<Base title="Events" description="Deities of Death events: the Mythic Clan League and the Monthly DoD FFA for Age of Mythology: Retold.">
+<Base title="Events" description={`Deities of Death events: the Mythic Clan League, open FFAs, clan wars and ${pastEvents.length} tournaments since ${firstYear}.`}>
   <section class="page-hero">
     <div class="wrap stack">
       <span class="eyebrow">Competitions</span>
       <h1 class="display-l">Events</h1>
-      <p class="lead">Leagues, cups and community nights run by DoD. New events are announced on Discord first.</p>
+      <p class="lead">Leagues, tournaments, clan wars and open community nights run by DoD since {firstYear}. New events are announced on Discord first.</p>
     </div>
   </section>
   <section class="section">
-    <div class="wrap stack" style="--gap:48px">
+    <div class="wrap stack" style="--gap:56px">
       <div class="stack" style="--gap:16px">
         <h2 class="h3">Upcoming</h2>
         {upcoming.length
@@ -21,9 +23,24 @@ import { upcoming, past } from '../../lib/events';
           : <div class="card"><p class="muted">No events scheduled right now. <a href={site.discord} rel="noopener">Join the Discord</a> to hear about the next one first.</p></div>}
       </div>
       <div class="stack" style="--gap:16px">
-        <h2 class="h3">Past</h2>
-        <div class="rows">{past.map((e) => <EventRow event={e} past />)}</div>
+        <div class="head-row">
+          <h2 class="h3">Past events</h2>
+          <span class="muted small">{pastEvents.length} events · {firstYear} – today</span>
+        </div>
+        <div class="stack" style="--gap:28px">
+          {pastByYear.map(([year, list]) => (
+            <div class="year">
+              <h3 class="year-label">{year}</h3>
+              <div class="rows">{list.map((e) => <PastEventRow event={e} />)}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 </Base>
+<style>
+  .year { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; align-items: start; }
+  .year-label { font-family: var(--font-display); font-size: 32px; color: var(--muted); position: sticky; top: 96px; padding-top: 12px; }
+  @media (max-width: 720px) { .year { grid-template-columns: 1fr; gap: 8px; } .year-label { position: static; font-size: 26px; padding-top: 0; } }
+</style>

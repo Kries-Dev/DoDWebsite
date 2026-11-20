@@ -3,35 +3,84 @@ import Base from '../../layouts/Base.astro';
 import Video from '../../components/Video.astro';
 import site from '../../data/site.json';
 import media from '../../data/media.json';
+const s1 = {
+  ranking: ['CBB A', 'UCA', 'KeeN', 'DoD A'],
+  awards: [{ label: 'Most creative clan', value: 'KanT A' }, { label: 'Most sportsmanlike clan', value: 'KeeN' }],
+  playlist: 'https://www.youtube.com/playlist?list=PLAUc0mudvq1MY98Lt8Z6JcIAhxil9impk',
+  liquipedia: 'https://liquipedia.net/ageofempires/Mythic_Clan_League/1',
+};
 ---
-<Base title="Mythic Clan League" description="The Mythic Clan League (MCL): a premier 3v3 clan tournament for Age of Mythology: Retold, hosted by Deities of Death. Bracket, standings and the MCL podcast.">
+<Base title="Mythic Clan League" description="The Mythic Clan League (MCL): the premier 3v3 clan league for Age of Mythology: Retold, hosted by Deities of Death. Season I results and bracket, and Season II coming soon.">
   <section class="page-hero">
-    <div class="wrap stack">
-      <nav aria-label="Breadcrumb" class="crumbs"><a href="/events/">Competitions</a> / Mythic Clan League</nav>
-      <span class="eyebrow plain">Age of Mythology: Retold · 3v3</span>
-      <h1 class="display-l">Mythic Clan League</h1>
-      <p class="lead">Stay up to date with the progress and standings of the Mythic Clan League — the premier clan team-game tournament in AoM:R, hosted by DoD.</p>
+    <div class="wrap mcl-hero">
+      <div class="stack">
+        <nav aria-label="Breadcrumb" class="crumbs"><a href="/events/">Competitions</a> / Mythic Clan League</nav>
+        <span class="eyebrow plain">Age of Mythology: Retold · 3v3</span>
+        <h1 class="display-l">Mythic Clan League</h1>
+        <p class="lead">The premier clan team-game league in Age of Mythology: Retold, hosted by DoD.</p>
+      </div>
+      <img class="mcl-logo" src="/mcl/mcl-logo-640.webp" alt="Mythic Clan League logo" width="640" height="566" />
     </div>
     <div class="wrap">
       <dl class="facts" style="margin:0">
         <div class="fact"><dt>Format</dt><dd>Multi-clan 3v3</dd></div>
-        <div class="fact"><dt>Structure</dt><dd>Groups → double elimination</dd></div>
-        <div class="fact"><dt>Season 1</dt><dd>6 Apr – 18 May 2026</dd></div>
-        <div class="fact"><dt>Next season</dt><dd>Announced on Discord</dd></div>
+        <div class="fact"><dt>Structure</dt><dd>Round robin → double elimination</dd></div>
+        <div class="fact"><dt>Season I</dt><dd>6 Apr – 10 Jul 2026</dd></div>
+        <div class="fact"><dt>Season II</dt><dd>Date to be announced</dd></div>
       </dl>
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap stack" style="--gap:24px">
-      <div class="head-row">
-        <h2 class="h2">Bracket and standings</h2>
-        <a class="link-arrow" href={site.mclBracket} rel="noopener">Open full screen</a>
+  <section class="section" data-tabs>
+    <div class="wrap stack" style="--gap:32px">
+      <div class="tabs" role="tablist" aria-label="Season">
+        <button class="tab" role="tab" id="tab-s1" aria-controls="panel-s1" aria-selected="true" data-hash="season-1">Season I <span class="tab-tag">Finished</span></button>
+        <button class="tab" role="tab" id="tab-s2" aria-controls="panel-s2" aria-selected="false" tabindex="-1" data-hash="season-2">Season II <span class="tab-tag on">Upcoming</span></button>
       </div>
-      <div class="embed">
-        <iframe src={site.mclBracket} title="Mythic Clan League bracket and standings" loading="lazy"></iframe>
+
+      <div id="panel-s1" role="tabpanel" aria-labelledby="tab-s1" tabindex="0" class="stack" style="--gap:32px">
+        <div class="s1-summary">
+          <div class="podium">
+            <span class="tiny">Final ranking</span>
+            <ol>
+              {s1.ranking.map((team, i) => <li><span class="place">{i + 1}</span><span class="team">{team}</span></li>)}
+            </ol>
+          </div>
+          <dl class="s1-facts">
+            <div><dt class="tiny">Teams</dt><dd>25 from 15 clans</dd></div>
+            <div><dt class="tiny">Games played</dt><dd>82 in three months</dd></div>
+            <div><dt class="tiny">Prize pool</dt><dd>€1,000</dd></div>
+            {s1.awards.map((a) => <div><dt class="tiny">{a.label}</dt><dd>{a.value}</dd></div>)}
+          </dl>
+        </div>
+        <div class="head-row">
+          <h2 class="h2">Bracket and standings</h2>
+          <span class="btns" style="gap:20px">
+            <a class="link-arrow" href={s1.playlist} rel="noopener">Watch every game</a>
+            <a class="link-arrow" href={s1.liquipedia} rel="noopener">Liquipedia</a>
+            <a class="link-arrow" href={site.mclBracket} rel="noopener">Open full screen</a>
+          </span>
+        </div>
+        <div class="embed">
+          <iframe src={site.mclBracket} title="Mythic Clan League Season I bracket and standings" loading="lazy"></iframe>
+        </div>
+        <p class="tiny">Live from the MCL bracket tool. Group scoring 3 / 2 / 1 / −1 points; ties broken head-to-head.</p>
       </div>
-      <p class="tiny">Live from the MCL bracket tool. Group scoring 3 / 2 / 1 / −1 points; ties broken head-to-head.</p>
+
+      <div id="panel-s2" role="tabpanel" aria-labelledby="tab-s2" tabindex="0" hidden>
+        <div class="s2">
+          <img src="/mcl/mcl-logo-640.webp" alt="" width="320" height="283" loading="lazy" />
+          <div class="stack" style="--gap:16px">
+            <span class="eyebrow">Season II</span>
+            <h2 class="display-l">Coming soon</h2>
+            <p class="lead">The Mythic Clan League returns. Format, dates and the prize pool are announced on Discord first, and the bracket and standings will appear here once the season starts.</p>
+            <div class="btns">
+              <a class="btn primary" href={site.discord} rel="noopener">Enter your clan</a>
+              <a class="btn" href="/events/mcl-season-2/">Event page</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -45,10 +94,37 @@ import media from '../../data/media.json';
   </section>
 
   <section class="section">
-    <div class="wrap grid" style="--min:280px">
-      <a class="card" href="/events/mcl-season-1/"><span class="card-title">Season 1 event page</span><span class="muted">About the league and the format.</span></a>
-      <a class="card" href="/projects/"><span class="card-title">Tournament Seeder</span><span class="muted">Seed your own tournament snake-draft style from aomstats ELO.</span></a>
-      <a class="card" href={site.discord} rel="noopener"><span class="card-title">Enter your clan</span><span class="muted">Season sign-ups open on Discord first.</span></a>
+    <div class="wrap">
+      <a class="card enter" href={site.discord} rel="noopener">
+        <span class="card-title">Enter your clan</span>
+        <span class="muted">Season sign-ups open on Discord first.</span>
+      </a>
     </div>
   </section>
 </Base>
+
+<style>
+  .mcl-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; padding-bottom: 32px; }
+  .mcl-hero .stack { padding-bottom: 0; }
+  .mcl-logo { width: clamp(140px, 18vw, 240px); height: auto; filter: drop-shadow(0 16px 40px rgba(0,0,0,0.6)); }
+  @media (max-width: 640px) { .mcl-hero { grid-template-columns: 1fr; } .mcl-logo { order: -1; width: 140px; } }
+
+  .s1-summary { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+  .podium { background: var(--surface); border: 1px solid var(--line); padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .podium ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .podium li { display: flex; align-items: center; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .podium li:last-child { border-bottom: 0; }
+  .place { font-family: var(--font-display); font-weight: 700; font-size: 28px; width: 32px; color: var(--muted); }
+  .podium li:first-child .place { color: var(--red-text); }
+  .team { font-family: var(--font-display); font-weight: 700; font-size: 26px; }
+  .podium li:first-child .team { font-size: 32px; }
+  .s1-facts { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); border: 1px solid var(--line); }
+  .s1-facts div { padding: 18px 20px; border-bottom: 1px solid var(--line); }
+  .s1-facts dd { margin: 4px 0 0; font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1.15; }
+
+  .s2 { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; padding: clamp(24px, 4vw, 48px); border: 1px solid var(--line);
+    background: radial-gradient(70% 90% at 15% 50%, rgba(192, 57, 43, 0.14), transparent 70%), var(--surface); }
+  .s2 img { width: clamp(160px, 22vw, 300px); height: auto; filter: drop-shadow(0 16px 40px rgba(0,0,0,0.6)); }
+  @media (max-width: 720px) { .s2 { grid-template-columns: 1fr; } }
+  .enter { max-width: 420px; }
+</style>

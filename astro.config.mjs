@@ -12,8 +12,10 @@ const base = process.env.SITE_BASE || '/';
 // Old Wix slugs → new pages, so any saved or shared link keeps working.
 const wixRedirects = {
   '/blank-2': '/competitions/mcl/',
-  '/BuildOrders': '/games/aom/build-orders/',
-  '/blank-1': '/merch/',
+  '/BuildOrders': '/build-orders/',
+  '/games/aom/build-orders': '/build-orders/',
+  '/blank-1': 'https://bluehorizon-shop.fourthwall.com/',
+  '/merch': 'https://bluehorizon-shop.fourthwall.com/',
   '/event-list': '/events/',
   '/blank-7': '/coaching/',
   '/blank-3': '/projects/',

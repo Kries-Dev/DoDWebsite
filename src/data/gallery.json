@@ -1,0 +1,12 @@
+{
+  "_note": "About-page gallery. To add a photo: put photo.webp (max ~1600px wide) and photo-thumb.webp (max ~720px) in public/gallery/, then add a line here. Newest first.",
+  "items": [
+    { "src": "/gallery/reaper-swing.webp", "thumb": "/gallery/reaper-swing-thumb.webp", "w": 1600, "h": 900, "caption": "The reaper, from the DoD intro" },
+    { "src": "/gallery/mcl-logo.webp", "thumb": "/gallery/mcl-logo-thumb.webp", "w": 1500, "h": 1200, "caption": "Mythic Clan League, hosted by DoD" },
+    { "src": "/gallery/reaper-figure.webp", "thumb": "/gallery/reaper-figure-thumb.webp", "w": 1200, "h": 1500, "caption": "Deities of Death" },
+    { "src": "/gallery/wall-greek.webp", "thumb": "/gallery/wall-greek-thumb.webp", "w": 1600, "h": 900, "caption": "Greek pantheon, from the DoD build-order wall" },
+    { "src": "/gallery/wall-norse.webp", "thumb": "/gallery/wall-norse-thumb.webp", "w": 1600, "h": 900, "caption": "Norse pantheon" },
+    { "src": "/gallery/wall-japanese.webp", "thumb": "/gallery/wall-japanese-thumb.webp", "w": 1600, "h": 900, "caption": "Japanese pantheon" },
+    { "src": "/gallery/wall-aztec.webp", "thumb": "/gallery/wall-aztec-thumb.webp", "w": 1600, "h": 900, "caption": "Aztec pantheon" }
+  ]
+}

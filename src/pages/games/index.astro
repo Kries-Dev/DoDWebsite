@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import GameCard from '../../components/GameCard.astro';
 ---
 <Base title="Games" description="The games Deities of Death competes in: Age of Mythology: Retold, and Game of Thrones: War for Westeros from early 2027.">
   <section class="page-hero">
@@ -10,23 +11,15 @@ import Base from '../../layouts/Base.astro';
     </div>
   </section>
   <section class="section">
-    <div class="wrap grid" style="--min:340px">
-      <a class="card" href="/games/aom/" style="min-height:320px;justify-content:space-between">
-        <span class="numeral" aria-hidden="true">01</span>
-        <span class="stack" style="--gap:12px">
-          <span class="chip"><span class="dot" />Active</span>
-          <span class="card-title" style="font-size:44px">Age of Mythology: Retold</span>
-          <span class="muted">MCL, monthly FFAs, coaching, build orders and mods.</span>
-        </span>
-      </a>
-      <a class="card" href="/games/war-for-westeros/" style="min-height:320px;justify-content:space-between">
-        <span class="numeral" aria-hidden="true">02</span>
-        <span class="stack" style="--gap:12px">
-          <span class="chip"><span class="ring" />Early 2027</span>
-          <span class="card-title" style="font-size:44px">Game of Thrones: War for Westeros</span>
-          <span class="muted">Roster forming — register for tryouts.</span>
-        </span>
-      </a>
+    <div class="wrap games-row">
+      <GameCard game="aom" active status="Active" title="Age of Mythology: Retold" href="/games/aom/"
+        text="MCL, monthly FFAs, coaching, build orders and mods." />
+      <GameCard game="wfw" status="2027" title="Game of Thrones: War for Westeros" href="/games/war-for-westeros/"
+        text="Roster forming — register for tryouts." />
     </div>
   </section>
 </Base>
+
+<style>
+  .games-row { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); align-items: stretch; }
+</style>

@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Video from '../components/Video.astro';
 import Intro from '../components/Intro.astro';
+import GameCard from '../components/GameCard.astro';
 import '@fontsource/cinzel-decorative/700.css';
 import site from '../data/site.json';
 import coaches from '../data/coaches.json';
@@ -77,6 +78,7 @@ const jsonLd = {
   {feature && (
     <a class="event-strip" href={`/events/${feature.slug}/`} aria-label={`${next ? 'Next event' : 'Latest event'}: ${feature.title}`} data-intro-reveal style="--d:7">
       <div class="wrap event-strip-inner">
+        {feature.logo && <img class="es-logo" src={feature.logo} alt="" width="48" height="42" />}
         <span class="es-label"><span class="es-dot" />{next ? 'Next event' : 'Latest event'}</span>
         <span class="es-title">{feature.title}</span>
         <span class="es-meta">{feature.game}</span>
@@ -95,31 +97,13 @@ const jsonLd = {
         <h2 class="h2">Our games</h2>
         <a class="link-arrow" href="/games/">All games</a>
       </div>
-      <div class="grid" style="--min:340px">
-        <article class="card game">
-          <div class="game-top"><span class="numeral" aria-hidden="true">01</span><span class="chip"><span class="dot" />Competing since {site.founded}</span></div>
-          <div class="stack" style="--gap:14px">
-            <h3 class="h2" style="font-size:44px">Age of Mythology: Retold</h3>
-            <p class="muted">Where DoD was born. The Mythic Clan League, monthly FFAs, coaching and the community's build-order library for all 23 gods.</p>
-            <div class="game-links">
-              <a href="/games/aom/">Game hub</a>
-              <a href="/games/aom/build-orders/">Build orders</a>
-              <a href="/competitions/mcl/">MCL</a>
-              <a href="/projects/">Mods</a>
-            </div>
-          </div>
-        </article>
-        <article class="card game">
-          <div class="game-top"><span class="numeral" aria-hidden="true">02</span><span class="chip muted"><span class="ring" />Launching early 2027</span></div>
-          <div class="stack" style="--gap:14px">
-            <h3 class="h2" style="font-size:44px">Game of Thrones: War for Westeros</h3>
-            <p class="muted">Our second title. We're building a roster ahead of launch — strong RTS players from any game are welcome to try out.</p>
-            <div class="game-links">
-              <a href="/games/war-for-westeros/">Game hub</a>
-              <a href="/games/war-for-westeros/#register">Register interest</a>
-            </div>
-          </div>
-        </article>
+      <div class="games-row">
+        <GameCard game="aom" active status={`Active · since ${site.founded}`} title="Age of Mythology: Retold"
+          text="Where DoD was born. The Mythic Clan League, monthly FFAs, coaching and the community's build-order library for all 23 gods."
+          links={[{ label: 'Game hub', href: '/games/aom/' }, { label: 'Build orders', href: '/build-orders/' }, { label: 'MCL', href: '/competitions/mcl/' }, { label: 'Mods', href: '/projects/' }]} />
+        <GameCard game="wfw" status="Launching 2027" title="Game of Thrones: War for Westeros"
+          text="Our second title. We're building a roster ahead of launch — strong RTS players from any game are welcome to try out."
+          links={[{ label: 'Game hub', href: '/games/war-for-westeros/' }, { label: 'Register interest', href: '/games/war-for-westeros/#register' }]} />
       </div>
     </div>
   </section>
@@ -129,7 +113,7 @@ const jsonLd = {
       <div class="stack">
         <span class="eyebrow">Our league</span>
         <h2 class="display-l">Mythic Clan League</h2>
-        <p class="lead">A premier 3v3 clan tournament for Age of Mythology: Retold — group stage, then double-elimination playoffs. Season 1 ran from 6 April to 18 May 2026.</p>
+        <p class="lead">A premier 3v3 clan tournament for Age of Mythology: Retold — group stage, then double-elimination playoffs. Season 1 ran from 6 April to 10 July 2026: 25 teams, 15 clans, €1,000 prize pool. Season II is coming.</p>
         <div class="btns">
           <a class="btn primary" href="/competitions/mcl/">Bracket and standings</a>
           <a class="btn" href="/competitions/mcl/#podcast">MCL podcast</a>
@@ -173,18 +157,13 @@ const jsonLd = {
         <a class="link-arrow" href="/projects/">All tools and mods</a>
       </div>
       <div class="grid" style="--min:260px">
-        {projects.slice(0, 3).map((p) => (
+        {projects.slice(0, 4).map((p) => (
           <a class="card" href="/projects/">
             <span class="tiny">{p.kind} · by {p.authors}</span>
             <span class="card-title">{p.name}</span>
             <span class="muted">{p.description}</span>
           </a>
         ))}
-        <a class="card" href="/games/aom/build-orders/">
-          <span class="tiny">Web · by [DoD]Kries</span>
-          <span class="card-title">Build orders</span>
-          <span class="muted">All 23 gods across 7 pantheons — eco, rush and water builds.</span>
-        </a>
       </div>
     </div>
   </section>
@@ -266,16 +245,14 @@ const jsonLd = {
   .event-strip-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 28px; min-height: 72px; padding-block: 16px; }
   .es-label { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 600; font-size: 15px; letter-spacing: 0.06em; color: var(--red-text); }
   .es-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red-text); }
+  .es-logo { width: 48px; height: auto; flex: none; }
   .es-title { font-family: var(--font-display); font-weight: 700; font-size: 24px; line-height: 1.1; }
   .es-meta { color: var(--muted); font-size: 15px; }
   .es-go { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
   .event-strip:hover .es-go svg { transform: translateX(4px); }
   .es-go svg { transition: transform 0.25s var(--ease-out); }
   @media (max-width: 720px) { .es-go { margin-left: 0; } }
-  .game { min-height: 380px; justify-content: space-between; gap: 32px; }
-  .game-top { display: flex; justify-content: space-between; align-items: start; gap: 16px; }
-  .game-links { display: flex; flex-wrap: wrap; gap: 8px 24px; border-top: 1px solid var(--line); padding-top: 16px; }
-  .game-links a { font-weight: 600; text-decoration: none; min-height: 32px; display: inline-flex; align-items: center; }
+  .games-row { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); align-items: stretch; }
   .split { display: grid; gap: 48px; align-items: center; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); }
   .coach-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
   .elo { font-family: var(--font-display); font-weight: 700; font-size: 24px; }

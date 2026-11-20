@@ -30,7 +30,7 @@ const filters = [
     <SceneFx kinds={sc.fx} seed={god.slug.length * 7 + 3} scale={1.5} />
     <div class="gh-shade" aria-hidden="true"></div>
     <div class="wrap gh-inner">
-      <nav aria-label="Breadcrumb" class="crumbs"><a href="/games/aom/build-orders/">Build orders</a> / {god.pantheon} / {god.name}</nav>
+      <nav aria-label="Breadcrumb" class="crumbs"><a href="/build-orders/">Build orders</a> / {god.pantheon} / {god.name}</nav>
       <div class="gh-title">
         <span class="gh-medal">
           <img src={sc.medal} alt="" width="180" height="180" style={`view-transition-name: god-${god.slug}`} />
@@ -99,7 +99,7 @@ const filters = [
             <span><span class="sib-name">{g.name}</span><span class="tiny">{g.builds.length} builds</span></span>
           </a>
         ))}
-        <a class="sib-card all" href="/games/aom/build-orders/">All gods →</a>
+        <a class="sib-card all" href="/build-orders/">All gods →</a>
       </div>
     </section>
   )}

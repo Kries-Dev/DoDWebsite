@@ -1,0 +1,382 @@
+{
+  "_note": "DoD events hall of fame, from Kries's dod_events.docx. Newest first is done in the page; 'page' links to a full event page on this site.",
+  "events": [
+    {
+      "title": "DoD Lame Tournament",
+      "date": "2006",
+      "sort": "2006-01",
+      "format": "1v1, everyone plays Gaia",
+      "winner": "[DoD]Szia",
+      "result": "2-0",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD Interclan Tournament",
+      "date": "2007",
+      "sort": "2007-01",
+      "format": "1v1 standard",
+      "winner": "[DoD]Action",
+      "result": "3-1",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD Banana Tournament",
+      "date": "Jan – Feb 2008",
+      "sort": "2008-01",
+      "format": "1v1 standard",
+      "winner": "[DoD]J4Jc3",
+      "result": "3-0",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD King Tournament",
+      "date": "Apr – May 2008",
+      "sort": "2008-04",
+      "format": "King of the hill: beat the king to take the crown",
+      "winner": "[DoD]KiLLerBoy",
+      "result": "31 wins in a row",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD Kilt Tournament",
+      "date": "Dec 2008 – Feb 2009",
+      "sort": "2008-12",
+      "format": "1v1 standard",
+      "winner": "[DoD]J4Jc3",
+      "result": "2-1",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD Champions League Tournament",
+      "date": "Apr – Jul 2010",
+      "sort": "2010-04",
+      "format": "1v1 standard",
+      "winner": "[DoD]Narcotic",
+      "result": "2-0",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD Interclan Tournament 2",
+      "date": "Feb – Mar 2011",
+      "sort": "2011-02",
+      "format": "1v1 standard",
+      "winner": "[DoD]J4Jc3",
+      "result": "3-0",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD Zelda Tournament",
+      "date": "Nov 2011 – Jan 2012",
+      "sort": "2011-11",
+      "format": "1v1 scenario: Zelda",
+      "winner": "quarkmarqu",
+      "result": "4-0",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD HaGGiS Tournament",
+      "date": "Oct – Dec 2012",
+      "sort": "2012-10",
+      "format": "1v1 standard",
+      "winner": "[DoD]Brickhead",
+      "result": "2-1",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD Chess Tournament",
+      "date": "Jan – Mar 2015",
+      "sort": "2015-01",
+      "format": "1v1 standard",
+      "winner": "[DoD]J4Jc3",
+      "result": "4-2",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD Clan Doubles Tournament",
+      "date": "Jun – Jul 2015",
+      "sort": "2015-06",
+      "format": "Clan doubles",
+      "winner": "[DoD]Rangers",
+      "result": "3-1",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD Thornament",
+      "date": "Aug – Oct 2015",
+      "sort": "2015-08",
+      "format": "1v1, everyone plays Thor",
+      "winner": "[DoD]Brickhead",
+      "result": "4-2",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD Autumn Tournament",
+      "date": "Sep – Oct 2017",
+      "sort": "2017-09",
+      "format": "1v1 standard",
+      "winner": "[DoD]Omega",
+      "result": "4-2",
+      "prize": "€50",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD 2v2 Winter Tournament",
+      "date": "Dec 2020 – Jan 2021",
+      "sort": "2020-12",
+      "format": "2v2 standard",
+      "winner": "[DoD]Skady & IamMagic",
+      "result": "4-1",
+      "prize": "£100",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD Extended Edition Tournament",
+      "date": "Jan – Mar 2021",
+      "sort": "2021-01",
+      "format": "1v1 standard",
+      "winner": "[DoD]Shelty",
+      "result": "3-2",
+      "prize": "€100",
+      "era": "aom-legacy"
+    },
+    {
+      "title": "DoD FFA Challenge",
+      "date": "24 Nov 2024",
+      "sort": "2024-11-24",
+      "format": "FFA, King of the Hill",
+      "winner": "[DoD]StooChio",
+      "video": "https://www.youtube.com/watch?v=6xYoiOqLav4",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD Tiny FFA",
+      "date": "20 Dec 2024",
+      "sort": "2024-12-20",
+      "format": "FFA on Tiny, 3 games",
+      "winner": "[DoD]Ramses (2), [DoD]Fox (1)",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD 2v2 Tournament",
+      "date": "12 Jan 2025",
+      "sort": "2025-01-12",
+      "format": "2v2, double elimination, 12 teams",
+      "winner": "[DoD]Apple & [DoD]Grandmonster",
+      "result": "2-1",
+      "video": "https://www.youtube.com/watch?v=h-N4e_f4rwM",
+      "bracket": "https://brackethq.com/b/vi8ec/",
+      "era": "aom-retold"
+    },
+    {
+      "title": "Clan war: DoD vs DAG / FoM",
+      "date": "23 Feb 2025",
+      "sort": "2025-02-23",
+      "format": "Clan war vs German clans DAG and FoM",
+      "winner": "DoD",
+      "result": "23-5",
+      "video": "https://www.youtube.com/watch?v=WeE8MHKn18I",
+      "era": "aom-retold"
+    },
+    {
+      "title": "Subnautical DoD 2v2 Tournament",
+      "date": "26–27 Apr 2025",
+      "sort": "2025-04-26",
+      "format": "2v2, 6 teams, water maps only",
+      "winner": "[DoD]BacHi & [DoD]LizarD",
+      "result": "3-1",
+      "video": "https://www.youtube.com/watch?v=g55RwKDTblA",
+      "era": "aom-retold"
+    },
+    {
+      "title": "Clan war: DoD vs Fénix",
+      "date": "18 May 2025",
+      "sort": "2025-05-18",
+      "format": "Clan war vs Fénix",
+      "winner": "DoD",
+      "result": "6-2",
+      "video": "https://www.youtube.com/watch?v=rllEtRRwIPY",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD Lightning Legends Tournament",
+      "date": "25 May 2025",
+      "sort": "2025-05-25",
+      "format": "Open event · 1v1 Lightning mode, double elimination",
+      "winner": "El_Matador",
+      "result": "4-0",
+      "prize": "$100",
+      "video": "https://www.youtube.com/watch?v=pylAFjDUxtw",
+      "bracket": "https://challonge.com/eddzresd",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD FFA Regicide",
+      "date": "15 Jun 2025",
+      "sort": "2025-06-15",
+      "format": "Open event · FFA Regicide, no Vortex",
+      "winner": "[DAG]Sideswipe, [DoD]LizarD",
+      "video": "https://www.youtube.com/watch?v=-zyeUpOkHaI",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD + DAG mixed 2v2: Chinese maps",
+      "date": "6–7 Jul 2025",
+      "sort": "2025-07-06",
+      "format": "2v2, one DoD + one DAG per team, Chinese maps",
+      "winner": "[DoD]Zoekt & DAG_Edgecrusher",
+      "result": "3-2",
+      "video": "https://www.youtube.com/watch?v=3qcnvRo9WZI",
+      "bracket": "https://brackethq.com/b/5lmrc/",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD Content War · Episode 1",
+      "date": "3–17 Aug 2025",
+      "sort": "2025-08-03",
+      "format": "Open event · content contest, theme: Last Stand",
+      "winner": "[DoD]Ianarius",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD FFA · Episode 1",
+      "date": "9 Aug 2025",
+      "sort": "2025-08-09",
+      "format": "Open event · FFA on DoD maps",
+      "winner": "Automaton, Nito",
+      "video": "https://www.youtube.com/watch?v=D_aO3VCheUU",
+      "era": "aom-retold"
+    },
+    {
+      "title": "Casual Clan Brawl (max 1650 ELO)",
+      "date": "16 Aug – 7 Sep 2025",
+      "sort": "2025-08-16",
+      "format": "3v3, 5 clans: DoD, LADD, Légion Fénix, GDM, WAOM",
+      "winner": "GDM",
+      "result": "3-0",
+      "video": "https://www.youtube.com/watch?v=xyZKn9VQM4c",
+      "bracket": "https://brackethq.com/b/9ypuc/",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD Content War · Episode 2",
+      "date": "7–21 Sep 2025",
+      "sort": "2025-09-07",
+      "format": "Open event · content contest, theme: AoM Memes",
+      "winner": "[DoD]Godschalk & [DoD]Kries",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD Content War · Episode 3",
+      "date": "5–19 Oct 2025",
+      "sort": "2025-10-05",
+      "format": "Open event · content contest, theme: Halloween short stories",
+      "winner": "[DoD]Godschalk",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD FFA · Episode 2",
+      "date": "11 Oct 2025",
+      "sort": "2025-10-11",
+      "format": "Open event · FFA on DoD maps",
+      "winner": "[DoD]StooChio, Pelososo, Bastii",
+      "video": "https://www.youtube.com/watch?v=1uG433BAgxE",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD FFA · Episode 3",
+      "date": "8 Nov 2025",
+      "sort": "2025-11-08",
+      "format": "Open event · FFA on DoD maps",
+      "winner": "OlympusWrath, Cleb, Jeth, Automaton",
+      "video": "https://www.youtube.com/watch?v=uLF8eT4dkjk",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD vs UCA practice: Japanese maps",
+      "date": "15 Nov 2025",
+      "sort": "2025-11-15",
+      "format": "3v3 practice, 5 games",
+      "winner": "DoD",
+      "result": "3-2",
+      "video": "https://www.youtube.com/watch?v=kTCbUShForA",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD vs ITC practice (max 1700 ELO)",
+      "date": "30 Nov 2025",
+      "sort": "2025-11-30",
+      "format": "3v3 practice, 5 games",
+      "winner": "ITC",
+      "result": "3-2",
+      "video": "https://www.youtube.com/watch?v=SVdvvZonVt4",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD FFA · Episode 4",
+      "date": "13 Dec 2025",
+      "sort": "2025-12-13",
+      "format": "Open event · FFA on DoD maps",
+      "winner": "[DoD]Eddy, ITC_Artorias",
+      "video": "https://www.youtube.com/watch?v=5SztkcYp1p8",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD vs CBB practice: Teams A and B",
+      "date": "14 Dec 2025",
+      "sort": "2025-12-14",
+      "format": "3v3 practice, two teams",
+      "winner": "Draw",
+      "result": "4-4",
+      "video": "https://www.youtube.com/watch?v=zqH-MmBx-BE",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD FFA · Episode 5",
+      "date": "14 Mar 2026",
+      "sort": "2026-03-14",
+      "format": "Open event · FFA on DoD maps, Vassal mode",
+      "winner": "ITC_Artorias, ITC_Automaton, [DoD]DarthNox, [DoD]mMoksha333",
+      "video": "https://www.youtube.com/watch?v=_fUBUsP-jqk",
+      "page": "/events/monthly-ffa-2026-03/",
+      "era": "aom-retold"
+    },
+    {
+      "title": "Mythic Clan League · Season 1",
+      "date": "6 Apr – 10 Jul 2026",
+      "sort": "2026-04-06",
+      "format": "3v3 clan league: 25 teams, 15 clans, 82 games",
+      "winner": "CBB A",
+      "result": "1. CBB A · 2. UCA · 3. KeeN · 4. DoD A",
+      "prize": "€1,000",
+      "video": "https://www.youtube.com/playlist?list=PLAUc0mudvq1MY98Lt8Z6JcIAhxil9impk",
+      "page": "/competitions/mcl/",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD FFA · Episode 6",
+      "date": "16 Oct 2026",
+      "sort": "2026-10-16",
+      "format": "Open event · FFA on Forgotten City and Cloud Forest",
+      "winner": "[DoD]Kiber, [DoD]GoldenRoyal, nemui_kuma, [DoD]BabaYagaRTS",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD vs LFX showmatches: Teams A and B",
+      "date": "24 Oct + 1 Nov 2026",
+      "sort": "2026-10-24",
+      "format": "3v3 showmatches, ranked map pool",
+      "winner": "Draw",
+      "result": "3-3",
+      "era": "aom-retold"
+    },
+    {
+      "title": "DoD vs KeeN showmatch",
+      "date": "8 Nov 2026",
+      "sort": "2026-11-08",
+      "format": "3v3 showmatch, ranked map pool",
+      "winner": "KeeN",
+      "result": "2-1",
+      "era": "aom-retold"
+    }
+  ]
+}

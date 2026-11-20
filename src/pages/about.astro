@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import site from '../data/site.json';
+import Gallery from '../components/Gallery.astro';
 const values = [
   { name: 'Collaboration', text: 'Players improve fastest when they work together, share knowledge and support each other.' },
   { name: 'Competitive excellence', text: 'We keep improving our play and challenge ourselves to reach the highest level of competition.' },
@@ -41,6 +42,18 @@ const values = [
     </div>
   </section>
 
+  <section class="section" id="gallery">
+    <div class="wrap stack" style="--gap:32px">
+      <div class="head-row">
+        <div class="stack" style="--gap:8px">
+          <span class="eyebrow">Gallery</span>
+          <h2 class="h2">DoD in pictures</h2>
+        </div>
+      </div>
+      <Gallery />
+    </div>
+  </section>
+
   <section class="band">
     <div class="wrap section stack" style="--gap:20px">
       <span class="eyebrow">More than a clan</span>
@@ -53,7 +66,7 @@ const values = [
     <div class="wrap grid" style="--min:280px">
       <div class="card"><span class="card-title">Business and partners</span><p class="muted">Sponsorships and collaborations.</p><a href={`mailto:${site.businessEmail}`}>{site.businessEmail}</a></div>
       <div class="card"><span class="card-title">Support DoD</span><p class="muted">Enjoy the league, the tools and the streams? Support DoD with a tip.</p><a href={site.donate} rel="noopener">Donate via Streamlabs</a></div>
-      <div class="card"><span class="card-title">Merch</span><p class="muted">Official DoD gear through Fourthwall.</p><a href="/merch/">Visit the shop</a></div>
+      <div class="card"><span class="card-title">Merch</span><p class="muted">Official DoD gear through Fourthwall.</p><a href={site.shopUrl} rel="noopener">Visit the shop</a></div>
     </div>
   </section>
 </Base>
