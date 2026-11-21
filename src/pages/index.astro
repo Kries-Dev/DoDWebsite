@@ -9,6 +9,8 @@ import coaches from '../data/coaches.json';
 import projects from '../data/projects.json';
 import media from '../data/media.json';
 import { upcoming, past } from '../lib/events';
+import { allBuilds } from '../lib/buildOrders';
+import { siTwitch, siYoutube, siDiscord } from 'simple-icons';
 
 const next = upcoming[0];
 const latest = past[0];
@@ -59,6 +61,7 @@ const jsonLd = {
         <div class="btns" data-intro-reveal style="--d:5;padding-top:8px">
           <a class="btn primary" href={site.discord} rel="noopener">Join our Discord</a>
           <a class="btn" href="/about/">Our story</a>
+          <a class="btn liquipedia" href={site.liquipedia} rel="noopener">Liquipedia</a>
         </div>
       </div>
       <div class="hero-art">
@@ -70,7 +73,7 @@ const jsonLd = {
         <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Years competing, since {site.founded}</div></div>
         <div class="stat"><div class="stat-num">9×</div><div class="stat-label">RTS-League champions</div></div>
         <div class="stat"><div class="stat-num">{site.discordMembers}</div><div class="stat-label">Discord members</div></div>
-        <div class="stat"><div class="stat-num">23</div><div class="stat-label">God build-order guides</div></div>
+        <div class="stat"><div class="stat-num">{allBuilds.length}</div><div class="stat-label">Build orders, all 23 gods</div></div>
       </div>
     </div>
   </section>
@@ -102,8 +105,8 @@ const jsonLd = {
           text="Where DoD was born. The Mythic Clan League, monthly FFAs, coaching and the community's build-order library for all 23 gods."
           links={[{ label: 'Game hub', href: '/games/aom/' }, { label: 'Build orders', href: '/build-orders/' }, { label: 'MCL', href: '/competitions/mcl/' }, { label: 'Mods', href: '/projects/' }]} />
         <GameCard game="wfw" status="Launching 2027" title="Game of Thrones: War for Westeros"
-          text="Our second title. We're building a roster ahead of launch — strong RTS players from any game are welcome to try out."
-          links={[{ label: 'Game hub', href: '/games/war-for-westeros/' }, { label: 'Register interest', href: '/games/war-for-westeros/#register' }]} />
+          text="Our second title, from its launch. Build orders and guides follow when the game is out."
+          links={[{ label: 'Game hub', href: '/games/war-for-westeros/' }, { label: 'Build orders', href: '/build-orders/#got' }]} />
       </div>
     </div>
   </section>
@@ -172,18 +175,18 @@ const jsonLd = {
     <div class="wrap stack" style="--gap:32px">
       <h2 class="h2">Watch and listen</h2>
       <div class="grid" style="--min:280px">
-        <a class="card" href={site.socials.find((s) => s.name === 'Twitch')?.url} rel="noopener">
-          <span class="tiny">Twitch</span>
+        <a class="card watch" href={site.socials.find((s) => s.name === 'Twitch')?.url} rel="noopener" style={`--brand:#${siTwitch.hex}`}>
+          <span class="watch-top"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={siTwitch.path} /></svg><span class="tiny">Twitch</span></span>
           <span class="card-title">Live events and matches</span>
           <span class="muted">Follow DoD streams and talk to the players live.</span>
         </a>
-        <a class="card" href={site.socials.find((s) => s.name === 'YouTube')?.url} rel="noopener">
-          <span class="tiny">YouTube</span>
+        <a class="card watch" href={site.socials.find((s) => s.name === 'YouTube')?.url} rel="noopener" style={`--brand:#${siYoutube.hex}`}>
+          <span class="watch-top"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={siYoutube.path} /></svg><span class="tiny">YouTube</span></span>
           <span class="card-title">Build orders, reviews, cinematics</span>
           <span class="muted">Game reviews, AoM cinematography and music — beyond the game.</span>
         </a>
-        <a class="card" href={site.discord} rel="noopener">
-          <span class="tiny">Discord</span>
+        <a class="card watch" href={site.discord} rel="noopener" style={`--brand:#${siDiscord.hex}`}>
+          <span class="watch-top"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={siDiscord.path} /></svg><span class="tiny">Discord</span></span>
           <span class="card-title">The community hub</span>
           <span class="muted">Strategy, content and games with {site.discordMembers} members.</span>
         </a>
@@ -193,11 +196,16 @@ const jsonLd = {
 
   <section class="section">
     <div class="wrap grid" style="--min:340px">
-      <div class="card panel">
-        <span class="eyebrow">Merch</span>
-        <h2 class="h2">Suit up</h2>
-        <p class="muted">Official Deities of Death gear — premium apparel for those who command the battlefield. Orders and shipping run through our partner Fourthwall.</p>
-        <div class="btns"><a class="btn light" href={shop} rel="noopener">Enter the shop</a></div>
+      <div class="card panel merch">
+        <div class="stack" style="--gap:16px">
+          <span class="eyebrow">Merch</span>
+          <h2 class="h2">Suit up</h2>
+          <p class="muted">Official Deities of Death gear — premium apparel for those who command the battlefield. Orders and shipping run through our partner Fourthwall.</p>
+          <div class="btns"><a class="btn light" href={shop} rel="noopener">Enter the shop</a></div>
+        </div>
+        <a class="merch-shirt" href={`${shop.replace(/\/$/, '')}/products/dod-casual-t`} rel="noopener" aria-label="DoD Casual-T in the shop">
+          <img src={site.merchImage} alt="Black DoD Casual-T with the reaper" width="420" height="560" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.remove()" />
+        </a>
       </div>
       <div class="card panel">
         <span class="eyebrow">Donate</span>
@@ -221,6 +229,16 @@ const jsonLd = {
 </Base>
 
 <style>
+  .btn.liquipedia { background: #1c3a75; border-color: #1c3a75; color: #fff; }
+  .btn.liquipedia:hover { background: #26498f; border-color: #26498f; color: #fff; }
+  .watch-top { display: flex; align-items: center; gap: 10px; }
+  .brand-icon { width: 28px; height: 28px; fill: var(--brand); flex: none; }
+  a.card.watch:hover { border-color: var(--brand); }
+  .merch { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; }
+  .merch-shirt { display: block; width: clamp(120px, 14vw, 170px); background: #e9e9e9; }
+  .merch-shirt img { display: block; width: 100%; height: auto; transition: transform 0.3s var(--ease-out); }
+  .merch-shirt:hover img { transform: translateY(-4px); }
+  @media (max-width: 520px) { .merch { grid-template-columns: 1fr; } .merch-shirt { width: 160px; } }
   .home-hero { position: relative; overflow: hidden; }
   .hero-grid { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: center; padding-block: clamp(56px, 9vw, 112px) 56px; }
   .hero-copy { grid-column: 1 / span 7; min-width: 0; }

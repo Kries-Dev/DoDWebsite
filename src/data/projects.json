@@ -5,7 +5,8 @@
     "description": "Seeds tournament participants snake-draft style, using ELO scraped from aomstats (1v1 or team games), from an .xlsx sign-up list.",
     "kind": "Tool",
     "url": null,
-    "action": "Download"
+    "action": "Download",
+    "game": "aom"
   },
   {
     "name": "DoD Hotkey Trainer",
@@ -13,7 +14,8 @@
     "description": "Practise APM and hotkeys at real RTS speed.",
     "kind": "Mod",
     "url": null,
-    "action": "Download"
+    "action": "Download",
+    "game": "aom"
   },
   {
     "name": "DoD Micro Trainer",
@@ -21,7 +23,17 @@
     "description": "Train for what you'll face in Supremacy: speed, reaction time, unit placement, counter modifiers, hotkeys and more.",
     "kind": "Mod",
     "url": null,
-    "action": "Download"
+    "action": "Download",
+    "game": "aom"
+  },
+  {
+    "name": "DoD UI Hidden Usernames",
+    "authors": "DoD",
+    "description": "Hides player usernames in the Age of Mythology: Retold interface.",
+    "kind": "Mod",
+    "url": "https://www.ageofempires.com/mods/details/582685/",
+    "action": "Get the mod",
+    "game": "aom"
   },
   {
     "name": "DoD Vassal Mod",
@@ -29,7 +41,8 @@
     "description": "An FFA alternative to Regicide: defeat turns you into your conqueror's vassal and ally instead of knocking you out.",
     "kind": "Mod",
     "url": null,
-    "action": "Download"
+    "action": "Download",
+    "game": "aom"
   },
   {
     "name": "DoD Soundboard",
@@ -37,6 +50,7 @@
     "description": "Voice lines and sounds from Age of Mythology: Retold, starting with the Japanese pantheon.",
     "kind": "Web app",
     "url": null,
-    "action": "Open"
+    "action": "Open",
+    "game": "aom"
   }
 ]

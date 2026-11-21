@@ -1,15 +1,16 @@
 ---
-// Click-to-load YouTube player: nothing is requested from YouTube until the visitor presses play.
+// Click-to-load YouTube player: shows the video's thumbnail; the player itself loads only when the visitor presses play.
 interface Props { id: string; title: string; label?: string }
 const { id, title, label } = Astro.props;
 ---
 <div class="video" data-yt={id} data-title={title}>
   <button type="button" aria-label={`Play: ${title}${label ? ' ' + label : ''}`}>
+    <img class="thumb" src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+    <span class="shade" aria-hidden="true"></span>
     <span class="play" aria-hidden="true">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z" /></svg>
     </span>
-    <span style="font-family:var(--font-display);font-weight:700;font-size:22px">{title}{label && <span class="muted"> {label}</span>}</span>
-    <span class="note">Loads YouTube when you press play</span>
+    <span class="vtitle">{title}{label && <span class="muted"> {label}</span>}</span>
   </button>
 </div>
 <script>

@@ -6,14 +6,13 @@
   "description": "Deities of Death (DoD) is an RTS esports organisation, competing in Age of Mythology since 2005 and record nine-time RTS-League champion. Next title: Game of Thrones: War for Westeros.",
   "logo": "/brand/dod-512.webp",
   "discord": "https://discord.gg/bRyTS52tK5",
-  "discordMembers": "1,000+",
+  "discordMembers": "1,500+",
   "businessEmail": "dodj4jc3@gmail.com",
   "donate": "https://streamlabs.com/deitiesofdeath/tip",
   "liquipedia": "https://liquipedia.net/ageofempires/Deities_of_Death",
   "shopUrl": "https://bluehorizon-shop.fourthwall.com/",
   "buildOrdersBase": "https://kries-dev.github.io/BuildOrders/",
   "mclBracket": "https://kries-dev.github.io/BuildOrders/bracket.html",
-  "tryoutsFormAction": null,
   "socials": [
     {
       "name": "Discord",
@@ -47,5 +46,6 @@
       "name": "Facebook",
       "url": null
     }
-  ]
+  ],
+  "merchImage": "https://imgproxy.fourthwall.dev/6t1aFrwgvQ2L_JLQO9As6XHLdGHF-1aP6l-MdCDvQ8w/w:720/sm:1/enc/5F9h1IhZ_JFZkwbn/YEQZdcFe8X85XPW9/2dv4tRSMCUo3n3Zc/AMYZjB8-3tHMYfee/dgM4onl-Lmer4o4I/oh4htSmAJpCuHWlb/OM-dsTQgT29iRPo9/hSj6WFc0daHGRpFv/Ar5bcySCP3ZYXoEb/z7xoye8Y6O5aZgcz/cdodMWd2RDSK2OEc/PmOq1S9pn3KNr9dd/Ah_RQCNsAQo9tQwU/1VWVN5KmBK56I8m2/K8BxEonb4R4.jpg"
 }
