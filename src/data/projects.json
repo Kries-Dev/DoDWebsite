@@ -43,14 +43,5 @@
     "url": "https://www.ageofempires.com/mods/details/470066/",
     "action": "Get the mod",
     "game": "aom"
-  },
-  {
-    "name": "DoD Soundboard",
-    "authors": "[DoD]Kries",
-    "description": "Voice lines and sounds from Age of Mythology: Retold, starting with the Japanese pantheon.",
-    "kind": "Web app",
-    "url": null,
-    "action": "Open",
-    "game": "aom"
   }
 ]
