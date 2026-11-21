@@ -6,9 +6,9 @@ const items = gallery.items;
 ---
 <div class="gal" data-gallery>
   {items.map((it, i) => (
-    <button type="button" class="gal-item" data-index={i} style={`--ar:${it.w}/${it.h}`} aria-label={`Open image: ${it.caption}`}>
-      <img src={it.thumb} alt={it.caption} width={it.w} height={it.h} loading="lazy" decoding="async" />
-      <span class="gal-cap">{it.caption}</span>
+    <button type="button" class="gal-item" data-index={i} style={`--ar:${it.w}/${it.h}`} aria-label={it.caption ? `Open image: ${it.caption}` : `Open photo ${i + 1} of ${items.length}`}>
+      <img src={it.thumb} alt={it.caption || 'Deities of Death community photo'} width={it.w} height={it.h} loading="lazy" decoding="async" />
+      {it.caption && <span class="gal-cap">{it.caption}</span>}
     </button>
   ))}
   <dialog class="gal-view" aria-label="Image viewer">
