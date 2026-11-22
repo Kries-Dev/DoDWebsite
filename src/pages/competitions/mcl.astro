@@ -136,9 +136,21 @@ const s1 = {
     try {
       const doc = frame.contentDocument;
       if (!doc?.body) return;
-      const set = () => { frame.style.height = `${doc.documentElement.scrollHeight + 4}px`; };
+      // Measure where the content ends, not the document height: the bracket page stretches to fill its frame,
+      // so its own height would keep growing with the frame.
+      const set = () => {
+        const bottom = Math.max(0, ...[...doc.body.children].map((el) => {
+          const r = el.getBoundingClientRect();
+          return r.height ? r.bottom + parseFloat(getComputedStyle(el).marginBottom || '0') : 0;
+        }));
+        const h = Math.ceil(bottom + (doc.defaultView?.scrollY ?? 0)) + 24;
+        if (h > 200 && Math.abs(h - frame.offsetHeight) > 2) frame.style.height = `${h}px`;
+      };
       set();
-      new ResizeObserver(set).observe(doc.body);
+      const ro = new ResizeObserver(set);
+      const watch = () => [...doc.body.children].forEach((el) => ro.observe(el));
+      watch();
+      new MutationObserver(() => { watch(); set(); }).observe(doc.body, { childList: true, subtree: true });
     } catch {}
   }
   document.addEventListener('astro:page-load', () => {
