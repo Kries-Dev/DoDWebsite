@@ -2,6 +2,13 @@
   "_note": "About-page gallery: DoD community photos (originally from the old Wix About page). To add one: put name.webp (max 1600px) and name-thumb.webp (max 720px) in public/gallery/ and add a line here. caption is optional.",
   "items": [
     {
+      "src": "/gallery/dod-23.webp",
+      "thumb": "/gallery/dod-23-thumb.webp",
+      "w": 482,
+      "h": 599,
+      "caption": ""
+    },
+    {
       "src": "/gallery/dod-01.webp",
       "thumb": "/gallery/dod-01-thumb.webp",
       "w": 960,

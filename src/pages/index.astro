@@ -55,12 +55,11 @@ const jsonLd = {
     <canvas class="embers" id="heroEmbers" aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
       <div class="stack hero-copy">
-        <span class="eyebrow" data-intro-reveal style="--d:2">Since {site.founded}</span>
+        <span class="eyebrow hero-eyebrow" data-intro-reveal style="--d:2">Since {site.founded}</span>
         <h1 class="hero-title" data-intro-reveal style="--d:3">Deities of Death<span class="hero-sub">E-Sports</span></h1>
         <p class="lead" data-intro-reveal style="--d:4">Twenty years of competitive Age of Mythology and a record nine RTS-League titles. Now an RTS esports organisation — with Game of Thrones: War for Westeros as our next front.</p>
         <div class="btns" data-intro-reveal style="--d:5;padding-top:8px">
           <a class="btn primary" href={site.discord} rel="noopener">Join our Discord</a>
-          <a class="btn" href="/about/">Our story</a>
           <a class="btn liquipedia" href={site.liquipedia} rel="noopener">Liquipedia</a>
         </div>
       </div>
@@ -73,7 +72,7 @@ const jsonLd = {
         <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Years competing, since {site.founded}</div></div>
         <div class="stat"><div class="stat-num">9×</div><div class="stat-label">RTS-League champions</div></div>
         <div class="stat"><div class="stat-num">{site.discordMembers}</div><div class="stat-label">Discord members</div></div>
-        <div class="stat"><div class="stat-num">{allBuilds.length}</div><div class="stat-label">Build orders, all 23 gods</div></div>
+        <div class="stat"><div class="stat-num">{allBuilds.length}</div><div class="stat-label">Build orders</div></div>
       </div>
     </div>
   </section>
@@ -210,7 +209,7 @@ const jsonLd = {
       <div class="card panel">
         <span class="eyebrow">Donate</span>
         <h2 class="h2">Support DoD</h2>
-        <p class="muted">Enjoy the league, the tools and the streams? Support DoD with a tip. Sponsors and partners: get in touch.</p>
+        <p class="muted">Enjoying the league, the tools and the streams? Support DoD with a tip. Sponsors and partners: get in touch.</p>
         <div class="btns">
           <a class="btn" href={site.donate} rel="noopener">Donate</a>
           <a class="btn" href={`mailto:${site.businessEmail}`}>Business enquiries</a>
@@ -218,19 +217,12 @@ const jsonLd = {
       </div>
     </div>
   </section>
-
-  <section class="band">
-    <div class="wrap section cta">
-      <h2 class="display-l">{site.motto}</h2>
-      <p class="lead">From online battles to real-life friendships — more than a clan.</p>
-      <div class="btns"><a class="btn primary" href={site.discord} rel="noopener">Join our Discord</a></div>
-    </div>
-  </section>
 </Base>
 
 <style>
-  .btn.liquipedia { background: #1c3a75; border-color: #1c3a75; color: #fff; }
-  .btn.liquipedia:hover { background: #26498f; border-color: #26498f; color: #fff; }
+  .hero-eyebrow { font-size: clamp(18px, 1.6vw, 21px); }
+  .watch .card-title { font-size: clamp(22px, 2vw, 27px); white-space: nowrap; }
+  @media (max-width: 1100px) { .watch .card-title { white-space: normal; } }
   .watch-top { display: flex; align-items: center; gap: 10px; }
   .brand-icon { width: 28px; height: 28px; fill: var(--brand); flex: none; }
   a.card.watch:hover { border-color: var(--brand); }

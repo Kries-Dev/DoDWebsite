@@ -1,7 +1,9 @@
 ---
 import site from '../data/site.json';
 import Mark from './Mark.astro';
-const socials = site.socials.filter((s) => s.url);
+// Footer order; X and Threads are left out on purpose.
+const order = ['Discord', 'YouTube', 'Twitch', 'Instagram', 'Facebook', 'TikTok'];
+const socials = order.map((n) => site.socials.find((s) => s.name === n)).filter((s) => s && s.url);
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -12,17 +14,17 @@ const year = new Date().getFullYear();
         <p class="muted">{site.motto}.</p>
         <p class="small muted">Business: <a href={`mailto:${site.businessEmail}`}>{site.businessEmail}</a></p>
       </div>
+      <nav aria-label="Games" class="col">
+        <span class="tiny">Games</span>
+        <a href="/games/aom/">Age of Mythology: Retold</a>
+        <a href="/games/war-for-westeros/">Game of Thrones: WfW</a>
+      </nav>
       <nav aria-label="Compete" class="col">
         <span class="tiny">Compete</span>
         <a href="/competitions/mcl/">Mythic Clan League</a>
         <a href="/events/">Events</a>
         <a href="/build-orders/">Build orders</a>
         <a href="/coaching/">Coaching</a>
-      </nav>
-      <nav aria-label="Games" class="col">
-        <span class="tiny">Games</span>
-        <a href="/games/aom/">Age of Mythology: Retold</a>
-        <a href="/games/war-for-westeros/">War for Westeros</a>
       </nav>
       <nav aria-label="Organisation" class="col">
         <span class="tiny">Organisation</span>

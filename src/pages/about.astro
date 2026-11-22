@@ -18,8 +18,8 @@ const values = [
       <p class="lead">Deities of Death (DoD) is an esports organisation rooted in Age of Mythology since 2005. Founded in the fires of the original Titans expansion, we have spent two decades at the top of the competitive scene, developing elite talent.</p>
       <p class="lead">As record nine-time champion of the clan tournament RTS-League, we are more than a team.</p>
       <div class="btns">
-        <a class="btn primary" href={site.liquipedia} rel="noopener">Our history on Liquipedia</a>
-        <a class="btn" href={site.discord} rel="noopener">Join our Discord</a>
+        <a class="btn primary" href={site.discord} rel="noopener">Join our Discord</a>
+        <a class="btn liquipedia" href={site.liquipedia} rel="noopener">Liquipedia</a>
       </div>
     </div>
   </section>
@@ -43,8 +43,8 @@ const values = [
     <div class="wrap stack" style="--gap:32px">
       <h2 class="h2">Core values</h2>
       <div class="grid" style="--min:220px;--gap:16px">
-        {values.map((v, i) => (
-          <div class="card"><span class="tiny">{String(i + 1).padStart(2, '0')}</span><span class="card-title" style="font-size:26px">{v.name}</span><span class="muted">{v.text}</span></div>
+        {values.map((v) => (
+          <div class="card"><span class="card-title" style="font-size:26px">{v.name}</span><span class="muted">{v.text}</span></div>
         ))}
       </div>
     </div>

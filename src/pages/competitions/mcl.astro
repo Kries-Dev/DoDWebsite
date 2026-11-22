@@ -62,7 +62,7 @@ const s1 = {
           </span>
         </div>
         <div class="embed">
-          <iframe src={site.mclBracket} title="Mythic Clan League Season I bracket and standings" loading="lazy"></iframe>
+          <iframe data-autoheight src={site.mclBracket} title="Mythic Clan League Season I bracket and standings" loading="lazy"></iframe>
         </div>
         <p class="tiny">Live from the MCL bracket tool. Group scoring 3 / 2 / 1 / −1 points; ties broken head-to-head.</p>
       </div>
@@ -128,3 +128,23 @@ const s1 = {
   @media (max-width: 720px) { .s2 { grid-template-columns: 1fr; } }
   .enter { max-width: 420px; }
 </style>
+
+<script>
+  // The bracket tool lives on the same site (kries-dev.github.io), so the frame can grow to the bracket's full height:
+  // no scrollbar inside the frame. If it can't be read, the frame keeps its CSS height.
+  function fit(frame: HTMLIFrameElement) {
+    try {
+      const doc = frame.contentDocument;
+      if (!doc?.body) return;
+      const set = () => { frame.style.height = `${doc.documentElement.scrollHeight + 4}px`; };
+      set();
+      new ResizeObserver(set).observe(doc.body);
+    } catch {}
+  }
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll<HTMLIFrameElement>('iframe[data-autoheight]').forEach((f) => {
+      f.addEventListener('load', () => fit(f));
+      if (f.contentDocument?.readyState === 'complete' && f.contentDocument.URL !== 'about:blank') fit(f);
+    });
+  });
+</script>
